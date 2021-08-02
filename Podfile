@@ -10,5 +10,5 @@ target 'Dreams' do
 pod 'Firebase/Analytics'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
-pod 'GoogleSignIn'
+pod 'GoogleSignIn', '5.0.2'
 end
