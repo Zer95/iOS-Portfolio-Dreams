@@ -11,4 +11,6 @@ pod 'Firebase/Analytics'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'GoogleSignIn', '5.0.2'
+pod 'Firebase/RemoteConfig'
+pod 'SnapKit', '~> 5.0.0'
 end

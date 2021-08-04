@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		463C67CD04BD9F00D0A186BC /* Pods_Dreams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E632E96BAC2F72CF914967 /* Pods_Dreams.framework */; };
+		D214492726BA37CF008D702F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D214492626BA37CF008D702F /* ViewController.swift */; };
+		D214492926BA3CB3008D702F /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = D214492826BA3CB3008D702F /* RemoteConfigDefaults.plist */; };
 		D2582E6F26B7AF4400DF1669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2582E6E26B7AF4400DF1669 /* AppDelegate.swift */; };
 		D2582E7126B7AF4400DF1669 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2582E7026B7AF4400DF1669 /* SceneDelegate.swift */; };
-		D2582E7326B7AF4400DF1669 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2582E7226B7AF4400DF1669 /* ViewController.swift */; };
+		D2582E7326B7AF4400DF1669 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2582E7226B7AF4400DF1669 /* LoginViewController.swift */; };
 		D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7426B7AF4400DF1669 /* Main.storyboard */; };
 		D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7726B7AF4400DF1669 /* Assets.xcassets */; };
 		D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */; };
@@ -21,10 +23,12 @@
 		5C11FC2B829AC4225B371F97 /* Pods-Dreams.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dreams.debug.xcconfig"; path = "Target Support Files/Pods-Dreams/Pods-Dreams.debug.xcconfig"; sourceTree = "<group>"; };
 		60499FE1007555FC437D629C /* Pods-Dreams.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dreams.release.xcconfig"; path = "Target Support Files/Pods-Dreams/Pods-Dreams.release.xcconfig"; sourceTree = "<group>"; };
 		90E632E96BAC2F72CF914967 /* Pods_Dreams.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dreams.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D214492626BA37CF008D702F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D214492826BA3CB3008D702F /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		D2582E6B26B7AF4400DF1669 /* Dreams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dreams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2582E6E26B7AF4400DF1669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2582E7026B7AF4400DF1669 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2582E7226B7AF4400DF1669 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D2582E7226B7AF4400DF1669 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D2582E7526B7AF4400DF1669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2582E7726B7AF4400DF1669 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2582E7A26B7AF4400DF1669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,12 +79,14 @@
 			children = (
 				D2582E6E26B7AF4400DF1669 /* AppDelegate.swift */,
 				D2582E7026B7AF4400DF1669 /* SceneDelegate.swift */,
-				D2582E7226B7AF4400DF1669 /* ViewController.swift */,
+				D2582E7226B7AF4400DF1669 /* LoginViewController.swift */,
+				D214492626BA37CF008D702F /* ViewController.swift */,
 				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
 				D2582E7726B7AF4400DF1669 /* Assets.xcassets */,
 				D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */,
 				D2582E7C26B7AF4400DF1669 /* Info.plist */,
 				D2582E8226B7B0B500DF1669 /* GoogleService-Info.plist */,
+				D214492826BA3CB3008D702F /* RemoteConfigDefaults.plist */,
 			);
 			path = Dreams;
 			sourceTree = "<group>";
@@ -155,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */,
+				D214492926BA3CB3008D702F /* RemoteConfigDefaults.plist in Resources */,
 				D2582E8326B7B0B500DF1669 /* GoogleService-Info.plist in Resources */,
 				D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */,
 				D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */,
@@ -227,8 +234,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2582E7326B7AF4400DF1669 /* ViewController.swift in Sources */,
+				D2582E7326B7AF4400DF1669 /* LoginViewController.swift in Sources */,
 				D2582E6F26B7AF4400DF1669 /* AppDelegate.swift in Sources */,
+				D214492726BA37CF008D702F /* ViewController.swift in Sources */,
 				D2582E7126B7AF4400DF1669 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,61 +2,69 @@
 //  ViewController.swift
 //  Dreams
 //
-//  Created by SG on 2021/08/02.
+//  Created by SG on 2021/08/04.
 //
 
 import UIKit
+import SnapKit
 import Firebase
-import GoogleSignIn
-import FirebaseAuth
+import FirebaseRemoteConfig
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var signInButton: GIDSignInButton!
+    var box = UIImageView()
+    var remoteConfig: RemoteConfig!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        settingBackground()
         
-        /* 구글로그인 연동 컨트롤러 연결을해당 현재 컨트롤로 값으로 부여 */
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-            
-
+        /* 로고 이미지 생성 */
+        self.view.addSubview(box)
+        box.snp.makeConstraints{ (make) in
+        make.center.equalTo(self.view)
+        }
+        box.image = #imageLiteral(resourceName: "loadingIcon")
         
-    }
-
-    /* 상태바 색상 설정 */
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-           return .lightContent
-    }
-
-
-    func settingBackground() {
+        /* 리모트 세팅 */
+        remoteConfig = RemoteConfig.remoteConfig()
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        remoteConfig.configSettings = settings
+        remoteConfig.setDefaults(fromPlist: "RemoteConfigDefaults")
         
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "mainBackground.png")
-        imageView.contentMode = .scaleToFill
-        // Adding the image view to the view hierarchy
-        view.addSubview(imageView)
-        view.sendSubviewToBack(imageView)
-        // Make image view to fit entire screen
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-          imageView.topAnchor.constraint(equalTo: view.topAnchor),
-          imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-          imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-          imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+        remoteConfig.fetch() { (status, error) -> Void in
+          if status == .success {
+            print("Config fetched!")
+            self.remoteConfig.activate() { (changed, error) in
+              // ...
+            }
+          } else {
+            print("Config not fetched")
+            print("Error: \(error?.localizedDescription ?? "No error available.")")
+          }
+          self.displayWelcome()
+        }
         
     }
     
-    @IBAction func googleLoginBtn(_ sender: Any) {
-        GIDSignIn.sharedInstance().signIn() // 구글 로그인 불러오기
-        GIDSignIn.sharedInstance()
+    func displayWelcome() {
+        
+        let caps = remoteConfig["splash_message_caps"].boolValue
+        let message = remoteConfig["splash_message"].stringValue
+        
+        if(caps) {
+            let alert = UIAlertController(title: "공지사항", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action) in
+                exit(0)
+            }))
+            self.present(alert, animated: true, completion: nil )
+        } else {
+            let loginVC = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+            loginVC.modalPresentationStyle = .fullScreen
+            self.present(loginVC, animated: false, completion: nil)
+        }
+        
     }
-    
+  
+
 }
-
-
-
