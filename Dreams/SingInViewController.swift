@@ -10,6 +10,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseFirestore
+import FirebaseStorage
 
 class SingInViewController: UIViewController {
 
@@ -34,6 +35,7 @@ class SingInViewController: UIViewController {
     
     
     let db = Firestore.firestore()
+    let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +86,42 @@ class SingInViewController: UIViewController {
                     print("Document successfully written!")
                 }
             }
+            
+            
+            guard let sendimage = self.profileIMG.image, let dataa = sendimage.jpegData(compressionQuality: 1.0) else {
+                       return
+                   }
+             
+            /* 이미지를 저장할 path 설정 */
+           
+            let riversRef = Storage.storage().reference().child(uid)
+            
+            
+            /* 사용자가 선택한 이미지를 서버로 전송하는 부분 */
+            riversRef.putData(dataa, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+            // Uh-oh, an error occurred!
+            return
+            }
+            
+            // Metadata contains file metadata such as size, content-type.
+            let size = metadata.size
+            // You can also access to download URL after upload.
+            riversRef.downloadURL { (url, error) in
+            guard let downloadURL = url else {
+               
+            return
+                      }
+           
+
+                
+            
+                
+                  }
+             
+              }
+            
+            
             
             
         }
