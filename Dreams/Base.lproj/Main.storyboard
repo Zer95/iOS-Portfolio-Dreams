@@ -199,7 +199,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cm2-Mr-Qd6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cm2-Mr-Qd6">
                                 <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -334,6 +334,9 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                         </state>
                                                         <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="agreeBtn1:" destination="4CL-vd-jw9" eventType="touchUpInside" id="Qy0-Dp-Qm4"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관 동의 (필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0f-lM-4az">
                                                         <rect key="frame" x="38" y="16" width="123" height="18"/>
@@ -374,6 +377,9 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                         </state>
                                                         <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="agreeBtn2:" destination="4CL-vd-jw9" eventType="touchUpInside" id="ScU-ea-GDb"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 수집 및 이용동의 (필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjz-RH-XnN">
                                                         <rect key="frame" x="37.999999999999986" y="16" width="195.66666666666663" height="18"/>
@@ -450,6 +456,8 @@
                     <navigationItem key="navigationItem" title="회원가입" id="FLl-uC-8wU"/>
                     <connections>
                         <outlet property="ScrollView" destination="hn7-Tx-fyh" id="DyX-4p-vkT"/>
+                        <outlet property="agreeBtn1" destination="L8g-k6-Whc" id="3Jk-Gm-SeY"/>
+                        <outlet property="agreeBtn2" destination="GPW-Bf-4Hv" id="Khf-NK-Sfk"/>
                         <outlet property="email" destination="VE6-Is-BmR" id="a7d-Ky-4B2"/>
                         <outlet property="name" destination="N7q-Ho-fIg" id="N0e-oH-5U5"/>
                         <outlet property="password" destination="TS8-G8-Kl0" id="fCS-VA-JiI"/>

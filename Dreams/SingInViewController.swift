@@ -23,6 +23,11 @@ class SingInViewController: UIViewController {
     @IBOutlet weak var ScrollView: UIScrollView!
     
     
+    @IBOutlet weak var agreeBtn1: UIButton!
+    @IBOutlet weak var agreeBtn2: UIButton!
+    
+    
+    
     var agreeCode = 0
     
     let picker = UIImagePickerController() // 이미지 컨트롤러
@@ -74,6 +79,15 @@ class SingInViewController: UIViewController {
   
     
     
+    @IBAction func agreeBtn1(_ sender: Any) {
+        agreeBtn1.isSelected = !agreeBtn1.isSelected
+    }
+    @IBAction func agreeBtn2(_ sender: Any) {
+        agreeBtn2.isSelected = !agreeBtn2.isSelected
+    }
+    
+    
+    
     @IBAction func agreeView1(_ sender: Any) {
         agreeCode = 0
         agreePageNext()
@@ -83,6 +97,7 @@ class SingInViewController: UIViewController {
         agreeCode = 1
         agreePageNext()
     }
+    
     
     func agreePageNext(){
        
