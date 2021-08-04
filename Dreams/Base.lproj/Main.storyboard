@@ -226,6 +226,16 @@
                                                     <constraint firstAttribute="width" constant="150" id="of7-Iu-Cft"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAG-qL-kmE">
+                                                <rect key="frame" x="120" y="25" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="CFx-cm-tX7"/>
+                                                    <constraint firstAttribute="height" constant="150" id="o9j-8I-tyR"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="ImgUpload:" destination="4CL-vd-jw9" eventType="touchUpInside" id="gYP-pZ-AMQ"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="m3K-Wq-FT1">
                                                 <rect key="frame" x="45" y="205" width="300" height="214"/>
                                                 <subviews>
@@ -358,6 +368,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="AWD-TS-3Ut" firstAttribute="leading" secondItem="jpx-Is-DMF" secondAttribute="leading" constant="20" id="5vh-B5-lAk"/>
+                                            <constraint firstItem="UAG-qL-kmE" firstAttribute="top" secondItem="jpx-Is-DMF" secondAttribute="top" constant="25" id="BSU-ek-Lne"/>
                                             <constraint firstItem="6ma-Ol-rHH" firstAttribute="leading" secondItem="jpx-Is-DMF" secondAttribute="leading" constant="20" id="CbB-dF-ijc"/>
                                             <constraint firstItem="sY2-dH-Iuz" firstAttribute="top" secondItem="AWD-TS-3Ut" secondAttribute="bottom" id="Fqa-RP-vr9"/>
                                             <constraint firstItem="b4u-Uc-6hh" firstAttribute="centerX" secondItem="jpx-Is-DMF" secondAttribute="centerX" id="NnB-sB-XW4"/>
@@ -365,6 +376,7 @@
                                             <constraint firstItem="6ma-Ol-rHH" firstAttribute="top" secondItem="gaO-EP-oKU" secondAttribute="bottom" constant="20" id="W1c-Xc-l4f"/>
                                             <constraint firstItem="gaO-EP-oKU" firstAttribute="width" secondItem="jpx-Is-DMF" secondAttribute="width" id="Ysw-SK-920"/>
                                             <constraint firstAttribute="height" constant="700" id="Zgv-II-Eea"/>
+                                            <constraint firstItem="UAG-qL-kmE" firstAttribute="centerX" secondItem="jpx-Is-DMF" secondAttribute="centerX" id="bHp-k9-qaP"/>
                                             <constraint firstItem="gaO-EP-oKU" firstAttribute="top" secondItem="m3K-Wq-FT1" secondAttribute="bottom" constant="25" id="com-Rt-cZj"/>
                                             <constraint firstItem="AWD-TS-3Ut" firstAttribute="top" secondItem="6ma-Ol-rHH" secondAttribute="bottom" constant="5" id="hK6-K5-TNW"/>
                                             <constraint firstItem="b4u-Uc-6hh" firstAttribute="top" secondItem="jpx-Is-DMF" secondAttribute="top" constant="25" id="k6a-nF-HK9"/>

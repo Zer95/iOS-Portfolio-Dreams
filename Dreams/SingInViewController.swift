@@ -21,6 +21,9 @@ class SingInViewController: UIViewController {
     
     @IBOutlet weak var ScrollView: UIScrollView!
     
+    
+    let picker = UIImagePickerController() // 이미지 컨트롤러
+    
     // Create left UIBarButtonItem.
     lazy var leftButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(buttonPressed(_:)))
@@ -43,6 +46,8 @@ class SingInViewController: UIViewController {
         profileIMG.layer.borderWidth = 1
         profileIMG.clipsToBounds = true
         profileIMG.layer.borderColor = UIColor.clear.cgColor  //원형 이미지의 테두리 제거
+        
+        picker.delegate = self
         
         // scrollView 클릭시 키보드 내리기
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
@@ -85,9 +90,57 @@ class SingInViewController: UIViewController {
                                     
     }
     
+    
+    @IBAction func ImgUpload(_ sender: Any) {
+        let alert =  UIAlertController(title: "타이뜰", message: "원하는 메세지", preferredStyle: .actionSheet)
+                let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in self.openLibrary()
+                }
+                let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
+                    self.openCamera()
+                
+                }
+                let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                alert.addAction(library)
+                alert.addAction(camera)
+                alert.addAction(cancel)
+                present(alert, animated: true, completion: nil)
+    }
+    
+      func openLibrary()
+      {
+          picker.sourceType = .photoLibrary
+          present(picker, animated: true, completion: nil)
+
+      }
+      func openCamera()
+      {
+          if(UIImagePickerController .isSourceTypeAvailable(.camera)){
+              picker.sourceType = .camera
+            
+           
+              present(picker, animated: false, completion: nil)
+          }
+          else{
+              print("Camera not available")
+          }
+      }
+    
     @objc private func buttonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         }
 
     
+}
+
+
+extension SingInViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            profileIMG.image = image
+            print("log[이미지 값 확인]: \(image)")
+            profileIMG.layer.cornerRadius = profileIMG.frame.height/2
+           }
+        dismiss(animated: true, completion: nil)
+
+    }
 }
