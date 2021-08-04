@@ -16,10 +16,31 @@ class SingInViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var profileIMG: UIImageView!
+    
+    
+    // Create left UIBarButtonItem.
+    lazy var leftButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(buttonPressed(_:)))
+        button.tag = 1
+        return button
+    }()
+
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationItem.leftBarButtonItem = self.leftButton
+        self.navigationController?.navigationBar.barTintColor = .white
+     
+        
+        profileIMG.layer.cornerRadius = profileIMG.frame.height/2
+        profileIMG.layer.borderWidth = 1
+        profileIMG.clipsToBounds = true
+        profileIMG.layer.borderColor = UIColor.clear.cgColor  //원형 이미지의 테두리 제거
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -37,5 +58,10 @@ class SingInViewController: UIViewController {
         }
                                     
     }
+    
+    @objc private func buttonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        }
+
     
 }
