@@ -12,16 +12,23 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+    
+    @IBOutlet weak var login_ID: UITextField!
+    @IBOutlet weak var login_PW: UITextField!
+    
+    
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var loginBtn: UIButton!
-    @IBOutlet weak var inputEmail: UITextField!
-    @IBOutlet weak var inputPassword: UITextField!
+
     
     
     @IBOutlet weak var googleBtn: UIButton!
     @IBOutlet weak var kakaoBtn: UIButton!
     @IBOutlet weak var facebookBtn: UIButton!
     @IBOutlet weak var appleBtn: UIButton!
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -32,7 +39,16 @@ class LoginViewController: UIViewController {
         
         /* 구글로그인 연동 컨트롤러 연결을해당 현재 컨트롤로 값으로 부여 */
         GIDSignIn.sharedInstance()?.presentingViewController = self
-            
+        
+        /*
+         [로그인 핸들러]
+         로그인 상태가 변경 되면 다음 화면으로 이동.
+         */
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+        if let user = user {
+        self.performSegue(withIdentifier: "MainViewController", sender: self) // 현재 사용자가 로그인 된 상태가 맞다면 다음 화면으로 이동
+                }
+        }
 
         
     }
@@ -74,21 +90,50 @@ class LoginViewController: UIViewController {
         loginBtn.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
    
         
-        inputEmail.layer.cornerRadius = 10
-        inputEmail.layer.borderWidth = 1.0
-        inputEmail.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        login_ID.layer.cornerRadius = 10
+        login_ID.layer.borderWidth = 1.0
+        login_ID.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
        
         
-        inputPassword.layer.cornerRadius = 10
-        inputPassword.layer.borderWidth = 1.0
-        inputPassword.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        login_PW.layer.cornerRadius = 10
+        login_PW.layer.borderWidth = 1.0
+        login_PW.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
       
         
-        inputEmail.attributedPlaceholder = NSAttributedString(string: "  이메일을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        inputPassword.attributedPlaceholder = NSAttributedString(string: "  비밀번호를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        login_ID.attributedPlaceholder = NSAttributedString(string: "  이메일을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        login_PW.attributedPlaceholder = NSAttributedString(string: "  비밀번호를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         
         
     }
+    
+    @IBAction func loginBtn(_ sender: Any) {
+        // 테스트 모드
+         //     self.performSegue(withIdentifier: "MainViewController", sender: self)
+             
+            
+        /* 상용모드 */
+        Auth.auth().signIn(withEmail: login_ID.text!, password: login_PW.text!){ // 입력한 ID,PW로 로그인 인증하는 부분
+                 (user, error) in if user != nil {
+                     print("로그인 성공")
+                     // 로그인시 ID,PW 입력창 초기화
+                     self.login_ID.text!=""
+                     self.login_PW.text!=""
+                 } else {
+                     print("로그인 불가")
+                     self.loginFailMessage() // 로그인 실패시 에러 알림창 출력 함수 호출
+                 }
+            }
+    }
+    
+    
+    /* 로그인 실패시 알람창 띄우는 함수 */
+    func loginFailMessage() {
+         let message = "아이디 / 비밀번호가 맞지 않습니다."
+         let alert = UIAlertController(title: "로그인 실패", message: message, preferredStyle:.alert)
+         let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+         alert.addAction(action)
+         present(alert,animated: true, completion: nil)
+     }
     
     
     @IBAction func googleBtn(_ sender: Any) {
