@@ -13,21 +13,42 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if Auth.auth().currentUser != nil {
+          
+            let user = Auth.auth().currentUser
+            if let user = user {
+              // The user's ID, unique to the Firebase project.
+              // Do NOT use this value to authenticate with your backend server,
+              // if you have one. Use getTokenWithCompletion:completion: instead.
+              let uid = user.uid
+              let email = user.email
+              let photoURL = user.photoURL
+              let name = user.displayName
+                
+              var multiFactorString = "MultiFactor: "
+              for info in user.multiFactor.enrolledFactors {
+                multiFactorString += info.displayName ?? "[DispayName]"
+                multiFactorString += " "
+              }
+               print("정보: \(uid)")
+                print("정보: \(email!)")
+                print("정보: \(photoURL)")
+                print("정보: \(name)")
+                
+                
+            }
+            
+        } else {
+          // No user is signed in.
+          // ...
+        }
     }
     
     @IBAction func loginTest(_ sender: Any) {
         try! Auth.auth().signOut()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+  
 
 }
