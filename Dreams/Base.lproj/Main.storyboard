@@ -461,6 +461,7 @@
                         <outlet property="email" destination="VE6-Is-BmR" id="a7d-Ky-4B2"/>
                         <outlet property="name" destination="N7q-Ho-fIg" id="N0e-oH-5U5"/>
                         <outlet property="password" destination="TS8-G8-Kl0" id="fCS-VA-JiI"/>
+                        <outlet property="passwordCheck" destination="Si2-Dx-WVU" id="AWi-KW-it8"/>
                         <outlet property="profileIMG" destination="b4u-Uc-6hh" id="GIR-Xa-GZl"/>
                         <segue destination="zJa-el-ydM" kind="show" identifier="showAgree" id="eMx-Tt-4yP"/>
                     </connections>

@@ -17,6 +17,7 @@ class SingInViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var passwordCheck: UITextField!
     
     @IBOutlet weak var profileIMG: UIImageView!
     
@@ -43,6 +44,12 @@ class SingInViewController: UIViewController {
     
     let db = Firestore.firestore()
     let storage = Storage.storage()
+    
+    
+    /* 알람창 띄우는 메시지 변수 */
+    var createMessage: String = ""
+    var createTrue: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,10 +118,28 @@ class SingInViewController: UIViewController {
     
     @IBAction func CreateUser(_ sender: Any) {
         
+        if self.password.text! == self.passwordCheck.text!{  // 비밀번호랑 재확인 비밀번호가 일치하는지 확인
+              if self.agreeBtn1.isSelected && self.agreeBtn2.isSelected{ // 약관동의가 모두 되어 있는지 확인
+                 signupEvent() // 비밀번호 일치 & 약관을 모두 동의 할 경우 회원가입 하는 함수 호출
+              } else {
+                  createStopMessage(msg: "약관을 모두 동의해주세요.") // 약관을 모두 동의하지 않은 경우 알람창 호출
+              }
+          } else{
+              createStopMessage(msg: "비밀번호가 일치하지 않습니다.") // 비밀번호가 일치하지 않은 경우 알람창 호출
+          }
+        
+    }
+    
+
+    func signupEvent() {
         Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, err) in
             
+            print("특검 : \(user)")
+            if user != nil {
             let uid = user!.user.uid
-            
+            self.createMessage = "회원가입이 완료되었습니다."
+            self.createTrue = true
+                
             self.db.collection("Users").document(uid).setData([
                 "name": self.name.text!,
                 "성별": "남녀",
@@ -152,19 +177,32 @@ class SingInViewController: UIViewController {
             return
                       }
            
-
-                
-            
-                
+                self.createStopMessage(msg: self.createMessage)
                   }
              
               }
+
             
-            
-            
-            
+            } else {
+                /* 회원정보가 올바르지 않을 경우 알람창 호출 */
+                self.createMessage = "이미있는 계정이거나 입력하신 정보가 올바르지 않습니다."
+                self.createTrue = false
+                self.createStopMessage(msg: self.createMessage)
+            }
         }
-                                    
+    }
+    
+    /* 회원가입 클릭시 성공 or 실패를 알려주는 함수 */
+    func createStopMessage(msg: String){
+        let alert = UIAlertController(title: "", message: msg, preferredStyle: .alert)
+                               alert.addAction(UIAlertAction(title: "확인", style: .default){
+                               UIAlertAction in
+                                  if self.createTrue {
+                                
+                                    self.dismiss(animated: true, completion: nil)
+                                }
+                         })
+                        present(alert, animated: true, completion: nil)
     }
     
     
