@@ -23,6 +23,8 @@ class SingInViewController: UIViewController {
     @IBOutlet weak var ScrollView: UIScrollView!
     
     
+    var agreeCode = 0
+    
     let picker = UIImagePickerController() // 이미지 컨트롤러
     
     // Create left UIBarButtonItem.
@@ -70,6 +72,28 @@ class SingInViewController: UIViewController {
       }
     
   
+    
+    
+    @IBAction func agreeView1(_ sender: Any) {
+        agreeCode = 0
+        agreePageNext()
+    }
+    
+    @IBAction func agreeView2(_ sender: Any) {
+        agreeCode = 1
+        agreePageNext()
+    }
+    
+    func agreePageNext(){
+       
+         guard let rvc = self.storyboard?.instantiateViewController(withIdentifier:"AgreeViewController") as? AgreeViewController else {
+             return
+         }
+         rvc.receiveCode = self.agreeCode // 약관동의 페이지의 사용자가 누른 약관동의 코드를 전송
+         self.navigationController?.pushViewController(rvc, animated: true) // 약관내용보기로 이동
+     }
+    
+    
     @IBAction func CreateUser(_ sender: Any) {
         
         Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, err) in

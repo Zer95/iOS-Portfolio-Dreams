@@ -191,6 +191,40 @@
             </objects>
             <point key="canvasLocation" x="679.71014492753625" y="113.83928571428571"/>
         </scene>
+        <!--Agree View Controller-->
+        <scene sceneID="F9w-oy-lfU">
+            <objects>
+                <viewController storyboardIdentifier="AgreeViewController" id="zJa-el-ydM" customClass="AgreeViewController" customModule="Dreams" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S85-HD-eBh">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cm2-Mr-Qd6">
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cbh-C9-VcV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cm2-Mr-Qd6" firstAttribute="bottom" secondItem="cbh-C9-VcV" secondAttribute="bottom" id="4IC-lT-7Kq"/>
+                            <constraint firstItem="cm2-Mr-Qd6" firstAttribute="leading" secondItem="cbh-C9-VcV" secondAttribute="leading" id="NgO-yl-UDo"/>
+                            <constraint firstItem="cm2-Mr-Qd6" firstAttribute="trailing" secondItem="cbh-C9-VcV" secondAttribute="trailing" id="f7Y-aj-7ke"/>
+                            <constraint firstItem="cm2-Mr-Qd6" firstAttribute="top" secondItem="cbh-C9-VcV" secondAttribute="top" id="gje-ig-lNk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OBr-Qd-Yjt"/>
+                    <connections>
+                        <outlet property="agreeTextView" destination="cm2-Mr-Qd6" id="MCe-iN-f93"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xZs-g9-v70" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-298.46153846153845" y="1598.8151658767772"/>
+        </scene>
         <!--회원가입-->
         <scene sceneID="O8j-we-OSC">
             <objects>
@@ -313,6 +347,9 @@
                                                         <state key="normal" title="내용보기">
                                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="agreeView1:" destination="4CL-vd-jw9" eventType="touchUpInside" id="uXq-HK-32q"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -350,6 +387,9 @@
                                                         <state key="normal" title="내용보기">
                                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="agreeView2:" destination="4CL-vd-jw9" eventType="touchUpInside" id="qzB-z8-Ayg"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -414,11 +454,12 @@
                         <outlet property="name" destination="N7q-Ho-fIg" id="N0e-oH-5U5"/>
                         <outlet property="password" destination="TS8-G8-Kl0" id="fCS-VA-JiI"/>
                         <outlet property="profileIMG" destination="b4u-Uc-6hh" id="GIR-Xa-GZl"/>
+                        <segue destination="zJa-el-ydM" kind="show" identifier="showAgree" id="eMx-Tt-4yP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSW-UB-n8B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2363.0769230769229" y="113.74407582938387"/>
+            <point key="canvasLocation" x="678" y="1573"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vJA-Wq-45C">
@@ -436,7 +477,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPw-PY-WAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1433.8461538461538" y="113.74407582938387"/>
+            <point key="canvasLocation" x="678" y="826"/>
         </scene>
     </scenes>
     <resources>
@@ -447,6 +488,9 @@
         <image name="google" width="500" height="500"/>
         <image name="kakao" width="512" height="512"/>
         <image name="photo" width="4000" height="4000"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
