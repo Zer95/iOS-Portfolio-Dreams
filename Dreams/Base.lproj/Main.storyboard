@@ -156,7 +156,7 @@
                                     <constraint firstAttribute="height" constant="50" id="0Ny-2n-M7X"/>
                                     <constraint firstAttribute="width" constant="315" id="4OA-fV-UXA"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -397,6 +397,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="회원가입" id="FLl-uC-8wU"/>
                     <connections>
+                        <outlet property="ScrollView" destination="hn7-Tx-fyh" id="DyX-4p-vkT"/>
                         <outlet property="email" destination="VE6-Is-BmR" id="a7d-Ky-4B2"/>
                         <outlet property="name" destination="N7q-Ho-fIg" id="N0e-oH-5U5"/>
                         <outlet property="password" destination="TS8-G8-Kl0" id="fCS-VA-JiI"/>

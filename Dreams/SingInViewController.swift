@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseFirestore
 
 class SingInViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class SingInViewController: UIViewController {
     
     @IBOutlet weak var profileIMG: UIImageView!
     
+    @IBOutlet weak var ScrollView: UIScrollView!
     
     // Create left UIBarButtonItem.
     lazy var leftButton: UIBarButtonItem = {
@@ -28,7 +30,7 @@ class SingInViewController: UIViewController {
 
     
     
-    
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,18 +43,42 @@ class SingInViewController: UIViewController {
         profileIMG.layer.borderWidth = 1
         profileIMG.clipsToBounds = true
         profileIMG.layer.borderColor = UIColor.clear.cgColor  //원형 이미지의 테두리 제거
+        
+        // scrollView 클릭시 키보드 내리기
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+            
+        ScrollView.addGestureRecognizer(singleTapGestureRecognizer)
+
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
            self.view.endEditing(true)
      }
+    @objc func MyTapMethod(sender: UITapGestureRecognizer) {
+          self.view.endEditing(true)
+      }
+    
   
     @IBAction func CreateUser(_ sender: Any) {
         
         Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, err) in
             
             let uid = user!.user.uid
-            Database.database().reference().child("users").child(uid).setValue(["name":self.name.text!])
+            
+            self.db.collection("Users").document(uid).setData([
+                "name": self.name.text!,
+                "성별": "남녀",
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
             
             
         }
