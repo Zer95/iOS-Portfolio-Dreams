@@ -7,6 +7,7 @@
 
 import UIKit
 import KakaoSDKAuth
+import FBSDKCoreKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -26,6 +27,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     _ = AuthController.handleOpenUrl(url: url)
                 }
             }
+        
+        // 페이스북
+        guard let url = URLContexts.first?.url else {
+             return
+         }
+        
+        ApplicationDelegate.shared.application(
+              UIApplication.shared,
+              open: url,
+              sourceApplication: nil,
+              annotation: [UIApplication.OpenURLOptionsKey.annotation]
+          )
+        
+        
         }
 
     func sceneDidDisconnect(_ scene: UIScene) {

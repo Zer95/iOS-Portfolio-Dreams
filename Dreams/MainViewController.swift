@@ -10,6 +10,8 @@ import Firebase
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
+import GoogleSignIn
+import FBSDKLoginKit
 
 class MainViewController: UIViewController {
 
@@ -70,7 +72,9 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func loginTest(_ sender: Any) {
-        try! Auth.auth().signOut()
+        // 구글 헤제
+//        try! Auth.auth().signOut()
+        GIDSignIn.sharedInstance().disconnect()
         
         // 카카오 계정 연결 해제 ( 토큰삭제 및 회원 탈퇴 )
         UserApi.shared.unlink {(error) in
@@ -82,6 +86,23 @@ class MainViewController: UIViewController {
                 
             }
         }
+        
+        // 페이스북
+
+   
+        
+        
+        let firebaseAuth = Auth.auth()
+    do {
+      try firebaseAuth.signOut()
+    } catch let signOutError as NSError {
+      print("Error signing out: %@", signOutError)
+    }
+      
+        
+        
+        
+        
     }
     
     

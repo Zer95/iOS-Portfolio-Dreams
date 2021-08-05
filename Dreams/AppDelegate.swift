@@ -10,6 +10,7 @@ import Firebase
 import GoogleSignIn
 import KakaoSDKCommon
 import KakaoSDKAuth
+import FBSDKCoreKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -25,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // 카카오 로그인 연동
         KakaoSDKCommon.initSDK(appKey: "8fdfbdaae7ea82c3de42910f724e2292")
+        
+        
+        ApplicationDelegate.shared.application( application, didFinishLaunchingWithOptions: launchOptions )//Facebook loing 하기 위해 사용된 코드 // Override point for customization after application launch.
+        FBSDKCoreKit.Settings.appID = "868525054071636"//앱 ID : 페이스북 페이지에서 받은 앱의 ID
+
+       
         
         return true
     }
@@ -49,6 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
         
         let google = GIDSignIn.sharedInstance().handle(url)
+        
+      
+        
         return google
     }
 
@@ -57,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return google
     }
     
-
+    
     
     
     
