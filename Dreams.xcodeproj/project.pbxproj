@@ -40,6 +40,7 @@
 		D2582E7A26B7AF4400DF1669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2582E7C26B7AF4400DF1669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2582E8226B7B0B500DF1669 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D271A24026BBDB040001B0F9 /* Dreams.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dreams.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 		D2582E6D26B7AF4400DF1669 /* Dreams */ = {
 			isa = PBXGroup;
 			children = (
+				D271A24026BBDB040001B0F9 /* Dreams.entitlements */,
 				D2582E6E26B7AF4400DF1669 /* AppDelegate.swift */,
 				D2582E7026B7AF4400DF1669 /* SceneDelegate.swift */,
 				D2582E7226B7AF4400DF1669 /* LoginViewController.swift */,
@@ -397,6 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Dreams/Dreams.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2HU44QQL5;
 				INFOPLIST_FILE = Dreams/Info.plist;
@@ -417,6 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Dreams/Dreams.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2HU44QQL5;
 				INFOPLIST_FILE = Dreams/Info.plist;

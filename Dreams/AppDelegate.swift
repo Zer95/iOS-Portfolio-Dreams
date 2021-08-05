@@ -11,6 +11,7 @@ import GoogleSignIn
 import KakaoSDKCommon
 import KakaoSDKAuth
 import FBSDKCoreKit
+import AuthenticationServices
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -28,10 +29,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         KakaoSDKCommon.initSDK(appKey: "8fdfbdaae7ea82c3de42910f724e2292")
         
         
+        // 페이스북 로그인 연동
         ApplicationDelegate.shared.application( application, didFinishLaunchingWithOptions: launchOptions )//Facebook loing 하기 위해 사용된 코드 // Override point for customization after application launch.
         FBSDKCoreKit.Settings.appID = "868525054071636"//앱 ID : 페이스북 페이지에서 받은 앱의 ID
 
-       
+        
+       // 애플 로그인 연동
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        appleIDProvider.getCredentialState(forUserID: "00000.abcabcabcabc.0000") { (credentialState, error) in
+            
+            switch credentialState {
+            case .authorized:
+                print("해당 ID는 연동되어있습니다.")
+                 case .revoked:
+                    print("해당 ID는 연동되어있지않습니다.")
+            case .notFound:
+                print("해당 ID를 찾을 수 없습니다.")
+                
+           default:
+            print("notFound")
+            }
+
+      
+        
+        }
         
         return true
     }

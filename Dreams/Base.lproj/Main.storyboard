@@ -80,6 +80,9 @@
                                             <constraint firstAttribute="width" constant="70" id="stE-6k-61n"/>
                                         </constraints>
                                         <state key="normal" image="apple"/>
+                                        <connections>
+                                            <action selector="appleBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="grq-k4-hGa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
