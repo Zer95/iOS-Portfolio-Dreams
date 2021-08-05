@@ -8,7 +8,8 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -21,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // 구글 로그인 연동 설정
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
+        // 카카오 로그인 연동
+        KakaoSDKCommon.initSDK(appKey: "8fdfbdaae7ea82c3de42910f724e2292")
         
         return true
     }
@@ -39,6 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
       -> Bool {
+        
+        if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                return AuthController.handleOpenUrl(url: url)
+            }
+        
         let google = GIDSignIn.sharedInstance().handle(url)
         return google
     }
@@ -47,6 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let google = GIDSignIn.sharedInstance().handle(url)
         return google
     }
+    
+
+    
     
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
@@ -72,6 +84,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Perform any operations when the user disconnects from app here.
         // ...
     }
+    
+    
+    
     
 }
 

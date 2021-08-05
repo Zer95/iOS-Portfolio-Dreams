@@ -7,6 +7,9 @@
 
 import UIKit
 import Firebase
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class MainViewController: UIViewController {
 
@@ -42,10 +45,43 @@ class MainViewController: UIViewController {
           // No user is signed in.
           // ...
         }
+        
+        
+        // 카카오 로그인 정보 가져오기
+        
+        UserApi.shared.me() {(user, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("me() success.")
+
+                //do something
+                _ = user
+                print("카카오 아이디 : \(user?.id)")
+                print("카카오 프로필 : \(user?.kakaoAccount?.profile?.nickname)")
+                print("카카오 이메일 : \(user?.kakaoAccount?.email)")
+             
+                
+            }
+        }
+        
+        
     }
     
     @IBAction func loginTest(_ sender: Any) {
         try! Auth.auth().signOut()
+        
+        // 카카오 계정 연결 해제 ( 토큰삭제 및 회원 탈퇴 )
+        UserApi.shared.unlink {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("unlink() success.")
+                
+            }
+        }
     }
     
     

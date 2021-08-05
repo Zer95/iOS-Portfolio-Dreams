@@ -16,4 +16,5 @@ pod 'SnapKit', '~> 5.0.0'
 pod 'Firebase/Database'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
+pod 'KakaoSDK'
 end

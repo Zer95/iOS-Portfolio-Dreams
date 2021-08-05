@@ -9,6 +9,9 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FirebaseAuth
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class LoginViewController: UIViewController {
 
@@ -28,7 +31,28 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var appleBtn: UIButton!
     
     
-    
+    /* 앱 실행 후 토큰 존재하면 로그인 필요없이 자동 로그인 */
+    override func viewWillAppear(_ animated: Bool) {
+        if (AuthApi.hasToken()) {
+            UserApi.shared.accessTokenInfo { (_, error) in
+                if let error = error {
+                    if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true  {
+                        //로그인 필요
+                    }
+                    else {
+                        //기타 에러
+                    }
+                }
+                else {
+                    //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
+                    self.performSegue(withIdentifier: "MainViewController", sender: self)
+                }
+            }
+        }
+        else {
+            //로그인 필요
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -141,8 +165,47 @@ class LoginViewController: UIViewController {
         GIDSignIn.sharedInstance()
     }
     
+    
+    @IBAction func kakaoBtn(_ sender: Any) {
+        // 카카오톡 설치 여부 확인
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+
+                    //do something
+                    _ = oauthToken
+                    if (AuthApi.hasToken()) {
+                        UserApi.shared.accessTokenInfo { (_, error) in
+                            if let error = error {
+                                if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true  {
+                                    //로그인 필요
+                                }
+                                else {
+                                    //기타 에러
+                                }
+                            }
+                            else {
+                                //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
+                                self.performSegue(withIdentifier: "MainViewController", sender: self)
+                            }
+                        }
+                    }
+                    else {
+                        //로그인 필요
+                    }
+              
+                  
+                }
+            }
+        }
+    
+        
 }
+    
 
 
-
-
+}

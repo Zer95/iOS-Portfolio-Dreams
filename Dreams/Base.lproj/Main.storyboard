@@ -58,6 +58,9 @@
                                             <constraint firstAttribute="width" constant="70" id="jcH-x9-zpQ"/>
                                         </constraints>
                                         <state key="normal" image="kakao"/>
+                                        <connections>
+                                            <action selector="kakaoBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QqS-wk-t4q"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-q4-FkD">
                                         <rect key="frame" x="164" y="0.0" width="70" height="70"/>
@@ -524,6 +527,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2tn-6Q-WId" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mQ9-Q9-Fsx">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -537,12 +541,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="apple" width="512" height="420"/>
+        <image name="apple" width="824" height="824"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
-        <image name="facebook" width="325" height="325"/>
-        <image name="google" width="500" height="500"/>
-        <image name="kakao" width="512" height="512"/>
+        <image name="facebook" width="824" height="824"/>
+        <image name="google" width="824" height="824"/>
+        <image name="kakao" width="822" height="824"/>
         <image name="photo" width="4000" height="4000"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
