@@ -181,25 +181,47 @@ class LoginViewController: UIViewController, ASAuthorizationControllerDelegate {
 
                     //do something
                     _ = oauthToken
-                    if (AuthApi.hasToken()) {
-                        UserApi.shared.accessTokenInfo { (_, error) in
-                            if let error = error {
-                                if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true  {
-                                    //로그인 필요
-                                }
-                                else {
-                                    //기타 에러
-                                }
+               
+                    // 로그인 성공 시
+                    UserApi.shared.me { kuser, error in
+                    if let error = error {
+                    print("------KAKAO : user loading failed------")
+                    print(error)
+                    } else {
+                    Auth.auth().createUser(withEmail: (kuser?.kakaoAccount?.email)!, password: "\(String(describing: kuser?.id))") { fuser, error in
+                    if let error = error {
+                    print("FB : signup failed")
+                    print(error)
+                     
+                        
+                  
+                        
+                        
+                        
+                    Auth.auth().signIn(withEmail: (kuser?.kakaoAccount?.email)!, password: "\(String(describing: kuser?.id))", completion: nil)
+                    } else {
+                    print("FB : signup success")
+                        guard let uid = Auth.auth().currentUser?.uid else { return }
+                        let db = Firestore.firestore()
+                        db.collection("Users").document(uid).setData([
+                            "email": kuser?.kakaoAccount?.email ?? "",
+                            "uid": uid,
+                            "name": kuser?.kakaoAccount?.profile?.nickname ?? "",
+                            
+                        ]) { err in
+                            if let err = err {
+                                print("Error writing document: \(err)")
+                            } else {
+                                print("the user has sign up or is logged in")
                             }
-                            else {
-                                //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
-                                self.performSegue(withIdentifier: "MainViewController", sender: self)
+                        }
+                        
+                        
+                        
                             }
                         }
                     }
-                    else {
-                        //로그인 필요
-                    }
+                  }
               
                   
                 }

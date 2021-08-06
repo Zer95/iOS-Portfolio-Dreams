@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
                 multiFactorString += " "
               }
                print("정보: \(uid)")
-                print("정보: \(email!)")
+                print("정보: \(email)")
                 print("정보: \(photoURL)")
                 print("정보: \(name)")
                 
