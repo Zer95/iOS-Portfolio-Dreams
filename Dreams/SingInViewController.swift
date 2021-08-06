@@ -141,8 +141,9 @@ class SingInViewController: UIViewController {
             self.createTrue = true
                 
             self.db.collection("Users").document(uid).setData([
-                "name": self.name.text!,
-                "성별": "남녀",
+                "uid": uid,
+                "email": self.email.text!,
+                "name": self.name.text!
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")

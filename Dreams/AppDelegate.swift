@@ -103,13 +103,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
       let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                         accessToken: authentication.accessToken)
       Auth.auth().signIn(with: credential) { (authResult, error) in
-        if let error = error {
-          // ...
-          return
+        if (error != nil) {
+            // Error. If error.code == .MissingOrInvalidNonce, make sure
+            // you're sending the SHA256-hashed nonce as a hex string with
+            // your request to Apple.
+            print(error?.localizedDescription ?? "")
+            return
         }
-        // User is signed in
-        // ...
-      }
+        guard let user = authResult?.user else { return }
+        let email = user.email ?? ""
+        let name = user.displayName ?? ""
+        
+    
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        db.collection("Users").document(uid).setData([
+            "email": email,
+            "uid": uid,
+            "name": name
+            
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("the user has sign up or is logged in")
+            }
+        }
+        return
     }
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
@@ -121,3 +141,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
 }
 
+}
