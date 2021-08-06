@@ -235,15 +235,47 @@ class LoginViewController: UIViewController, ASAuthorizationControllerDelegate {
             GraphRequest(graphPath:"me",parameters:["fields":"id,name,first_name,last_name,picture.type(large),email"]).start(completionHandler:{ (connection,result,error) -> Void in
                 if(error == nil){
               
-            }
+                }  else {
+                    
+                    
+                }
         })
     }
     
         let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-        Auth.auth().signIn(with:credential,completion:{(user,error) in })
-        LoginManager().logOut();
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+          if (error != nil) {
+              // Error. If error.code == .MissingOrInvalidNonce, make sure
+              // you're sending the SHA256-hashed nonce as a hex string with
+              // your request to Apple.
+              print(error?.localizedDescription ?? "")
+              return
+          }
+          guard let user = authResult?.user else { return }
+          let email = user.email ?? ""
+          let name = user.displayName ?? ""
+          
+      
+          guard let uid = Auth.auth().currentUser?.uid else { return }
+          let db = Firestore.firestore()
+          db.collection("Users").document(uid).setData([
+              "email": email,
+              "uid": uid,
+              "name": name
+              
+          ]) { err in
+              if let err = err {
+                  print("Error writing document: \(err)")
+              } else {
+                  print("the user has sign up or is logged in")
+              }
+          }
+          return
+      }
     
 }
+    
+    
     fileprivate var currentNonce: String?
     @IBAction func appleBtn(_ sender: Any) {
         
