@@ -206,6 +206,7 @@ class LoginViewController: UIViewController, ASAuthorizationControllerDelegate {
                         db.collection("Users").document(uid).setData([
                             "email": kuser?.kakaoAccount?.email ?? "",
                             "uid": uid,
+                            "Type":"Kakao",
                             "name": kuser?.kakaoAccount?.profile?.nickname ?? "",
                             
                         ]) { err in
@@ -283,7 +284,8 @@ class LoginViewController: UIViewController, ASAuthorizationControllerDelegate {
           db.collection("Users").document(uid).setData([
               "email": email,
               "uid": uid,
-              "name": name
+              "name": name,
+            "Type":"Facebook"
               
           ]) { err in
               if let err = err {
@@ -389,9 +391,9 @@ class LoginViewController: UIViewController, ASAuthorizationControllerDelegate {
                 let db = Firestore.firestore()
                 db.collection("Users").document(uid).setData([
                     "email": email,
-                    "displayName": displayName,
                     "uid": uid,
-                    "name": name
+                    "name": name,
+                    "Type": "Apple"
                     
                 ]) { err in
                     if let err = err {

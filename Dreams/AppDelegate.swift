@@ -120,7 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         db.collection("Users").document(uid).setData([
             "email": email,
             "uid": uid,
-            "name": name
+            "name": name,
+            "Type": "Google"
             
         ]) { err in
             if let err = err {
