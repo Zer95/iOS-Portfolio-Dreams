@@ -199,7 +199,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         txtFieldSearch.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive=true
         txtFieldSearch.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive=true
         txtFieldSearch.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive=true
-        txtFieldSearch.heightAnchor.constraint(equalToConstant: 35).isActive=true
+        txtFieldSearch.heightAnchor.constraint(equalToConstant: 60).isActive=true
         setupTextField(textField: txtFieldSearch, img: #imageLiteral(resourceName: "map_Pin"))
         
         // 마커 뷰 사이즈
@@ -224,7 +224,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         let tf=UITextField()
         tf.borderStyle = .roundedRect
         tf.backgroundColor = .white
-        tf.layer.borderColor = UIColor.darkGray.cgColor
+        tf.layer.borderWidth = 1.0
+        tf.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        tf.layer.shadowColor = UIColor.black.cgColor
+        tf.layer.shadowOffset = CGSize(width: 1 , height: 1)
+        tf.layer.shadowOpacity = 0.5
+        tf.layer.shadowRadius = 4.0
         tf.placeholder="지역을 검색해주세요."
         tf.translatesAutoresizingMaskIntoConstraints=false
         return tf
