@@ -205,7 +205,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         setupTextField(textField: txtFieldSearch, img: #imageLiteral(resourceName: "map_Pin"))
         
         // 마커 뷰 사이즈
-        restaurantPreviewView=RestaurantPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - self.view.frame.width/4, height: 190))
+        restaurantPreviewView=StadiumPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - self.view.frame.width/4, height: 190))
+
         
         
         self.view.addSubview(btnMyLocation)
@@ -244,8 +245,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         return btn
     }()
     
-    var restaurantPreviewView: RestaurantPreviewView = {
-        let v=RestaurantPreviewView()
+    var restaurantPreviewView: StadiumPreviewView = {
+        let v=StadiumPreviewView()
         return v
     }()
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RestaurantPreviewView: UIView {
+class StadiumPreviewView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
