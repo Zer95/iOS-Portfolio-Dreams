@@ -45,9 +45,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         locationManager.startMonitoringSignificantLocationChanges()
         
         setupViews()
-        
         initGoogleMaps()
-        
         txtFieldSearch.delegate=self
     }
     
@@ -133,8 +131,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return nil }
         let data = previewDemoData[customMarkerView.tag]
-        restaurantPreviewView.setData(title: data.title, img: data.img, price: data.price)
-        return restaurantPreviewView
+        stadiumPreviewView.setData(title: data.title, img: data.img, price: data.price)
+        return stadiumPreviewView
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
@@ -205,7 +203,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         setupTextField(textField: txtFieldSearch, img: #imageLiteral(resourceName: "map_Pin"))
         
         // 마커 뷰 사이즈
-        restaurantPreviewView=StadiumPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - self.view.frame.width/4, height: 190))
+        stadiumPreviewView=StadiumPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - self.view.frame.width/4, height: 190))
 
         
         
@@ -245,8 +243,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         return btn
     }()
     
-    var restaurantPreviewView: StadiumPreviewView = {
+    var stadiumPreviewView: StadiumPreviewView = {
         let v=StadiumPreviewView()
+       
         return v
     }()
 }
