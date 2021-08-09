@@ -31,10 +31,11 @@ class RestaurantPreviewView: UIView {
         containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
         containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
         
+     
         containerView.addSubview(lblTitle)
-        lblTitle.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 0).isActive=true
-        lblTitle.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0).isActive=true
-        lblTitle.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 0).isActive=true
+        lblTitle.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 15).isActive=true
+        lblTitle.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15).isActive=true
+        lblTitle.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 15).isActive=true
         lblTitle.heightAnchor.constraint(equalToConstant: 35).isActive=true
         
         addSubview(imgView)
@@ -58,7 +59,7 @@ class RestaurantPreviewView: UIView {
     
     let imgView: UIImageView = {
         let v=UIImageView()
-        v.image=#imageLiteral(resourceName: "restaurant1")
+        v.image=#imageLiteral(resourceName: "mainBackground")
         v.translatesAutoresizingMaskIntoConstraints=false
         return v
     }()

@@ -27,8 +27,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     let customMarkerWidth: Int = 50
     let customMarkerHeight: Int = 70
     
-    let previewDemoData = [(title: "사회인 야외 야구장", img: #imageLiteral(resourceName: "restaurant1"), price: 10), (title: "실내 야구장", img: #imageLiteral(resourceName: "restaurant2"), price: 8), (title: "드림즈 매장", img: #imageLiteral(resourceName: "restaurant3"), price: 12)]
-    
+    let previewDemoData = [(title: "홍대 야구장", img: #imageLiteral(resourceName: "baseball2"), price: 10, Latitude: 37.551674944360386, longitude: 126.92498582698552),
+                           (title: "한강 야구장", img: #imageLiteral(resourceName: "baseball1"), price: 8, Latitude: 37.53296503864491, longitude: 126.92363728895141),
+                           (title: "용산 야구장", img: #imageLiteral(resourceName: "baseball3"), price: 12, Latitude: 37.529280811821046, longitude: 126.96860947233841)
+    ]
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
@@ -136,7 +140,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return }
         let tag = customMarkerView.tag
-        restaurantTapped(tag: tag)
+     //   restaurantTapped(tag: tag)
     }
     
     func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
@@ -149,20 +153,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func showPartyMarkers(lat: Double, long: Double) {
         myMapView.clear()
         for i in 0..<3 {
-            let randNum=Double(arc4random_uniform(30))/10000
+        
+            let latutude = previewDemoData[i].Latitude
+            let longitude = previewDemoData[i].longitude
+            
             let marker=GMSMarker()
             let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: previewDemoData[i].img, borderColor: UIColor.darkGray, tag: i)
             marker.iconView=customMarker
-            let randInt = arc4random_uniform(4)
-            if randInt == 0 {
-                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long-randNum)
-            } else if randInt == 1 {
-                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long+randNum)
-            } else if randInt == 2 {
-                marker.position = CLLocationCoordinate2D(latitude: lat-randNum, longitude: long-randNum)
-            } else {
-                marker.position = CLLocationCoordinate2D(latitude: lat+randNum, longitude: long+randNum)
-            }
+        
+            // 좌표
+            marker.position = CLLocationCoordinate2D(latitude: latutude, longitude: longitude)
             marker.map = self.myMapView
         }
     }
@@ -174,11 +174,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
-    @objc func restaurantTapped(tag: Int) {
-        let v=DetailsVC()
-        v.passedData = previewDemoData[tag]
-        self.navigationController?.pushViewController(v, animated: true)
-    }
+    
+//    @objc func restaurantTapped(tag: Int) {
+//        let v=DetailsVC()
+//        v.passedData = previewDemoData[tag]
+//        self.navigationController?.pushViewController(v, animated: true)
+//    }
     
     func setupTextField(textField: UITextField, img: UIImage){
         textField.leftViewMode = UITextField.ViewMode.always
@@ -203,7 +204,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         txtFieldSearch.heightAnchor.constraint(equalToConstant: 35).isActive=true
         setupTextField(textField: txtFieldSearch, img: #imageLiteral(resourceName: "map_Pin"))
         
-        restaurantPreviewView=RestaurantPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 190))
+        // 마커 뷰 사이즈
+        restaurantPreviewView=RestaurantPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width - self.view.frame.width/4, height: 190))
+        
         
         self.view.addSubview(btnMyLocation)
         btnMyLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive=true
