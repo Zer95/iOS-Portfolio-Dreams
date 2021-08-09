@@ -19,7 +19,6 @@
 		D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7426B7AF4400DF1669 /* Main.storyboard */; };
 		D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7726B7AF4400DF1669 /* Assets.xcassets */; };
 		D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */; };
-		D2582E8326B7B0B500DF1669 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2582E8226B7B0B500DF1669 /* GoogleService-Info.plist */; };
 		D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E026C0BF4D003C0239 /* HomeViewController.swift */; };
 		D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E226C0C1DD003C0239 /* SettingViewController.swift */; };
 		D2F029E926C0EF18003C0239 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E826C0EF18003C0239 /* MapViewController.swift */; };
@@ -27,6 +26,7 @@
 		D2F029ED26C0FEC2003C0239 /* CustomMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029EC26C0FEC2003C0239 /* CustomMakerView.swift */; };
 		D2F029EF26C0FF4B003C0239 /* RestaurantPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029EE26C0FF4B003C0239 /* RestaurantPreviewView.swift */; };
 		D2F029F326C0FFD7003C0239 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029F226C0FFD7003C0239 /* DetailsVC.swift */; };
+		D2F029F726C112D8003C0239 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2F029F626C112D8003C0239 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,6 @@
 		D2582E7726B7AF4400DF1669 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2582E7A26B7AF4400DF1669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2582E7C26B7AF4400DF1669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2582E8226B7B0B500DF1669 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D271A24026BBDB040001B0F9 /* Dreams.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dreams.entitlements; sourceTree = "<group>"; };
 		D2F029E026C0BF4D003C0239 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2F029E226C0C1DD003C0239 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		D2F029EC26C0FEC2003C0239 /* CustomMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMakerView.swift; sourceTree = "<group>"; };
 		D2F029EE26C0FF4B003C0239 /* RestaurantPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreviewView.swift; sourceTree = "<group>"; };
 		D2F029F226C0FFD7003C0239 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		D2F029F626C112D8003C0239 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +114,10 @@
 				D2F029E026C0BF4D003C0239 /* HomeViewController.swift */,
 				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
 				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
+				D2F029F626C112D8003C0239 /* GoogleService-Info.plist */,
 				D2582E7726B7AF4400DF1669 /* Assets.xcassets */,
 				D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */,
 				D2582E7C26B7AF4400DF1669 /* Info.plist */,
-				D2582E8226B7B0B500DF1669 /* GoogleService-Info.plist */,
 				D214492826BA3CB3008D702F /* RemoteConfigDefaults.plist */,
 			);
 			path = Dreams;
@@ -194,7 +194,7 @@
 			files = (
 				D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */,
 				D214492926BA3CB3008D702F /* RemoteConfigDefaults.plist in Resources */,
-				D2582E8326B7B0B500DF1669 /* GoogleService-Info.plist in Resources */,
+				D2F029F726C112D8003C0239 /* GoogleService-Info.plist in Resources */,
 				D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */,
 				D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */,
 			);
