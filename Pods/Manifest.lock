@@ -343,6 +343,12 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleMaps (5.1.0):
+    - GoogleMaps/Maps (= 5.1.0)
+  - GoogleMaps/Base (5.1.0)
+  - GoogleMaps/Maps (5.1.0):
+    - GoogleMaps/Base
+  - GooglePlaces (5.0.0)
   - GoogleSignIn (5.0.2):
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
@@ -445,6 +451,8 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/RemoteConfig
   - Firebase/Storage
+  - GoogleMaps
+  - GooglePlaces
   - GoogleSignIn (= 5.0.2)
   - KakaoSDK
   - SnapKit (~> 5.0.0)
@@ -473,6 +481,8 @@ SPEC REPOS:
     - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleMaps
+    - GooglePlaces
     - GoogleSignIn
     - GoogleUtilities
     - "gRPC-C++"
@@ -516,6 +526,8 @@ SPEC CHECKSUMS:
   FirebaseStorage: e6065bcbf70e2a06a8c3ddc66cbe03a395bbddc4
   GoogleAppMeasurement: 6b6a08fd9c71f4dbc89e0e812acca81d797aa342
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
+  GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
+  GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
@@ -537,6 +549,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
 
-PODFILE CHECKSUM: 8653e97c9c0bd6f2fab20b9bfd553c9bc391e02e
+PODFILE CHECKSUM: fd2d014a828456625f7df3ec33f64b7184811f5f
 
 COCOAPODS: 1.10.1

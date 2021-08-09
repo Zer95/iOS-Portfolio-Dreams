@@ -22,6 +22,11 @@
 		D2582E8326B7B0B500DF1669 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2582E8226B7B0B500DF1669 /* GoogleService-Info.plist */; };
 		D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E026C0BF4D003C0239 /* HomeViewController.swift */; };
 		D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E226C0C1DD003C0239 /* SettingViewController.swift */; };
+		D2F029E926C0EF18003C0239 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E826C0EF18003C0239 /* MapViewController.swift */; };
+		D2F029EB26C0F8C4003C0239 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029EA26C0F8C4003C0239 /* ResultsViewController.swift */; };
+		D2F029ED26C0FEC2003C0239 /* CustomMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029EC26C0FEC2003C0239 /* CustomMakerView.swift */; };
+		D2F029EF26C0FF4B003C0239 /* RestaurantPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029EE26C0FF4B003C0239 /* RestaurantPreviewView.swift */; };
+		D2F029F326C0FFD7003C0239 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029F226C0FFD7003C0239 /* DetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +50,11 @@
 		D271A24026BBDB040001B0F9 /* Dreams.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dreams.entitlements; sourceTree = "<group>"; };
 		D2F029E026C0BF4D003C0239 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2F029E226C0C1DD003C0239 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D2F029E826C0EF18003C0239 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D2F029EA26C0F8C4003C0239 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		D2F029EC26C0FEC2003C0239 /* CustomMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMakerView.swift; sourceTree = "<group>"; };
+		D2F029EE26C0FF4B003C0239 /* RestaurantPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreviewView.swift; sourceTree = "<group>"; };
+		D2F029F226C0FFD7003C0239 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,11 @@
 				D214492A26BA4447008D702F /* SingInViewController.swift */,
 				D214492C26BA9305008D702F /* AgreeViewController.swift */,
 				D214492E26BAB696008D702F /* MainViewController.swift */,
+				D2F029E826C0EF18003C0239 /* MapViewController.swift */,
+				D2F029EC26C0FEC2003C0239 /* CustomMakerView.swift */,
+				D2F029EE26C0FF4B003C0239 /* RestaurantPreviewView.swift */,
+				D2F029F226C0FFD7003C0239 /* DetailsVC.swift */,
+				D2F029EA26C0F8C4003C0239 /* ResultsViewController.swift */,
 				D2F029E026C0BF4D003C0239 /* HomeViewController.swift */,
 				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
 				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
@@ -251,13 +266,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2F029EB26C0F8C4003C0239 /* ResultsViewController.swift in Sources */,
 				D214492F26BAB696008D702F /* MainViewController.swift in Sources */,
 				D2582E7326B7AF4400DF1669 /* LoginViewController.swift in Sources */,
 				D214492B26BA4447008D702F /* SingInViewController.swift in Sources */,
+				D2F029EF26C0FF4B003C0239 /* RestaurantPreviewView.swift in Sources */,
+				D2F029E926C0EF18003C0239 /* MapViewController.swift in Sources */,
 				D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */,
+				D2F029ED26C0FEC2003C0239 /* CustomMakerView.swift in Sources */,
 				D2582E6F26B7AF4400DF1669 /* AppDelegate.swift in Sources */,
 				D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */,
 				D214492726BA37CF008D702F /* ViewController.swift in Sources */,
+				D2F029F326C0FFD7003C0239 /* DetailsVC.swift in Sources */,
 				D2582E7126B7AF4400DF1669 /* SceneDelegate.swift in Sources */,
 				D214492D26BA9305008D702F /* AgreeViewController.swift in Sources */,
 			);

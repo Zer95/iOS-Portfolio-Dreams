@@ -19,5 +19,7 @@ pod 'Firebase/Storage'
 pod 'KakaoSDK'
 pod 'FBSDKLoginKit'
 pod 'SOTabBar'
-    
+pod 'GoogleMaps'
+pod 'GooglePlaces' 
+
 end

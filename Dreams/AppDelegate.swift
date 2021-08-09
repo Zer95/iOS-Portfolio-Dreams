@@ -12,10 +12,13 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import FBSDKCoreKit
 import AuthenticationServices
+import GoogleMaps
+import GooglePlaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
+  //  var window: UIWindow? 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs
@@ -50,8 +53,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("notFound")
             }
 
-      
-        
+        // 구글 지도
+        GMSServices.provideAPIKey("AIzaSyAePDTvKDyWbgya817QTmIHB1qZGurqE9s")
+        GMSPlacesClient.provideAPIKey("AIzaSyAePDTvKDyWbgya817QTmIHB1qZGurqE9s") // 현재 위치
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//            if let window = self.window {
+//                window.backgroundColor = UIColor.white
+//
+//                let nav = UINavigationController()
+//                let mainView = ViewController()
+//                nav.viewControllers = [mainView]
+//                window.rootViewController = nav
+//                window.makeKeyAndVisible()
+//            }
+            
         }
         
         return true
