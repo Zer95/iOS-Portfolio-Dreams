@@ -20,6 +20,8 @@
 		D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7726B7AF4400DF1669 /* Assets.xcassets */; };
 		D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */; };
 		D2582E8326B7B0B500DF1669 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2582E8226B7B0B500DF1669 /* GoogleService-Info.plist */; };
+		D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E026C0BF4D003C0239 /* HomeViewController.swift */; };
+		D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E226C0C1DD003C0239 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		D2582E7C26B7AF4400DF1669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2582E8226B7B0B500DF1669 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D271A24026BBDB040001B0F9 /* Dreams.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dreams.entitlements; sourceTree = "<group>"; };
+		D2F029E026C0BF4D003C0239 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D2F029E226C0C1DD003C0239 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 				D214492A26BA4447008D702F /* SingInViewController.swift */,
 				D214492C26BA9305008D702F /* AgreeViewController.swift */,
 				D214492E26BAB696008D702F /* MainViewController.swift */,
+				D2F029E026C0BF4D003C0239 /* HomeViewController.swift */,
+				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
 				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
 				D2582E7726B7AF4400DF1669 /* Assets.xcassets */,
 				D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */,
@@ -248,7 +254,9 @@
 				D214492F26BAB696008D702F /* MainViewController.swift in Sources */,
 				D2582E7326B7AF4400DF1669 /* LoginViewController.swift in Sources */,
 				D214492B26BA4447008D702F /* SingInViewController.swift in Sources */,
+				D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */,
 				D2582E6F26B7AF4400DF1669 /* AppDelegate.swift in Sources */,
+				D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */,
 				D214492726BA37CF008D702F /* ViewController.swift in Sources */,
 				D2582E7126B7AF4400DF1669 /* SceneDelegate.swift in Sources */,
 				D214492D26BA9305008D702F /* AgreeViewController.swift in Sources */,

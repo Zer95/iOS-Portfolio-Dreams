@@ -434,6 +434,7 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
   - SnapKit (5.0.1)
+  - SOTabBar (1.1.3)
 
 DEPENDENCIES:
   - FBSDKLoginKit
@@ -447,6 +448,7 @@ DEPENDENCIES:
   - GoogleSignIn (= 5.0.2)
   - KakaoSDK
   - SnapKit (~> 5.0.0)
+  - SOTabBar
 
 SPEC REPOS:
   trunk:
@@ -490,6 +492,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SnapKit
+    - SOTabBar
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -532,7 +535,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
 
-PODFILE CHECKSUM: a2840632564fe0fc09f60600a12fcb9c8d559221
+PODFILE CHECKSUM: 8653e97c9c0bd6f2fab20b9bfd553c9bc391e02e
 
 COCOAPODS: 1.10.1

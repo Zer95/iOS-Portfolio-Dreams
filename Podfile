@@ -18,5 +18,6 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'KakaoSDK'
 pod 'FBSDKLoginKit'
+pod 'SOTabBar'
     
 end
