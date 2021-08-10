@@ -36,8 +36,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
     var ref: DatabaseReference!
     let db = Firestore.firestore()
+    let storage = Storage.storage()
     
     var stadiumData: [(title: String, img: UIImage, price: Int, Latitude: Double, longitude: Double)] = []
+    var stadiumImage: UIImage?
     var stadiumDataCnt = 0
     
     override func viewDidLoad() {
@@ -65,24 +67,33 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    print("왜 안먹어 ")
+                    
                     let info = document.data()
                     guard let title = info["title"] as? String else {return}
-                    print("dd \(title)")
-                    
                     guard let price = info["price"] as? Int else {return}
-                    print("dd \(price)")
-                    
                     guard let Latitude = info["Latitude"] as? Double else {return}
-                    print("dd \(Latitude)")
-                    
                     guard let Longitude = info["Longitude"] as? Double else {return}
-                    print("dd \(Longitude)")
                     
-
-                    self.stadiumData.append((title: title, img: #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
-                  // self.stadiumData?.append((title: "dd232", img: #imageLiteral(resourceName: "baseball3"), price: 3, Latitude: 3.0, longitude: 3.0))
-//
+                    
+                    // 이미지 저장
+                    let islandRef = Storage.storage().reference().child("\(document.documentID).jpg")
+                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                    islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                    if let error = error {
+                    // Uh-oh, an error occurred!
+                    print("error: \(error)")
+                    } else {
+                    // Data for "images/island.jpg" is returned
+                    let image = UIImage(data: data!)
+            
+                        self.stadiumData.append((title: title, img: image ?? #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
+                        print("이미지 정보 값 \(image)")
+                        }
+                    }
+             
+                    
+                  //  self.stadiumData.append((title: title, img: self.stadiumImage ?? #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
+                
                   print("검사  \(self.stadiumData)")
                     
                 }
