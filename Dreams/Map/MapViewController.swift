@@ -11,6 +11,8 @@ import GoogleMaps
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import Firebase
+
 
 struct MyPlace {
     var name: String
@@ -27,12 +29,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     let customMarkerWidth: Int = 50
     let customMarkerHeight: Int = 70
     
-    let previewDemoData = [(title: "홍대 야구장", img: #imageLiteral(resourceName: "baseball2"), price: 10, Latitude: 37.551674944360386, longitude: 126.92498582698552),
+    var previewDemoData = [(title: "홍대 야구장", img: #imageLiteral(resourceName: "baseball2"), price: 10, Latitude: 37.551674944360386, longitude: 126.92498582698552),
                            (title: "한강 야구장", img: #imageLiteral(resourceName: "baseball1"), price: 8, Latitude: 37.53296503864491, longitude: 126.92363728895141),
                            (title: "용산 야구장", img: #imageLiteral(resourceName: "baseball3"), price: 12, Latitude: 37.529280811821046, longitude: 126.96860947233841)
     ]
 
-
+    var ref: DatabaseReference!
+    let db = Firestore.firestore()
+    
+    var stadiumData: [(title: String, img: UIImage, price: Int, Latitude: Double, longitude: Double)]? = []
+    var stadiumDataCnt = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
@@ -47,6 +54,44 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         setupViews()
         initGoogleMaps()
         txtFieldSearch.delegate=self
+        ServerDataLoad()
+    }
+    
+    
+    func ServerDataLoad() {
+        db.collection("Stadium").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    print("왜 안먹어 ")
+                    let info = document.data()
+                    guard let title = info["title"] as? String else {return}
+                    print("dd \(title)")
+                    
+                    guard let price = info["price"] as? Int else {return}
+                    print("dd \(price)")
+                    
+                    guard let Latitude = info["Latitude"] as? Double else {return}
+                    print("dd \(Latitude)")
+                    
+                    guard let Longitude = info["Longitude"] as? Double else {return}
+                    print("dd \(Longitude)")
+                    
+
+                    self.stadiumData?.append((title: title, img: #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
+                  // self.stadiumData?.append((title: "dd232", img: #imageLiteral(resourceName: "baseball3"), price: 3, Latitude: 3.0, longitude: 3.0))
+//
+                  print("검사  \(self.stadiumData)")
+                    
+                }
+            }
+            self.stadiumDataCnt = self.stadiumData?.count ?? 0
+            print("마지막 전체개수 \( self.stadiumDataCnt)")
+        }
+        
+       
     }
     
     //MARK: textfield
