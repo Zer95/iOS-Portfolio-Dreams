@@ -29,15 +29,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     let customMarkerWidth: Int = 50
     let customMarkerHeight: Int = 70
     
-    var previewDemoData = [(title: "홍대 야구장", img: #imageLiteral(resourceName: "baseball2"), price: 10, Latitude: 37.551674944360386, longitude: 126.92498582698552),
-                           (title: "한강 야구장", img: #imageLiteral(resourceName: "baseball1"), price: 8, Latitude: 37.53296503864491, longitude: 126.92363728895141),
-                           (title: "용산 야구장", img: #imageLiteral(resourceName: "baseball3"), price: 12, Latitude: 37.529280811821046, longitude: 126.96860947233841)
-    ]
+//    var previewDemoData = [(title: "홍대 야구장", img: #imageLiteral(resourceName: "baseball2"), price: 10, Latitude: 37.551674944360386, longitude: 126.92498582698552),
+//                           (title: "한강 야구장", img: #imageLiteral(resourceName: "baseball1"), price: 8, Latitude: 37.53296503864491, longitude: 126.92363728895141),
+//                           (title: "용산 야구장", img: #imageLiteral(resourceName: "baseball3"), price: 12, Latitude: 37.529280811821046, longitude: 126.96860947233841)
+//    ]
 
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
-    var stadiumData: [(title: String, img: UIImage, price: Int, Latitude: Double, longitude: Double)]? = []
+    var stadiumData: [(title: String, img: UIImage, price: Int, Latitude: Double, longitude: Double)] = []
     var stadiumDataCnt = 0
     
     override func viewDidLoad() {
@@ -80,14 +80,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                     print("dd \(Longitude)")
                     
 
-                    self.stadiumData?.append((title: title, img: #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
+                    self.stadiumData.append((title: title, img: #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
                   // self.stadiumData?.append((title: "dd232", img: #imageLiteral(resourceName: "baseball3"), price: 3, Latitude: 3.0, longitude: 3.0))
 //
                   print("검사  \(self.stadiumData)")
                     
                 }
             }
-            self.stadiumDataCnt = self.stadiumData?.count ?? 0
+            self.stadiumDataCnt = self.stadiumData.count ?? 0
             print("마지막 전체개수 \( self.stadiumDataCnt)")
         }
         
@@ -175,7 +175,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return nil }
-        let data = previewDemoData[customMarkerView.tag]
+        let data = stadiumData[customMarkerView.tag]
         stadiumPreviewView.setData(title: data.title, img: data.img, price: data.price)
         return stadiumPreviewView
     }
@@ -195,13 +195,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     func showPartyMarkers(lat: Double, long: Double) {
         myMapView.clear()
-        for i in 0..<3 {
+        let cnt = stadiumData.count
+        for i in 0..<cnt {
         
-            let latutude = previewDemoData[i].Latitude
-            let longitude = previewDemoData[i].longitude
+            let latutude = stadiumData[i].Latitude
+            let longitude = stadiumData[i].longitude
             
             let marker=GMSMarker()
-            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: previewDemoData[i].img, borderColor: UIColor.darkGray, tag: i)
+            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: stadiumData[i].img, borderColor: UIColor.darkGray, tag: i)
             marker.iconView=customMarker
         
             // 좌표
