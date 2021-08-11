@@ -90,12 +90,25 @@ class StadiumViewController: UIViewController {
                     print("dd \(Longitude)")
                     
 
-                    self.ReadStadiumData?.append((title: title, img: #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
-                  // self.stadiumData?.append((title: "dd232", img: #imageLiteral(resourceName: "baseball3"), price: 3, Latitude: 3.0, longitude: 3.0))
-//
-                    self.stadiumViewModel.stadiumList.append(StadiumInfo(name: title, price: price))
-                 // print("검사  \(self.ReadStadiumData)")
+              
+                  
+                    // 이미지 저장
+                    let islandRef = Storage.storage().reference().child("\(document.documentID).jpg")
+                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                    islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                    if let error = error {
+                    // Uh-oh, an error occurred!
+                    print("error: \(error)")
+                    } else {
+                    // Data for "images/island.jpg" is returned
+                    let image = UIImage(data: data!)
+            
+                        self.ReadStadiumData?.append((title: title, img: image!, price: price, Latitude: Latitude, longitude: Longitude))
+                        print("이미지 정보 값 \(image)")
+                        }
+                    }
                     
+                    self.stadiumViewModel.stadiumList.append(StadiumInfo(keyName: document.documentID ,name: title, price: price))
                 }
             }
       
@@ -133,7 +146,24 @@ extension StadiumViewController:UITableViewDataSource{
 
         cell.Title.text = stadiumViewModel.stadiumList[indexPath.row].title
         cell.Price.text = "\(stadiumViewModel.stadiumList[indexPath.row].price)"
-      //  cell.Thumbnail.image = ReadStadiumData[id]
+        
+        let islandRef = Storage.storage().reference().child("\(stadiumViewModel.stadiumList[indexPath.row].keyName).jpg")
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
+        if let error = error {
+        // Uh-oh, an error occurred!
+        print("error: \(error)")
+        } else {
+        // Data for "images/island.jpg" is returned
+        let image = UIImage(data: data!)
+
+            cell.Thumbnail.image = image
+            print("이미지 정보 값 \(image)")
+            }
+        }
+
+        
+     
       
         return cell
     
