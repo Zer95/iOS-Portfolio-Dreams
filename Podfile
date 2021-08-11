@@ -21,5 +21,5 @@ pod 'FBSDKLoginKit'
 pod 'SOTabBar'
 pod 'GoogleMaps'
 pod 'GooglePlaces' 
-
+pod 'MaterialComponents/Buttons'
 end
