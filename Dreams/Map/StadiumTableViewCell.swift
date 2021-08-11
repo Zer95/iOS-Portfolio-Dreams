@@ -18,9 +18,5 @@ class StadiumTableViewCell: UITableViewCell {
     
     }
     
-    func update(info: StadiumInfo) {
-        Thumbnail.image = info.image
-        Title.text = info.title
- 
-    }
+  
 }

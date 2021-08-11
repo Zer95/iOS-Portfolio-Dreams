@@ -15,6 +15,8 @@ class StadiumViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    let stadiumViewModel = StadiumViewMoel()
+    
     let animationView = AnimationView()
     
     var ref: DatabaseReference!
@@ -91,19 +93,23 @@ class StadiumViewController: UIViewController {
                     self.ReadStadiumData?.append((title: title, img: #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
                   // self.stadiumData?.append((title: "dd232", img: #imageLiteral(resourceName: "baseball3"), price: 3, Latitude: 3.0, longitude: 3.0))
 //
-                  print("검사  \(self.ReadStadiumData)")
+                    self.stadiumViewModel.stadiumList.append(StadiumInfo(name: title, price: price))
+                 // print("검사  \(self.ReadStadiumData)")
                     
                 }
             }
       
             print("마지막 전체개수 \( self.ReadStadiumData?.count ?? 0)")
             
-            let loginVC = self.storyboard?.instantiateViewController(identifier: "MapViewController") as! MapViewController
-            loginVC.modalPresentationStyle = .fullScreen
-            loginVC.stadiumData = self.ReadStadiumData!
-            self.navigationController?.pushViewController(loginVC, animated: true)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+//            let loginVC = self.storyboard?.instantiateViewController(identifier: "MapViewController") as! MapViewController
+//            loginVC.modalPresentationStyle = .fullScreen
+//            loginVC.stadiumData = self.ReadStadiumData!
+//            self.navigationController?.pushViewController(loginVC, animated: true)
             
-
+            
             
         }
         
@@ -115,7 +121,7 @@ class StadiumViewController: UIViewController {
 
 extension StadiumViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return stadiumViewModel.numOfStadiumList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,7 +130,11 @@ extension StadiumViewController:UITableViewDataSource{
             return UITableViewCell()
         }
         
-     
+
+        cell.Title.text = stadiumViewModel.stadiumList[indexPath.row].title
+        cell.Price.text = "\(stadiumViewModel.stadiumList[indexPath.row].price)"
+      //  cell.Thumbnail.image = ReadStadiumData[id]
+      
         return cell
     
     }
@@ -132,4 +142,17 @@ extension StadiumViewController:UITableViewDataSource{
 
 extension StadiumViewController:UITableViewDelegate {
     
+}
+
+class StadiumViewMoel {
+    
+var stadiumList: [StadiumInfo] = []
+ 
+    var numOfStadiumList: Int {
+        return stadiumList.count
+    }
+    
+    func stadiumInfo(at index: Int) -> StadiumInfo {
+        return stadiumList[index]
+    }
 }

@@ -326,6 +326,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="nfs-eA-W2f" secondAttribute="bottom" constant="23" id="zCg-0y-u1o"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="Price" destination="Rga-fj-nuK" id="ZUi-NF-BCx"/>
+                                            <outlet property="Thumbnail" destination="nfs-eA-W2f" id="Mmg-SI-NMG"/>
+                                            <outlet property="Title" destination="XWl-Hs-Vj0" id="qGc-X2-etb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
