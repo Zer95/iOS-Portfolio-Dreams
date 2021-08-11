@@ -13,9 +13,17 @@ class DetailStadiumViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
+  
+    @IBOutlet weak var stadiumTitleLabel: UILabel!
+    
+    
     var images = ["baseball1.jpg","baseball2.jpg","baseball3.jpg"]
     var timer = Timer()
     var autoNum:Int = 1
+    
+   
+    var detailTitle: String!
     
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
@@ -31,6 +39,9 @@ class DetailStadiumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        stadiumTitleLabel.text = detailTitle
+        
         pageControl.numberOfPages = 4
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
@@ -45,6 +56,7 @@ class DetailStadiumViewController: UIViewController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(DetailStadiumViewController.respondToSwipeGesture(_:)))
         swipeRight.direction = UISwipeGestureRecognizer.Direction.right
         self.view.addGestureRecognizer(swipeRight)
+        
     }
     
     // 한 손가락 스와이프 제스쳐를 행했을 때 실행할 액션 메서드

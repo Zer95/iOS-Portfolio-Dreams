@@ -194,7 +194,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return }
         let tag = customMarkerView.tag
-     //   restaurantTapped(tag: tag)
+       restaurantTapped(tag: tag)
     }
     
     func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
@@ -230,11 +230,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     
-//    @objc func restaurantTapped(tag: Int) {
-//        let v=DetailsVC()
-//        v.passedData = previewDemoData[tag]
-//        self.navigationController?.pushViewController(v, animated: true)
-//    }
+    @objc func restaurantTapped(tag: Int) {
+        let loginVC = self.storyboard?.instantiateViewController(identifier: "DetailStadiumViewController") as! DetailStadiumViewController
+        loginVC.modalPresentationStyle = .fullScreen
+        loginVC.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(loginVC, animated: true)
+    }
     
     func setupTextField(textField: UITextField, img: UIImage){
         textField.leftViewMode = UITextField.ViewMode.always

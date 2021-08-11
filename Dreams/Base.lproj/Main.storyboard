@@ -335,6 +335,33 @@
                                     <action selector="pageChanged:" destination="WWU-v2-2Os" eventType="valueChanged" id="Jq0-mB-5ve"/>
                                 </connections>
                             </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="운영시간: 매주 월 ~ 금, 10:00 ~ 20:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eD5-e0-PIF">
+                                <rect key="frame" x="16" y="479" width="267" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="최대 인원: 15명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwI-aH-xPp">
+                                <rect key="frame" x="16" y="508" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2h-7H-ioG">
+                                <rect key="frame" x="352" y="408" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="star" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="문의 번호 : 02 - 888 - 9999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4b-Qp-K8v">
+                                <rect key="frame" x="16" y="537" width="203" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hE0-kJ-7BD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -347,6 +374,7 @@
                     <connections>
                         <outlet property="imageView" destination="pGr-tL-ThB" id="y9y-be-yYM"/>
                         <outlet property="pageControl" destination="AdW-5p-8LA" id="Fcd-fj-IhE"/>
+                        <outlet property="stadiumTitleLabel" destination="L3B-iI-jsf" id="VKK-ZI-eSd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zSV-da-sNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -784,6 +812,7 @@
         <image name="google" width="824" height="824"/>
         <image name="kakao" width="822" height="824"/>
         <image name="photo" width="4000" height="4000"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

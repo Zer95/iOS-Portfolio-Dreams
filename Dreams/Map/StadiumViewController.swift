@@ -22,7 +22,7 @@ class StadiumViewController: UIViewController {
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
-    var ReadStadiumData: [(title: String, img: UIImage, price: Int, Latitude: Double, longitude: Double)]? = []
+    var ReadStadiumData: [(title: String, img: UIImage, price: Int, Latitude: Double, longitude: Double)]! = []
     
     override func viewDidAppear(_ animated: Bool) {
         headerAnimation()
@@ -103,8 +103,9 @@ class StadiumViewController: UIViewController {
                     // Data for "images/island.jpg" is returned
                     let image = UIImage(data: data!)
             
-                        self.ReadStadiumData?.append((title: title, img: image!, price: price, Latitude: Latitude, longitude: Longitude))
-                        print("이미지 정보 값 \(image)")
+                        
+                        self.ReadStadiumData.append((title: title, img: image!, price: price, Latitude: Latitude, longitude: Longitude))
+                  
                         }
                     }
                     
@@ -112,6 +113,7 @@ class StadiumViewController: UIViewController {
                 }
             }
       
+          
             print("마지막 전체개수 \( self.ReadStadiumData?.count ?? 0)")
             
             DispatchQueue.main.async {
@@ -158,7 +160,7 @@ extension StadiumViewController:UITableViewDataSource{
         let image = UIImage(data: data!)
 
             cell.Thumbnail.image = image
-            print("이미지 정보 값 \(image)")
+         //   print("이미지 정보 값 \(image)")
             }
         }
 
@@ -176,6 +178,10 @@ extension StadiumViewController:UITableViewDelegate {
         let loginVC = self.storyboard?.instantiateViewController(identifier: "DetailStadiumViewController") as! DetailStadiumViewController
         loginVC.modalPresentationStyle = .fullScreen
         loginVC.modalTransitionStyle = .crossDissolve
+        loginVC.detailTitle = self.ReadStadiumData[indexPath.row].title
+        
+        print("클릭 인덱스: \(indexPath.row)")
+   
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
