@@ -77,7 +77,7 @@ class DetailsVC: UIViewController {
     
     let imgView: UIImageView = {
         let v=UIImageView()
-        v.image = #imageLiteral(resourceName: "restaurant1")
+        v.image = .none
         v.contentMode = .scaleAspectFill
         v.clipsToBounds=true
         v.translatesAutoresizingMaskIntoConstraints=false
