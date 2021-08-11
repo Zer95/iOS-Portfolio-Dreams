@@ -172,6 +172,13 @@ extension StadiumViewController:UITableViewDataSource{
 
 extension StadiumViewController:UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let loginVC = self.storyboard?.instantiateViewController(identifier: "DetailStadiumViewController") as! DetailStadiumViewController
+        loginVC.modalPresentationStyle = .fullScreen
+        loginVC.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
 }
 
 class StadiumViewMoel {
