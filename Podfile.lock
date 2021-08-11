@@ -433,6 +433,7 @@ PODS:
   - KakaoSDKUser (2.5.3):
     - KakaoSDKAuth (= 2.5.3)
   - leveldb-library (1.22.1)
+  - lottie-ios (3.2.3)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/Buttons (124.2.0):
@@ -505,6 +506,7 @@ DEPENDENCIES:
   - GooglePlaces
   - GoogleSignIn (= 5.0.2)
   - KakaoSDK
+  - lottie-ios
   - MaterialComponents/Buttons
   - SnapKit (~> 5.0.0)
   - SOTabBar
@@ -550,6 +552,7 @@ SPEC REPOS:
     - KakaoSDKTemplate
     - KakaoSDKUser
     - leveldb-library
+    - lottie-ios
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
@@ -598,6 +601,7 @@ SPEC CHECKSUMS:
   KakaoSDKTemplate: 5939681de6c24fd81e93bf824982e979e794f87e
   KakaoSDKUser: 5d2de71fe070455bbaaad6a37af3eb500fbc8972
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
@@ -606,6 +610,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
 
-PODFILE CHECKSUM: f9f12d322360a2c819a52403fe376a855c1b1e55
+PODFILE CHECKSUM: 2e774ec27c0a95ce4d076c48aa755f491fe75955
 
 COCOAPODS: 1.10.1

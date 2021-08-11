@@ -8,18 +8,38 @@
 import UIKit
 import Firebase
 import MaterialComponents.MaterialButtons
+import Lottie
 
 class StadiumViewController: UIViewController {
 
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    let animationView = AnimationView()
+    
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
     var ReadStadiumData: [(title: String, img: UIImage, price: Int, Latitude: Double, longitude: Double)]? = []
     
+    override func viewDidAppear(_ animated: Bool) {
+        headerAnimation()
+   }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ServerDataLoad()
         setFloatingButton()
+        headerAnimation()
+    }
+    
+    func headerAnimation() {
+        animationView.animation = Animation.named("reservation")
+        animationView.frame = headerView.bounds
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        headerView.addSubview(animationView)
     }
     
     // 플로팅 버튼 정의
@@ -91,4 +111,25 @@ class StadiumViewController: UIViewController {
     }
    
 
+}
+
+extension StadiumViewController:UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StadiumTableViewCell", for: indexPath) as? StadiumTableViewCell else {
+            return UITableViewCell()
+        }
+        
+     
+        return cell
+    
+    }
+}
+
+extension StadiumViewController:UITableViewDelegate {
+    
 }
