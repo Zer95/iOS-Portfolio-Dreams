@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailStadiumViewController: UIViewController {
     
@@ -17,13 +18,22 @@ class DetailStadiumViewController: UIViewController {
   
     @IBOutlet weak var stadiumTitleLabel: UILabel!
     
+   
+    var ref: DatabaseReference!
+    let db = Firestore.firestore()
     
-    var images = ["baseball1.jpg","baseball2.jpg","baseball3.jpg"]
+    
+
     var timer = Timer()
     var autoNum:Int = 1
     
+    var imageGet: [UIImage]! = []
    
     var detailTitle: String!
+    var detailKeyName: String!
+    var detailImage1: UIImage!
+    var detailImage2: UIImage!
+    var detailImage3: UIImage!
     
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
@@ -42,13 +52,13 @@ class DetailStadiumViewController: UIViewController {
         
         stadiumTitleLabel.text = detailTitle
         
-        pageControl.numberOfPages = 4
+        pageControl.numberOfPages = 3
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        imageView.image = UIImage(named: String(images[0]))
+     //   imageView.image = UIImage(named: String(images[0]))
         timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(autoChange), userInfo: nil, repeats: true)
-        
+
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(DetailStadiumViewController.respondToSwipeGesture(_:)))
         swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
         self.view.addGestureRecognizer(swipeLeft)
@@ -56,6 +66,56 @@ class DetailStadiumViewController: UIViewController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(DetailStadiumViewController.respondToSwipeGesture(_:)))
         swipeRight.direction = UISwipeGestureRecognizer.Direction.right
         self.view.addGestureRecognizer(swipeRight)
+        
+        
+        // 이미지 저장
+       
+
+        let storageReference = Storage.storage().reference().child("\(self.detailKeyName!)")
+        storageReference.listAll { (result, error) in
+           
+          if let error = error {
+            // ...
+          }
+          for prefix in result.prefixes {
+           
+          }
+            
+           
+            
+            for i in 0...2 {
+                
+                print("결과 값 다 가져오기 \(result.items[i])")
+   
+     
+                result.items[i].getData(maxSize: 10 * 1024 * 1024) { data, error in
+            if let error = error {
+            // Uh-oh, an error occurred!
+            print("error: \(error)")
+            } else {
+                
+
+            let image = UIImage(data: data!)
+             //   cell.Thumbnail.image = image
+                
+                self.imageGet.append(image!)
+                if i == 0 {
+                    self.imageView.image = image
+                }
+               // else if i == 1 {
+//                    self.imageView.image = image
+//                } else if i == 2 {
+//                    self.imageView.image = image
+//                }
+                
+         
+                }
+            }
+            }
+
+        }
+        
+        
         
     }
     
@@ -69,12 +129,13 @@ class DetailStadiumViewController: UIViewController {
                switch swipeGesture.direction {
                    case UISwipeGestureRecognizer.Direction.left :
                        pageControl.currentPage -= 1
-                    imageView.image = UIImage(named: images[pageControl.currentPage])
+                    imageView.image = imageGet[pageControl.currentPage]
                    case UISwipeGestureRecognizer.Direction.right :
                        pageControl.currentPage += 1
-                    imageView.image = UIImage(named: images[pageControl.currentPage])
-                   default:
+                    imageView.image =  imageGet[pageControl.currentPage]
                      break
+               default:
+                print("")
                }
 
            }
@@ -86,12 +147,12 @@ class DetailStadiumViewController: UIViewController {
             autoNum = 0
         }
         pageControl.currentPage = autoNum
-        imageView.image = UIImage(named: String(images[autoNum]))
+        imageView.image =  imageGet[pageControl.currentPage]
         autoNum += 1
     }
     
     @IBAction func pageChanged(_ sender: UIPageControl) {
-        imageView.image = UIImage(named: images[pageControl.currentPage])
+        imageView.image = imageGet[pageControl.currentPage]
     }
     
     

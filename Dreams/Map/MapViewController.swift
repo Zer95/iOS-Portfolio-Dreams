@@ -38,7 +38,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     let db = Firestore.firestore()
     let storage = Storage.storage()
     
-    var stadiumData: [(title: String, img: UIImage, price: Int, Latitude: Double, longitude: Double)] = []
+    var stadiumData: [(title: String, img1: UIImage, img2: UIImage , img3: UIImage ,price: Int, Latitude: Double, longitude: Double)]! = []
     var stadiumImage: UIImage?
     var stadiumDataCnt = 0
     
@@ -56,54 +56,54 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         setupViews()
         initGoogleMaps()
         txtFieldSearch.delegate=self
-        ServerDataLoad()
+     //   ServerDataLoad()
     }
     
     
-    func ServerDataLoad() {
-        db.collection("Stadium").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    
-                    let info = document.data()
-                    guard let title = info["title"] as? String else {return}
-                    guard let price = info["price"] as? Int else {return}
-                    guard let Latitude = info["Latitude"] as? Double else {return}
-                    guard let Longitude = info["Longitude"] as? Double else {return}
-                    
-                    
-                    // 이미지 저장
-                    let islandRef = Storage.storage().reference().child("\(document.documentID).jpg")
-                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-                    islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
-                    if let error = error {
-                    // Uh-oh, an error occurred!
-                    print("error: \(error)")
-                    } else {
-                    // Data for "images/island.jpg" is returned
-                    let image = UIImage(data: data!)
-            
-                        self.stadiumData.append((title: title, img: image ?? #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
-                        print("이미지 정보 값 \(image)")
-                        }
-                    }
-             
-                    
-                  //  self.stadiumData.append((title: title, img: self.stadiumImage ?? #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
-                
-                  print("검사  \(self.stadiumData)")
-                    
-                }
-            }
-            self.stadiumDataCnt = self.stadiumData.count ?? 0
-            print("마지막 전체개수 \( self.stadiumDataCnt)")
-        }
-        
-       
-    }
+//    func ServerDataLoad() {
+//        db.collection("Stadium").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//
+//                    let info = document.data()
+//                    guard let title = info["title"] as? String else {return}
+//                    guard let price = info["price"] as? Int else {return}
+//                    guard let Latitude = info["Latitude"] as? Double else {return}
+//                    guard let Longitude = info["Longitude"] as? Double else {return}
+//
+//
+//                    // 이미지 저장
+//                    let islandRef = Storage.storage().reference().child("\(document.documentID).jpg")
+//                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+//                    islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
+//                    if let error = error {
+//                    // Uh-oh, an error occurred!
+//                    print("error: \(error)")
+//                    } else {
+//                    // Data for "images/island.jpg" is returned
+//                    let image = UIImage(data: data!)
+//
+//                        self.stadiumData.append((title: title, img: image ?? #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
+//                        print("이미지 정보 값 \(image)")
+//                        }
+//                    }
+//
+//
+//                  //  self.stadiumData.append((title: title, img: self.stadiumImage ?? #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
+//
+//                  print("검사  \(self.stadiumData)")
+//
+//                }
+//            }
+//            self.stadiumDataCnt = self.stadiumData.count ?? 0
+//            print("마지막 전체개수 \( self.stadiumDataCnt)")
+//        }
+//
+//
+//    }
     
     //MARK: textfield
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -187,7 +187,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return nil }
         let data = stadiumData[customMarkerView.tag]
-        stadiumPreviewView.setData(title: data.title, img: data.img, price: data.price)
+        stadiumPreviewView.setData(title: data.title, img: data.img1, price: data.price)
         return stadiumPreviewView
     }
     
@@ -213,7 +213,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let longitude = stadiumData[i].longitude
             
             let marker=GMSMarker()
-            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: stadiumData[i].img, borderColor: UIColor.darkGray, tag: i)
+            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: stadiumData[i].img1, borderColor: UIColor.darkGray, tag: i)
             marker.iconView=customMarker
         
             // 좌표

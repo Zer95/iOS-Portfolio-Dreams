@@ -22,7 +22,13 @@ class StadiumViewController: UIViewController {
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
-    var ReadStadiumData: [(title: String, img: UIImage, price: Int, Latitude: Double, longitude: Double)]! = []
+    var image1: UIImage!
+    var image2: UIImage!
+    var image3: UIImage!
+    
+    var imageGet: [UIImage]! = []
+    
+    var ReadStadiumData: [(title: String, img1: UIImage, img2: UIImage , img3: UIImage ,price: Int, Latitude: Double, longitude: Double)]! = []
     
     override func viewDidAppear(_ animated: Bool) {
         headerAnimation()
@@ -90,10 +96,10 @@ class StadiumViewController: UIViewController {
                     print("dd \(Longitude)")
                     
 
-              
+             
                   
                     // 이미지 저장
-                    let islandRef = Storage.storage().reference().child("\(document.documentID).jpg")
+                    let islandRef = Storage.storage().reference().child("\(document.documentID)").child("file" + "\(1)" + ".jpg")
                     // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
                     islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
                     if let error = error {
@@ -102,13 +108,51 @@ class StadiumViewController: UIViewController {
                     } else {
                     // Data for "images/island.jpg" is returned
                     let image = UIImage(data: data!)
-            
+                        self.image1 = image
                         
-                        self.ReadStadiumData.append((title: title, img: image!, price: price, Latitude: Latitude, longitude: Longitude))
+                      
                   
                         }
                     }
                     
+                    // 이미지 저장
+                    let islandRef2 = Storage.storage().reference().child("\(document.documentID)").child("file" + "\(2)" + ".jpg")
+                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                    islandRef2.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                    if let error = error {
+                    // Uh-oh, an error occurred!
+                    print("error: \(error)")
+                    } else {
+                    // Data for "images/island.jpg" is returned
+                    let image = UIImage(data: data!)
+                        self.image2 = image
+                        
+                      
+                  
+                        }
+                    }
+                    
+                    // 이미지 저장
+                    let islandRef3 = Storage.storage().reference().child("\(document.documentID)").child("file" + "\(3)" + ".jpg")
+                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                    islandRef3.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                    if let error = error {
+                    // Uh-oh, an error occurred!
+                    print("error: \(error)")
+                    } else {
+                    // Data for "images/island.jpg" is returned
+                    let image = UIImage(data: data!)
+                        self.image3 = image
+                        
+                      
+                  
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    self.ReadStadiumData.append((title: title, img1: self.image1 ?? #imageLiteral(resourceName: "moon_Selected"), img2: self.image2 ?? #imageLiteral(resourceName: "moon_Selected"), img3: self.image3 ?? #imageLiteral(resourceName: "moon_Selected"), price: price, Latitude: Latitude, longitude: Longitude))
                     self.stadiumViewModel.stadiumList.append(StadiumInfo(keyName: document.documentID ,name: title, price: price))
                 }
             }
@@ -149,24 +193,51 @@ extension StadiumViewController:UITableViewDataSource{
         cell.Title.text = stadiumViewModel.stadiumList[indexPath.row].title
         cell.Price.text = "\(stadiumViewModel.stadiumList[indexPath.row].price)"
         
-        let islandRef = Storage.storage().reference().child("\(stadiumViewModel.stadiumList[indexPath.row].keyName).jpg")
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
-        if let error = error {
-        // Uh-oh, an error occurred!
-        print("error: \(error)")
-        } else {
-        // Data for "images/island.jpg" is returned
-        let image = UIImage(data: data!)
-
-            cell.Thumbnail.image = image
-         //   print("이미지 정보 값 \(image)")
-            }
-        }
-
         
+        
+        
+        
+        let storageReference = Storage.storage().reference().child("\(stadiumViewModel.stadiumList[indexPath.row].keyName)")
+        storageReference.listAll { (result, error) in
+           
+          if let error = error {
+            // ...
+          }
+          for prefix in result.prefixes {
+           
+          }
+            
+           
+            
+            for i in 0...2 {
+                
+                print("결과 값 다 가져오기 \(result.items[i])")
+   
      
-      
+                result.items[i].getData(maxSize: 10 * 1024 * 1024) { data, error in
+            if let error = error {
+            // Uh-oh, an error occurred!
+            print("error: \(error)")
+            } else {
+                
+
+            let image = UIImage(data: data!)
+             //   cell.Thumbnail.image = image
+                if i == 0 {
+                    cell.Thumbnail.image = image
+                } else if i == 1 {
+                    cell.Thumbnail2.image = image
+                } else if i == 2 {
+                    cell.Thumbnail3.image = image
+                }
+                
+         
+                }
+            }
+            }
+
+        }
+        
         return cell
     
     }
@@ -178,7 +249,8 @@ extension StadiumViewController:UITableViewDelegate {
         let loginVC = self.storyboard?.instantiateViewController(identifier: "DetailStadiumViewController") as! DetailStadiumViewController
         loginVC.modalPresentationStyle = .fullScreen
         loginVC.modalTransitionStyle = .crossDissolve
-        loginVC.detailTitle = self.ReadStadiumData[indexPath.row].title
+        loginVC.detailTitle = stadiumViewModel.stadiumList[indexPath.row].title
+        loginVC.detailKeyName =  stadiumViewModel.stadiumList[indexPath.row].keyName
         
         print("클릭 인덱스: \(indexPath.row)")
    
