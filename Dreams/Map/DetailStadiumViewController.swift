@@ -50,6 +50,7 @@ class DetailStadiumViewController: UIViewController {
         super.viewDidLoad()
 
         
+        
         stadiumTitleLabel.text = detailTitle
         
         pageControl.numberOfPages = 3

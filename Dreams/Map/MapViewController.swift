@@ -38,7 +38,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     let db = Firestore.firestore()
     let storage = Storage.storage()
     
-    var stadiumData: [(title: String, img1: UIImage, img2: UIImage , img3: UIImage ,price: Int, Latitude: Double, longitude: Double)]! = []
+    var stadiumData: [(keyName: String,title: String, img1: UIImage ,price: Int, Latitude: Double, longitude: Double)]! = []
     var stadiumImage: UIImage?
     var stadiumDataCnt = 0
     
@@ -56,54 +56,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         setupViews()
         initGoogleMaps()
         txtFieldSearch.delegate=self
-     //   ServerDataLoad()
     }
     
     
-//    func ServerDataLoad() {
-//        db.collection("Stadium").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//
-//                    let info = document.data()
-//                    guard let title = info["title"] as? String else {return}
-//                    guard let price = info["price"] as? Int else {return}
-//                    guard let Latitude = info["Latitude"] as? Double else {return}
-//                    guard let Longitude = info["Longitude"] as? Double else {return}
-//
-//
-//                    // 이미지 저장
-//                    let islandRef = Storage.storage().reference().child("\(document.documentID).jpg")
-//                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-//                    islandRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
-//                    if let error = error {
-//                    // Uh-oh, an error occurred!
-//                    print("error: \(error)")
-//                    } else {
-//                    // Data for "images/island.jpg" is returned
-//                    let image = UIImage(data: data!)
-//
-//                        self.stadiumData.append((title: title, img: image ?? #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
-//                        print("이미지 정보 값 \(image)")
-//                        }
-//                    }
-//
-//
-//                  //  self.stadiumData.append((title: title, img: self.stadiumImage ?? #imageLiteral(resourceName: "baseball3"), price: price, Latitude: Latitude, longitude: Longitude))
-//
-//                  print("검사  \(self.stadiumData)")
-//
-//                }
-//            }
-//            self.stadiumDataCnt = self.stadiumData.count ?? 0
-//            print("마지막 전체개수 \( self.stadiumDataCnt)")
-//        }
-//
-//
-//    }
     
     //MARK: textfield
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -234,6 +189,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         let loginVC = self.storyboard?.instantiateViewController(identifier: "DetailStadiumViewController") as! DetailStadiumViewController
         loginVC.modalPresentationStyle = .fullScreen
         loginVC.modalTransitionStyle = .crossDissolve
+        loginVC.detailTitle = stadiumData[tag].title
+        loginVC.detailKeyName =  stadiumData[tag].keyName
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     

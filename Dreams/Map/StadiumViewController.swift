@@ -22,23 +22,33 @@ class StadiumViewController: UIViewController {
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
-    var image1: UIImage!
-    var image2: UIImage!
-    var image3: UIImage!
+  
     
     var imageGet: [UIImage]! = []
     
-    var ReadStadiumData: [(title: String, img1: UIImage, img2: UIImage , img3: UIImage ,price: Int, Latitude: Double, longitude: Double)]! = []
+    var ReadStadiumData: [(keyName: String, title: String, img1: UIImage ,price: Int, Latitude: Double, longitude: Double)]! = []
     
-    override func viewDidAppear(_ animated: Bool) {
-        headerAnimation()
-   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            navigationController?.setNavigationBarHidden(true, animated: animated)
+        }
+
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            navigationController?.setNavigationBarHidden(false, animated: animated)
+            headerAnimation()
+        }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         ServerDataLoad()
         setFloatingButton()
         headerAnimation()
+        
+        
     }
     
     func headerAnimation() {
@@ -67,9 +77,9 @@ class StadiumViewController: UIViewController {
     
     // 플로팅 버튼 클릭시 -> 바코드 & 입력창 띄우기
     @objc func tap(_ sender: Any) {
-        let loginVC = self.storyboard?.instantiateViewController(identifier: "MapViewController") as! MapViewController
-        loginVC.modalPresentationStyle = .fullScreen
-        loginVC.stadiumData = self.ReadStadiumData!
+        let VC = self.storyboard?.instantiateViewController(identifier: "MapViewController") as! MapViewController
+        VC.modalPresentationStyle = .fullScreen
+        VC.stadiumData = self.ReadStadiumData!
         self.navigationController?.pushViewController(loginVC, animated: true)
         
     }
@@ -108,51 +118,14 @@ class StadiumViewController: UIViewController {
                     } else {
                     // Data for "images/island.jpg" is returned
                     let image = UIImage(data: data!)
-                        self.image1 = image
+                       
                         
-                      
+                     
+                        self.ReadStadiumData.append((keyName: "\(document.documentID)", title: title, img1: image!, price: price, Latitude: Latitude, longitude: Longitude))
                   
                         }
                     }
-                    
-                    // 이미지 저장
-                    let islandRef2 = Storage.storage().reference().child("\(document.documentID)").child("file" + "\(2)" + ".jpg")
-                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-                    islandRef2.getData(maxSize: 10 * 1024 * 1024) { data, error in
-                    if let error = error {
-                    // Uh-oh, an error occurred!
-                    print("error: \(error)")
-                    } else {
-                    // Data for "images/island.jpg" is returned
-                    let image = UIImage(data: data!)
-                        self.image2 = image
-                        
-                      
-                  
-                        }
-                    }
-                    
-                    // 이미지 저장
-                    let islandRef3 = Storage.storage().reference().child("\(document.documentID)").child("file" + "\(3)" + ".jpg")
-                    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-                    islandRef3.getData(maxSize: 10 * 1024 * 1024) { data, error in
-                    if let error = error {
-                    // Uh-oh, an error occurred!
-                    print("error: \(error)")
-                    } else {
-                    // Data for "images/island.jpg" is returned
-                    let image = UIImage(data: data!)
-                        self.image3 = image
-                        
-                      
-                  
-                        }
-                    }
-                    
-                    
-                    
-                    
-                    self.ReadStadiumData.append((title: title, img1: self.image1 ?? #imageLiteral(resourceName: "moon_Selected"), img2: self.image2 ?? #imageLiteral(resourceName: "moon_Selected"), img3: self.image3 ?? #imageLiteral(resourceName: "moon_Selected"), price: price, Latitude: Latitude, longitude: Longitude))
+              
                     self.stadiumViewModel.stadiumList.append(StadiumInfo(keyName: document.documentID ,name: title, price: price))
                 }
             }
@@ -163,13 +136,7 @@ class StadiumViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-//            let loginVC = self.storyboard?.instantiateViewController(identifier: "MapViewController") as! MapViewController
-//            loginVC.modalPresentationStyle = .fullScreen
-//            loginVC.stadiumData = self.ReadStadiumData!
-//            self.navigationController?.pushViewController(loginVC, animated: true)
-            
-            
-            
+ 
         }
         
        
@@ -246,11 +213,11 @@ extension StadiumViewController:UITableViewDataSource{
 extension StadiumViewController:UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let loginVC = self.storyboard?.instantiateViewController(identifier: "DetailStadiumViewController") as! DetailStadiumViewController
-        loginVC.modalPresentationStyle = .fullScreen
-        loginVC.modalTransitionStyle = .crossDissolve
-        loginVC.detailTitle = stadiumViewModel.stadiumList[indexPath.row].title
-        loginVC.detailKeyName =  stadiumViewModel.stadiumList[indexPath.row].keyName
+        let VC = self.storyboard?.instantiateViewController(identifier: "DetailStadiumViewController") as! DetailStadiumViewController
+        VC.modalPresentationStyle = .fullScreen
+        VC.modalTransitionStyle = .crossDissolve
+        VC.detailTitle = stadiumViewModel.stadiumList[indexPath.row].title
+        VC.detailKeyName =  stadiumViewModel.stadiumList[indexPath.row].keyName
         
         print("클릭 인덱스: \(indexPath.row)")
    
