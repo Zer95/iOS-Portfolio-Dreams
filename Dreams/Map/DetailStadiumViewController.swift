@@ -17,6 +17,7 @@ class DetailStadiumViewController: UIViewController {
     
   
     @IBOutlet weak var stadiumTitleLabel: UILabel!
+    @IBOutlet weak var backBtn: UIImageView!
     
    
     var ref: DatabaseReference!
@@ -49,7 +50,7 @@ class DetailStadiumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+  
         
         stadiumTitleLabel.text = detailTitle
         
