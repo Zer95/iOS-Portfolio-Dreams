@@ -80,7 +80,7 @@ class StadiumViewController: UIViewController {
         let VC = self.storyboard?.instantiateViewController(identifier: "MapViewController") as! MapViewController
         VC.modalPresentationStyle = .fullScreen
         VC.stadiumData = self.ReadStadiumData!
-        self.navigationController?.pushViewController(loginVC, animated: true)
+        self.navigationController?.pushViewController(VC, animated: true)
         
     }
     
@@ -221,7 +221,7 @@ extension StadiumViewController:UITableViewDelegate {
         
         print("클릭 인덱스: \(indexPath.row)")
    
-        self.navigationController?.pushViewController(loginVC, animated: true)
+        self.navigationController?.pushViewController(VC, animated: true)
     }
     
 }
