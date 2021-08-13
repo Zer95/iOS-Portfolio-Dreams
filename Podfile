@@ -23,4 +23,5 @@ pod 'GoogleMaps'
 pod 'GooglePlaces' 
 pod 'MaterialComponents/Buttons'
 pod 'lottie-ios'
+pod 'FSCalendar'
 end

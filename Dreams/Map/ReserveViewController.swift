@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import FSCalendar
 
 class ReserveViewController: UIViewController {
 
+    @IBOutlet weak var calendar: FSCalendar!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        calendar.appearance.eventDefaultColor = UIColor.green
+        calendar.appearance.eventSelectionColor = UIColor.green
+        
+
+        
     }
     
 
@@ -22,3 +28,5 @@ class ReserveViewController: UIViewController {
     
 
 }
+
+

@@ -326,6 +326,7 @@ PODS:
   - FirebaseStorage (8.4.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
+  - FSCalendar (2.8.2)
   - GoogleAppMeasurement (8.4.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.4.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -502,6 +503,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/RemoteConfig
   - Firebase/Storage
+  - FSCalendar
   - GoogleMaps
   - GooglePlaces
   - GoogleSignIn (= 5.0.2)
@@ -532,6 +534,7 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseRemoteConfig
     - FirebaseStorage
+    - FSCalendar
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleMaps
@@ -581,6 +584,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 1585729afc787877763208c2088ed84221161f77
   FirebaseRemoteConfig: 0b813f093033c56fe74a91996044a239ab5acb02
   FirebaseStorage: e6065bcbf70e2a06a8c3ddc66cbe03a395bbddc4
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   GoogleAppMeasurement: 6b6a08fd9c71f4dbc89e0e812acca81d797aa342
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
@@ -610,6 +614,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
 
-PODFILE CHECKSUM: 2e774ec27c0a95ce4d076c48aa755f491fe75955
+PODFILE CHECKSUM: 5a2d78cb4d58f23ce50add308d81c34befe0d89f
 
 COCOAPODS: 1.10.1
