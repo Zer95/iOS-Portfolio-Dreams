@@ -162,5 +162,10 @@ class DetailStadiumViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-
+    @IBAction func reserveBtn(_ sender: Any) {
+        let VC = self.storyboard?.instantiateViewController(identifier: "ReserveViewController") as! ReserveViewController
+        VC.modalPresentationStyle = .fullScreen
+        self.present(VC, animated: true, completion: nil)
+    }
+    
 }

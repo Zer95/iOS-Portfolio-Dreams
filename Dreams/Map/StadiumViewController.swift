@@ -55,7 +55,7 @@ class StadiumViewController: UIViewController {
     }
     
     func headerAnimation() {
-        animationView.animation = Animation.named("reservation")
+        animationView.animation = Animation.named("baseball")
         animationView.frame = headerView.bounds
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
