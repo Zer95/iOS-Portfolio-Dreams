@@ -11,6 +11,7 @@ struct StadiumInfo {
     let keyName: String
     let title: String
     let price: Int
+    let address: String
  
     
     var image: UIImage? {
@@ -18,9 +19,10 @@ struct StadiumInfo {
     }
     
 
-    init(keyName: String ,name: String, price:Int) {
+    init(keyName: String ,name: String, price:Int, address:String) {
         self.keyName = keyName
         self.title = name
         self.price = price
+        self.address = address
     }
 }

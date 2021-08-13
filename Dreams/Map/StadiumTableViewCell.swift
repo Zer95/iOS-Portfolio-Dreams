@@ -10,8 +10,9 @@ import UIKit
 class StadiumTableViewCell: UITableViewCell {
     @IBOutlet weak var Title: UILabel!
     @IBOutlet weak var Price: UILabel!
-    @IBOutlet weak var Thumbnail: UIImageView!
+    @IBOutlet weak var Address: UILabel!
     
+    @IBOutlet weak var Thumbnail: UIImageView!
     @IBOutlet weak var Thumbnail2: UIImageView!
     @IBOutlet weak var Thumbnail3: UIImageView!
     

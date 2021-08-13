@@ -34,12 +34,13 @@ class StadiumViewController: UIViewController {
             
             navigationController?.setNavigationBarHidden(true, animated: animated)
         }
+    
 
-        override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            navigationController?.setNavigationBarHidden(false, animated: animated)
-            headerAnimation()
-        }
+  
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        headerAnimation()
+    }
     
     override func viewDidLoad() {
         
@@ -48,6 +49,8 @@ class StadiumViewController: UIViewController {
         setFloatingButton()
         headerAnimation()
         
+        // 테이블 뷰 밑줄 제거
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
     }
     
@@ -105,7 +108,7 @@ class StadiumViewController: UIViewController {
                     guard let Longitude = info["Longitude"] as? Double else {return}
                     print("dd \(Longitude)")
                     
-
+                    guard let address = info["Address"] as? String else {return}
              
                   
                     // 이미지 저장
@@ -126,7 +129,7 @@ class StadiumViewController: UIViewController {
                         }
                     }
               
-                    self.stadiumViewModel.stadiumList.append(StadiumInfo(keyName: document.documentID ,name: title, price: price))
+                    self.stadiumViewModel.stadiumList.append(StadiumInfo(keyName: document.documentID ,name: title, price: price, address: address))
                 }
             }
       
@@ -158,7 +161,8 @@ extension StadiumViewController:UITableViewDataSource{
         
 
         cell.Title.text = stadiumViewModel.stadiumList[indexPath.row].title
-        cell.Price.text = "\(stadiumViewModel.stadiumList[indexPath.row].price)"
+        cell.Price.text = "시간당: \(stadiumViewModel.stadiumList[indexPath.row].price)"
+        cell.Address.text = stadiumViewModel.stadiumList[indexPath.row].address
         
         
         
