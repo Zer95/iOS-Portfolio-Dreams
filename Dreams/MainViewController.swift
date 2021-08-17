@@ -18,6 +18,9 @@ class MainViewController: SOTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.tintColor = .black
+        
         self.delegate = self
         let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
         let contentStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Content")

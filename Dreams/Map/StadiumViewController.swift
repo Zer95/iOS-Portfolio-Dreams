@@ -31,7 +31,7 @@ class StadiumViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            
+   
            // navigationController?.setNavigationBarHidden(true, animated: animated)
         }
     
@@ -45,6 +45,8 @@ class StadiumViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+  
         ServerDataLoad()
         setFloatingButton()
         headerAnimation()
