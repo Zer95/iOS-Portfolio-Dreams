@@ -8,12 +8,14 @@
 import UIKit
 import FSCalendar
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate, UIGestureRecognizerDelegate {
+class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, UIGestureRecognizerDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
+
     @IBOutlet weak var calendar: FSCalendar!
-    @IBOutlet weak var animationSwitch: UISwitch!
+
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var notiView: UIView!
@@ -45,7 +47,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         notiView.layer.borderWidth = 0.5
         notiView.layer.borderColor =  #colorLiteral(red: 0.9122878909, green: 0.9124409556, blue: 0.9122678041, alpha: 1)
         
-       // tableView.backgroundView = UIImageView(image: UIImage(named: ""))
+    
+        
+        
+        collectionView.backgroundView = UIImageView(image: UIImage(named: "back1"))
         
         if UIDevice.current.model.hasPrefix("iPad") {
             self.calendarHeightConstraint.constant = 400
@@ -54,7 +59,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.calendar.select(Date())
         
         self.view.addGestureRecognizer(self.scopeGesture)
-        self.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
+    //    self.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
         self.calendar.scope = .week
         
         // For UITest
@@ -66,21 +71,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("\(#function)")
     }
     
-    // MARK:- UIGestureRecognizerDelegate
-    
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        let shouldBegin = self.tableView.contentOffset.y <= -self.tableView.contentInset.top
-        if shouldBegin {
-            let velocity = self.scopeGesture.velocity(in: self.view)
-            switch self.calendar.scope {
-            case .month:
-                return velocity.y < 0
-            case .week:
-                return velocity.y > 0
-            }
-        }
-        return shouldBegin
-    }
+
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         self.calendarHeightConstraint.constant = bounds.height
@@ -100,50 +91,50 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("\(self.dateFormatter.string(from: calendar.currentPage))")
     }
     
-    // MARK:- UITableViewDataSource
+
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+
+ 
+    
+}
+
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return [1,2][section]
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let identifier = ["cell_month", "cell_week"][indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier)!
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-            return cell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCollcectionCell", for: indexPath) as? homeCollcectionCell else {
+            return UICollectionViewCell()
         }
+        cell.allView.layer.cornerRadius = 10
+        cell.allView.layer.borderWidth = 1.0
+        cell.allView.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        cell.allView.layer.shadowColor = UIColor.black.cgColor
+        cell.allView.layer.shadowOffset = CGSize(width: 1 , height: 1)
+        cell.allView.layer.shadowOpacity = 0.5
+        cell.allView.layer.shadowRadius = 4.0
+        
+        return cell
     }
     
+ 
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets(top: 40, left: 0, bottom: 10, right: 0)
+}
+
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 370, height: 250)
+}
+
+}
+class homeCollcectionCell: UICollectionViewCell {
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var allView: UIView!
     
-    // MARK:- UITableViewDelegate
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 0 {
-            let scope: FSCalendarScope = (indexPath.row == 0) ? .month : .week
-            self.calendar.setScope(scope, animated: self.animationSwitch.isOn)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 1
-    }
-    
-    // MARK:- Target actions
-    
-    @IBAction func toggleClicked(sender: AnyObject) {
-        if self.calendar.scope == .month {
-            self.calendar.setScope(.week, animated: self.animationSwitch.isOn)
-        } else {
-            self.calendar.setScope(.month, animated: self.animationSwitch.isOn)
-        }
-    }
     
 }

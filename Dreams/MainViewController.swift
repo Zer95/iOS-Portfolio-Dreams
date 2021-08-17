@@ -34,7 +34,7 @@ class MainViewController: SOTabBarController {
         settingStoryboard.tabBarItem = UITabBarItem(title: "설정", image: UIImage(named: "menu"), selectedImage: UIImage(named: "menu_Selected"))
      
            
-        viewControllers = [stadiumStoryboard, homeStoryboard,contentStoryboard,  settingStoryboard]
+        viewControllers = [homeStoryboard,stadiumStoryboard,contentStoryboard,  settingStoryboard]
     }
     
 }
