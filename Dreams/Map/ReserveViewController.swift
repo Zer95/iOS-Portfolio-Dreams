@@ -26,7 +26,10 @@ class ReserveViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-
+    
+    @IBAction func cancleBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 
