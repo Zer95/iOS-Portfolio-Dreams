@@ -26,6 +26,8 @@ class ReserveViewController: UIViewController {
     var openTime = 0
     var closeTime = 0
     
+    var alreadyTime:[Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,8 +38,6 @@ class ReserveViewController: UIViewController {
         print("받아온 키 값: \(stadiumKeyName)")
         ServerDataLoad()
         
-        let today = DateToString(RE_Date: Date())
-        print("특검 오늘의 날짜는 \(today)")
         
         todayDataLoad()
     }
@@ -55,7 +55,7 @@ class ReserveViewController: UIViewController {
                 self.stadiumTitle.text = "예약장소: " + title + "(" + adress + ")"
                 
                 let openCloseTime = info!["openCloseTime"] as! [Int]
-                print("특검 오픈마감 시간  : \(openCloseTime)")
+                print(" 오픈마감 시간  : \(openCloseTime)")
                 self.openTime = openCloseTime[0]
                 self.closeTime = openCloseTime[1]
                 DispatchQueue.main.async {
@@ -69,25 +69,41 @@ class ReserveViewController: UIViewController {
     
     func todayDataLoad() {
         
+        self.alreadyTime = []
         
-        db.collection("Stadium").document(stadiumKeyName).collection("Reserve").document("Year-2021").collection("Day-0822").getDocuments { (querySnapshot, err) in
+        let year = DateToString(RE_Date: Date(),format: "YYYY")
+        let today = DateToString(RE_Date: Date(),format: "MMdd")
+        print("특검 오늘의 년도는 \(year)")
+        print("특검 오늘의 날짜는 \(today)")
+        
+        db.collection("Stadium").document(stadiumKeyName).collection("Reserve").document("Year-\(year)").collection("Day-\(today)").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     print("특검 \(document.documentID) => \(document.data())")
-           
-    
+                    
+                    let key = document.documentID
+                    let arr =  key.components(separatedBy: "-")
+                    let time = Int(arr.last ?? "") ?? 0
+                    print("특검 추출 \(time)")
+                    
+                    self.alreadyTime.append(time)
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                    
+                    
                 
                    }
             }
     }
     }
     
-    func DateToString(RE_Date: Date) -> String {
+    func DateToString(RE_Date: Date, format: String) -> String {
         let date:Date = RE_Date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMdd"
+        dateFormatter.dateFormat = format
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
@@ -125,10 +141,28 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
         cell.time.layer.borderWidth = 1.0
         cell.time.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
-        cell.time.setTitle("\(self.openTime + indexPath.row):00", for: .normal)
+        let time = self.openTime + indexPath.row
         
+     //   print("특검 중복시간검사: \(time)")
+        
+        cell.time.setTitle("\(time):00", for: .normal)
+        
+        for alreadyTime in self.alreadyTime {
+            print("특검 확인 time \(time) already \(alreadyTime)")
+            if time == alreadyTime {
+                cell.time.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+                cell.time.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+                break
+            } else {
+                cell.time.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                cell.time.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            }
+        }
+       
+         
         return cell
     }
+    
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
