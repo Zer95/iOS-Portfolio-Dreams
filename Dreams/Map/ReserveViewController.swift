@@ -15,6 +15,11 @@ class ReserveViewController: UIViewController {
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var stadiumTitle: UILabel!
     
+    @IBOutlet weak var reserveBtn: UIButton!
+    @IBOutlet weak var optionBtn1: UIButton!
+    @IBOutlet weak var optionBtn2: UIButton!
+    
+    
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
@@ -27,6 +32,8 @@ class ReserveViewController: UIViewController {
     var closeTime = 0
     
     var alreadyTime:[Int] = []
+    
+    var totalPrice = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,6 +128,30 @@ class ReserveViewController: UIViewController {
     @IBAction func cancleBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func optionBtn1(_ sender: Any) {
+        optionBtn1.isSelected = !optionBtn1.isSelected
+        
+        if optionBtn1.isSelected == true {
+            self.totalPrice = self.totalPrice + 10000
+        } else {
+            self.totalPrice = self.totalPrice - 10000
+        }
+        self.reserveBtn.setTitle("예약하기 (+\(self.totalPrice))", for: .normal)
+    }
+    
+    @IBAction func optionBtn2(_ sender: Any) {
+        optionBtn2.isSelected = !optionBtn2.isSelected
+        
+        if optionBtn2.isSelected == true {
+            self.totalPrice = self.totalPrice + 15000
+        } else {
+            self.totalPrice = self.totalPrice - 15000
+        }
+        self.reserveBtn.setTitle("예약하기 (+\(self.totalPrice))", for: .normal)
+    }
+    
+    
 }
 
 
@@ -150,11 +181,12 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
         for alreadyTime in self.alreadyTime {
             print("특검 확인 time \(time) already \(alreadyTime)")
             if time == alreadyTime {
-                cell.time.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
-                cell.time.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+             //  cell.time.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+                cell.time.setBackgroundImage(#imageLiteral(resourceName: "soldout"), for: .normal)
+                cell.time.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
                 break
             } else {
-                cell.time.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                cell.time.setBackgroundImage(.none, for: .normal)
                 cell.time.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
             }
         }
