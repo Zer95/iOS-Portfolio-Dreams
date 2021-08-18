@@ -165,6 +165,8 @@ class DetailStadiumViewController: UIViewController {
     @IBAction func reserveBtn(_ sender: Any) {
         let VC = self.storyboard?.instantiateViewController(identifier: "ReserveViewController") as! ReserveViewController
         VC.modalPresentationStyle = .fullScreen
+        VC.stadiumName = self.detailTitle
+        VC.stadiumKeyName = self.detailKeyName
         self.present(VC, animated: true, completion: nil)
     }
     

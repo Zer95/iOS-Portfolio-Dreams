@@ -7,13 +7,21 @@
 
 import UIKit
 import FSCalendar
+import Firebase
 
 class ReserveViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var stadiumTitle: UILabel!
+    
+    var ref: DatabaseReference!
+    let db = Firestore.firestore()
     
     let dateFormatter = DateFormatter()
+    
+    var stadiumName = ""
+    var stadiumKeyName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +30,40 @@ class ReserveViewController: UIViewController {
         calendar.appearance.eventDefaultColor = UIColor.green
         calendar.appearance.eventSelectionColor = UIColor.green
         
-  
+        print("받아온 키 값: \(stadiumKeyName)")
+        ServerDataLoad()
+        
+        let today = DateToString(RE_Date: Date())
+        print("특검 오늘의 날짜는 \(today)")
     }
+    
+    func ServerDataLoad() {
+        db.collection("Stadium").document(stadiumKeyName).getDocument { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+           
+                let info = querySnapshot?.data()
+                  print("특검 해당하는 데이터 값 : \(info)")
+                let title = info!["title"] as! String
+                let adress = info!["Address"] as! String
+                self.stadiumTitle.text = "예약장소: " + title + "(" + adress + ")"
+                
+                   }
+            }
+    }
+      
+    func DateToString(RE_Date: Date) -> String {
+        let date:Date = RE_Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMdd"
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
+          
+        
+       
+    
     
 
     @IBAction func ReserveBtn(_ sender: Any) {
