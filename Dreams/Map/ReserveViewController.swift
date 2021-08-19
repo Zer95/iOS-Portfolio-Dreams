@@ -45,8 +45,8 @@ class ReserveViewController: UIViewController {
         print("받아온 키 값: \(stadiumKeyName)")
         ServerDataLoad()
         
-        
-        todayDataLoad()
+        let today = DateToString(RE_Date: Date(),format: "MMdd")
+        dayDataLoad(day: today)
     }
     
     func ServerDataLoad() {
@@ -74,16 +74,16 @@ class ReserveViewController: UIViewController {
             }
     }
     
-    func todayDataLoad() {
+    func dayDataLoad(day: String) {
         
         self.alreadyTime = []
         
         let year = DateToString(RE_Date: Date(),format: "YYYY")
-        let today = DateToString(RE_Date: Date(),format: "MMdd")
+   //     let day = DateToString(RE_Date: Date(),format: "MMdd")
         print("특검 오늘의 년도는 \(year)")
-        print("특검 오늘의 날짜는 \(today)")
+        print("특검 오늘의 날짜는 \(day)")
         
-        db.collection("Stadium").document(stadiumKeyName).collection("Reserve").document("Year-\(year)").collection("Day-\(today)").getDocuments { (querySnapshot, err) in
+        db.collection("Stadium").document(stadiumKeyName).collection("Reserve").document("Year-\(year)").collection("Day-\(day)").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -99,10 +99,10 @@ class ReserveViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
-                    
-                    
-                
                    }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
     }
     }
@@ -174,12 +174,15 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
         
         let time = self.openTime + indexPath.row
         
-     //   print("특검 중복시간검사: \(time)")
         
         cell.time.setTitle("\(time):00", for: .normal)
         
+        
+     
+        if self.alreadyTime.count > 0 {
+        
         for alreadyTime in self.alreadyTime {
-            print("특검 확인 time \(time) already \(alreadyTime)")
+        
             if time == alreadyTime {
              //  cell.time.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
                 cell.time.setBackgroundImage(#imageLiteral(resourceName: "soldout"), for: .normal)
@@ -190,7 +193,10 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
                 cell.time.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
             }
         }
-       
+        } else {
+            cell.time.setBackgroundImage(.none, for: .normal)
+            cell.time.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        }
          
         return cell
     }
@@ -210,11 +216,13 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
 extension ReserveViewController : FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("특검" + dateFormatter.string(from: date) + " 선택됨")
+        let day = DateToString(RE_Date: date,format: "MMdd")
+        dayDataLoad(day: day)
+        print("특검" + day + " 선택됨")
     }
     // 날짜 선택 해제 시 콜백 메소드
     public func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("특검" + dateFormatter.string(from: date) + " 해제됨")
+       // print("특검" + dateFormatter.string(from: date) + " 해제됨")
     }
    
 }
