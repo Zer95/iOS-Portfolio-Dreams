@@ -193,15 +193,18 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
              //  cell.time.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
                 cell.time.setBackgroundImage(#imageLiteral(resourceName: "soldout"), for: .normal)
                 cell.time.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
+                cell.time.isEnabled = false
                 break
             } else {
                 cell.time.setBackgroundImage(.none, for: .normal)
                 cell.time.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+                cell.time.isEnabled = true
             }
         }
         } else {
             cell.time.setBackgroundImage(.none, for: .normal)
             cell.time.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            cell.time.isEnabled = true
         }
         
         
@@ -282,6 +285,7 @@ extension ReserveViewController : FSCalendarDelegate, FSCalendarDataSource, FSCa
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let day = DateToString(RE_Date: date,format: "MMdd")
+        self.selectTime = []
         dayDataLoad(day: day)
         print("특검" + day + " 선택됨")
     }
