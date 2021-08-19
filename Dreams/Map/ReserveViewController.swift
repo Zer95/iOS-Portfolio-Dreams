@@ -19,6 +19,8 @@ class ReserveViewController: UIViewController {
     @IBOutlet weak var optionBtn1: UIButton!
     @IBOutlet weak var optionBtn2: UIButton!
     
+    @IBOutlet weak var optionLabel1: UILabel!
+    @IBOutlet weak var optionLabel2: UILabel!
     
     var ref: DatabaseReference!
     let db = Firestore.firestore()
@@ -35,6 +37,8 @@ class ReserveViewController: UIViewController {
     
     var stadiumPrice = 0
     var totalPrice = 0
+    var equipmentPrice = 0
+    var screenPrice = 0
     
     var selectTime: [Int] = []
     var selectTime1: [String] = []
@@ -48,7 +52,6 @@ class ReserveViewController: UIViewController {
         calendar.appearance.eventSelectionColor = UIColor.green
         
         print("받아온 키 값: \(stadiumKeyName)")
-        self.stadiumPrice = 10000
         
         ServerDataLoad()
         
@@ -68,15 +71,26 @@ class ReserveViewController: UIViewController {
                 let adress = info!["Address"] as! String
                 self.stadiumTitle.text = "예약장소: " + title + "(" + adress + ")"
                 
+                let price =  info!["price"] as! Int
+                let equipmentPrice =  info!["equipmentPrice"] as! Int
+                let screenPrice =  info!["screenPrice"] as! Int
+                
+                // Setting Price
+                self.stadiumPrice = price
+                self.equipmentPrice = equipmentPrice
+                self.screenPrice = screenPrice
+                self.optionLabel1.text = "장비대여 (+\(self.equipmentPrice)원)"
+                self.optionLabel2.text = "스크린 점수판 (+\(self.screenPrice)원)"
+             
+                
+                // 오픈 마감 시간
                 let openCloseTime = info!["openCloseTime"] as! [Int]
                 print(" 오픈마감 시간  : \(openCloseTime)")
                 self.openTime = openCloseTime[0]
                 self.closeTime = openCloseTime[1]
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
-                 
-                }
-                
+                      }
                    }
             }
     }
@@ -140,9 +154,9 @@ class ReserveViewController: UIViewController {
         optionBtn1.isSelected = !optionBtn1.isSelected
         
         if optionBtn1.isSelected == true {
-            self.totalPrice = self.totalPrice + 10000
+            self.totalPrice = self.totalPrice + self.equipmentPrice
         } else {
-            self.totalPrice = self.totalPrice - 10000
+            self.totalPrice = self.totalPrice - self.equipmentPrice
         }
         self.reserveBtn.setTitle("예약하기 (+\(self.totalPrice))", for: .normal)
     }
@@ -151,9 +165,9 @@ class ReserveViewController: UIViewController {
         optionBtn2.isSelected = !optionBtn2.isSelected
         
         if optionBtn2.isSelected == true {
-            self.totalPrice = self.totalPrice + 15000
+            self.totalPrice = self.totalPrice + self.screenPrice
         } else {
-            self.totalPrice = self.totalPrice - 15000
+            self.totalPrice = self.totalPrice - self.screenPrice
         }
         self.reserveBtn.setTitle("예약하기 (+\(self.totalPrice))", for: .normal)
     }

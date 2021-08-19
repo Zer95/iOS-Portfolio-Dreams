@@ -934,8 +934,8 @@
                                                             <action selector="optionBtn1:" destination="mbB-Tm-eju" eventType="touchUpInside" id="B1g-Bl-Rtx"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장비 대여 (+ 10,000원)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnr-0m-qYM">
-                                                        <rect key="frame" x="38" y="16" width="144" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장비 대여 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnr-0m-qYM">
+                                                        <rect key="frame" x="38" y="16" width="60" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -974,8 +974,8 @@
                                                             <action selector="optionBtn2:" destination="mbB-Tm-eju" eventType="touchUpInside" id="g9i-9m-wDw"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스크린 점수판 (+ 15,000원)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aup-6V-AMJ">
-                                                        <rect key="frame" x="38" y="16" width="170" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스크린 점수판 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aup-6V-AMJ">
+                                                        <rect key="frame" x="38" y="16" width="86" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1227,6 +1227,8 @@
                         <outlet property="collectionView" destination="8SP-vs-kws" id="MsL-iJ-fIz"/>
                         <outlet property="optionBtn1" destination="Urc-4o-DCr" id="z0f-h9-9h3"/>
                         <outlet property="optionBtn2" destination="CjY-5g-nTf" id="D3F-dR-Q47"/>
+                        <outlet property="optionLabel1" destination="Jnr-0m-qYM" id="u9R-5t-0Rx"/>
+                        <outlet property="optionLabel2" destination="aup-6V-AMJ" id="3lw-Oe-nPg"/>
                         <outlet property="reserveBtn" destination="rd2-QR-IUU" id="RnJ-zW-wTf"/>
                         <outlet property="stadiumTitle" destination="eKy-pT-pg5" id="1uu-WI-28g"/>
                     </connections>
