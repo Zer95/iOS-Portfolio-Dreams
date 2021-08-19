@@ -33,6 +33,7 @@ class ReserveViewController: UIViewController {
     
     var alreadyTime:[Int] = []
     
+    var stadiumPrice = 0
     var totalPrice = 0
     
     var selectTime: [Int] = []
@@ -47,6 +48,8 @@ class ReserveViewController: UIViewController {
         calendar.appearance.eventSelectionColor = UIColor.green
         
         print("받아온 키 값: \(stadiumKeyName)")
+        self.stadiumPrice = 10000
+        
         ServerDataLoad()
         
         let today = DateToString(RE_Date: Date(),format: "MMdd")
@@ -249,11 +252,15 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
         
         if indexInt == 9999 {
             self.selectTime.append(sender.tag)
+            self.totalPrice = self.totalPrice + self.stadiumPrice
         } else {
             self.selectTime.remove(at: indexInt)
+            self.totalPrice = self.totalPrice - self.stadiumPrice
             
         }
      
+      
+        self.reserveBtn.setTitle("예약하기 (+\(self.totalPrice))", for: .normal)
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -285,7 +292,14 @@ extension ReserveViewController : FSCalendarDelegate, FSCalendarDataSource, FSCa
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let day = DateToString(RE_Date: date,format: "MMdd")
+        
+        // 초기화
         self.selectTime = []
+        optionBtn1.isSelected = false
+        optionBtn2.isSelected = false
+        self.totalPrice = 0
+        self.reserveBtn.setTitle("예약하기 (+\(self.totalPrice))", for: .normal)
+        
         dayDataLoad(day: day)
         print("특검" + day + " 선택됨")
     }
