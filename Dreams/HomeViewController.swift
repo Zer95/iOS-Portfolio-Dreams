@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import Firebase
 
 class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, UIGestureRecognizerDelegate {
     
@@ -19,6 +20,14 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var notiView: UIView!
+    
+    var ref: DatabaseReference!
+    let db = Firestore.firestore()
+    
+    var userUid = ""
+    var userReserveCnt = 0
+    
+    var titleTemp: [String] = []
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -65,13 +74,65 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         // For UITest
         self.calendar.accessibilityIdentifier = "calendar"
         
+        
+        UserDataLoad()
     }
     
     deinit {
         print("\(#function)")
     }
     
+    
+    func UserDataLoad() {
+        
+        
+        if Auth.auth().currentUser != nil {
+          
+            let user = Auth.auth().currentUser
+            if let user = user {
+              // The user's ID, unique to the Firebase project.
+              // Do NOT use this value to authenticate with your backend server,
+              // if you have one. Use getTokenWithCompletion:completion: instead.
+              let uid = user.uid
+       
+                
+              var multiFactorString = "MultiFactor: "
+              for info in user.multiFactor.enrolledFactors {
+                multiFactorString += info.displayName ?? "[DispayName]"
+                multiFactorString += " "
+              }
+            
+                self.userUid = uid
+            }
+            
+        } else {
+          // No user is signed in.
+          // ...
+        }
 
+        print("정보: \(self.userUid)")
+        
+        let year = DateToString(RE_Date: Date(),format: "YYYY")
+        
+        db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.userReserveCnt = querySnapshot!.documents.count
+                
+                for document in querySnapshot!.documents {
+                    print("정보 \(document.documentID) => \(document.data())")
+                    let info = document.data()
+                    guard let title = info["title"] as? String else {return}
+                    self.titleTemp.append(title)
+                }
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+    }
+    }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         self.calendarHeightConstraint.constant = bounds.height
@@ -92,7 +153,13 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     }
     
 
-    
+    func DateToString(RE_Date: Date, format: String) -> String {
+        let date:Date = RE_Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
 
  
     
@@ -100,7 +167,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.userReserveCnt
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -114,6 +181,8 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.allView.layer.shadowOffset = CGSize(width: 1 , height: 1)
         cell.allView.layer.shadowOpacity = 0.5
         cell.allView.layer.shadowRadius = 4.0
+        
+        cell.title.text = self.titleTemp[indexPath.row]
         
         return cell
     }

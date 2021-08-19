@@ -104,8 +104,8 @@ class ReserveViewController: UIViewController {
         print("특검 오늘의 년도는 \(year)")
         print("특검 오늘의 날짜는 \(day)")
         
-        db.collection("Stadium").document(stadiumKeyName).collection("Reserve").document("Year-\(year)").collection("Day-\(day)").getDocuments { (querySnapshot, err) in
-            if let err = err {
+        db.collection("Stadium").document(stadiumKeyName).collection("Reserve").document().collection("Day-\(day)").getDocuments { (querySnapshot, err) in
+            if let err = err {"Year-\(year)"
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
