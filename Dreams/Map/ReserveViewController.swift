@@ -35,6 +35,10 @@ class ReserveViewController: UIViewController {
     
     var totalPrice = 0
     
+    var selectTime: [Int] = []
+    var selectTime1: [String] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -151,6 +155,8 @@ class ReserveViewController: UIViewController {
         self.reserveBtn.setTitle("예약하기 (+\(self.totalPrice))", for: .normal)
     }
     
+  
+    
     
 }
 
@@ -197,11 +203,61 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
             cell.time.setBackgroundImage(.none, for: .normal)
             cell.time.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         }
+        
+        
+        
+        
+        if selectTime.count > 0 {
+            
+            for select in self.selectTime {
+                if select == indexPath.row {
+                    cell.time.setBackgroundImage(#imageLiteral(resourceName: "map_Pin"), for: .normal)
+                    cell.time.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+                    
+            
+                }
+        }
+        }
+        
+        cell.time.tag = indexPath.row
+        cell.time.addTarget(self, action: #selector(cellBtn), for: .touchUpInside)
+
+   
+        
          
         return cell
     }
     
-
+    @objc func cellBtn(sender : UIButton){
+       
+        let index = sender.tag
+        
+       
+        
+        // 중복 값 제거
+        let set = Set(self.selectTime)
+        self.selectTime = Array(set)
+        
+        
+        
+        
+        let indexCheck = self.selectTime.firstIndex(of: index)
+        let indexInt = Int(indexCheck ?? 9999)
+        
+        if indexInt == 9999 {
+            self.selectTime.append(sender.tag)
+        } else {
+            self.selectTime.remove(at: indexInt)
+            
+        }
+     
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+        }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
@@ -210,8 +266,17 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
        
         return CGSize(width: 90, height: 40)
     }
+
     
-}
+    
+        
+    }
+
+
+    
+ 
+
+
 
 extension ReserveViewController : FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     // 날짜 선택 시 콜백 메소드
