@@ -43,6 +43,9 @@ class ReserveViewController: UIViewController {
     var selectTime: [Int] = []
     var selectTime1: [String] = []
     
+    var userUid = ""
+    var userSelectDay = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +59,7 @@ class ReserveViewController: UIViewController {
         ServerDataLoad()
         
         let today = DateToString(RE_Date: Date(),format: "MMdd")
+        self.userSelectDay = today
         dayDataLoad(day: today)
     }
     
@@ -138,12 +142,45 @@ class ReserveViewController: UIViewController {
     }
           
         
+    func ReserveDataSave() {
+     
+        if Auth.auth().currentUser != nil {
+          
+            let user = Auth.auth().currentUser
+            if let user = user {
+          
+              let uid = user.uid
        
+                self.userUid = uid
+            }
+            
+        } else {
+          // No user is signed in.
+          // ...
+        }
+        
+        print("특검 유저 정보 \(self.userUid)")
+            
+        self.db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").document("\(self.userSelectDay)").setData([
+            "title": "야구장",
+            "date": "\(Date())"
+          
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+
+        
+    }
     
     
 
     @IBAction func ReserveBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        self.ReserveDataSave()
+
     }
     
     
@@ -314,7 +351,7 @@ extension ReserveViewController : FSCalendarDelegate, FSCalendarDataSource, FSCa
     // 날짜 선택 시 콜백 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let day = DateToString(RE_Date: date,format: "MMdd")
-        
+        self.userSelectDay = day
         // 초기화
         self.selectTime = []
         optionBtn1.isSelected = false
