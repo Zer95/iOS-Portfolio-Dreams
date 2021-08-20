@@ -41,7 +41,7 @@ class ReserveViewController: UIViewController {
     var screenPrice = 0
     
     var selectTime: [Int] = []
-    var selectTime1: [String] = []
+    var selectTimeDB: [Int] = []
     
     var userUid = ""
     var userEmail = ""
@@ -184,8 +184,10 @@ class ReserveViewController: UIViewController {
                
                 if userSelectTime.last != time {
                     self.userSelectTime  = self.userSelectTime + "\(self.openTime + time),"
+                    self.selectTimeDB.append((self.openTime + time))
                 } else {
                     self.userSelectTime  = self.userSelectTime + "\(self.openTime + time)"
+                    self.selectTimeDB.append((self.openTime + time))
                 }
             }
             
@@ -205,8 +207,11 @@ class ReserveViewController: UIViewController {
             } else {
                 print("Document successfully written!")
                 
+                print("특검 선택시간 배열 \(self.selectTimeDB)")
+                
+                for selectTime in self.selectTimeDB {
                 // 사용자 DB 성공 후
-                self.db.collection("Stadium").document(self.stadiumKeyName).collection("Reserve").document("Year-\(self.year)").collection("Day-\(self.userSelectDay)").document("Time-\(self.userSelectTime)").setData([
+                self.db.collection("Stadium").document(self.stadiumKeyName).collection("Reserve").document("Year-\(self.year)").collection("Day-\(self.userSelectDay)").document("Time-\(selectTime)").setData([
                     "ClientName": self.userName,
                     "ClientEmail": self.userEmail,
                     "ClinetUid":self.userUid,
@@ -215,7 +220,7 @@ class ReserveViewController: UIViewController {
                     
                 ])
                 
-                
+                }
                 
                 
                 
