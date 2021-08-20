@@ -24,10 +24,13 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
+    let userReserveDataModel = UserReserveDataModel()
+    
+ //   var UserReserveData: [(stadiumName: String, reserveTime: String, totalPrice: Int, equipmentState: Bool, screenState: Bool, selectTime:[Int])]! = []
+    
     var userUid = ""
     var userReserveCnt = 0
     
-    var titleTemp: [String] = []
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -110,21 +113,30 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
           // ...
         }
 
-        print("정보: \(self.userUid)")
+        print("Log: \(self.userUid)")
         
         let year = DateToString(RE_Date: Date(),format: "YYYY")
         
         db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").getDocuments { (querySnapshot, err) in
             if let err = err {
-                print("Error getting documents: \(err)")
+                print("Log Error getting documents: \(err)")
             } else {
                 self.userReserveCnt = querySnapshot!.documents.count
-                
+                print("Log Read 개수: \(querySnapshot!.documents.count)")
                 for document in querySnapshot!.documents {
-                    print("정보 \(document.documentID) => \(document.data())")
+                    
+                  //  print("Log \(document.documentID) => \(document.data())")
+                    
                     let info = document.data()
-                    guard let title = info["title"] as? String else {return}
-                    self.titleTemp.append(title)
+                    let stadiumName = info["stadiumName"] as? String ?? ""
+                    let reserveTime = info["reserveTime"] as? String  ?? ""
+                    let totalPrice = info["totalPrice"] as? Int ?? 0
+                    let equipmentState = info["equipmentState"] as? Bool ?? false
+                    let screenState = info["screenState"] as? Bool ?? false
+                    let selectTime = info["selectTime"] as? [Int] ?? []
+                    print("Log 셀렉 배열 \(selectTime)")
+                    self.userReserveDataModel.userReserveDataList.append(UserReserveInfo(stadiumName: stadiumName, reserveTime: reserveTime, totalPrice: totalPrice, equipmentState: equipmentState, screenState: screenState, selectTime: selectTime))
+                    
                 }
                 
                 DispatchQueue.main.async {
@@ -182,7 +194,9 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.allView.layer.shadowOpacity = 0.5
         cell.allView.layer.shadowRadius = 4.0
         
-        cell.title.text = self.titleTemp[indexPath.row]
+        let CheckData = userReserveDataModel.userReserveDataList[indexPath.row]
+        
+        print("Log MVVM Check : \(CheckData)")
         
         return cell
     }
@@ -206,4 +220,18 @@ class homeCollcectionCell: UICollectionViewCell {
     @IBOutlet weak var allView: UIView!
     
     
+}
+
+
+class UserReserveDataModel {
+    
+    var userReserveDataList: [UserReserveInfo] = []
+    
+    var numOfDataList: Int {
+        return userReserveDataList.count
+    }
+    
+    func userReserveInfo(at index: Int) -> UserReserveInfo {
+        return userReserveDataList[index]
+    }
 }

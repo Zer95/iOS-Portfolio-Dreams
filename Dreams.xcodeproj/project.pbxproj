@@ -18,6 +18,7 @@
 		D21DA88626C3740E0068AD9A /* StadiunInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DA88526C3740E0068AD9A /* StadiunInfo.swift */; };
 		D21DA88A26C3796C0068AD9A /* reservation.json in Resources */ = {isa = PBXBuildFile; fileRef = D21DA88926C3796C0068AD9A /* reservation.json */; };
 		D21DA88C26C3903C0068AD9A /* DetailStadiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DA88B26C3903C0068AD9A /* DetailStadiumViewController.swift */; };
+		D23B303826CF9C370025C1CE /* UserReserveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B303726CF9C370025C1CE /* UserReserveInfo.swift */; };
 		D2582E6F26B7AF4400DF1669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2582E6E26B7AF4400DF1669 /* AppDelegate.swift */; };
 		D2582E7126B7AF4400DF1669 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2582E7026B7AF4400DF1669 /* SceneDelegate.swift */; };
 		D2582E7326B7AF4400DF1669 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2582E7226B7AF4400DF1669 /* LoginViewController.swift */; };
@@ -49,6 +50,7 @@
 		D21DA88526C3740E0068AD9A /* StadiunInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiunInfo.swift; sourceTree = "<group>"; };
 		D21DA88926C3796C0068AD9A /* reservation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = reservation.json; path = ../../../../../Downloads/reservation.json; sourceTree = "<group>"; };
 		D21DA88B26C3903C0068AD9A /* DetailStadiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStadiumViewController.swift; sourceTree = "<group>"; };
+		D23B303726CF9C370025C1CE /* UserReserveInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReserveInfo.swift; sourceTree = "<group>"; };
 		D2582E6B26B7AF4400DF1669 /* Dreams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dreams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2582E6E26B7AF4400DF1669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2582E7026B7AF4400DF1669 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				D214492C26BA9305008D702F /* AgreeViewController.swift */,
 				D2F029F826C126C5003C0239 /* Map */,
 				D2F029E026C0BF4D003C0239 /* HomeViewController.swift */,
+				D23B303726CF9C370025C1CE /* UserReserveInfo.swift */,
 				D214492E26BAB696008D702F /* MainViewController.swift */,
 				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
 				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
@@ -307,6 +310,7 @@
 				D2582E6F26B7AF4400DF1669 /* AppDelegate.swift in Sources */,
 				D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */,
 				D214492726BA37CF008D702F /* ViewController.swift in Sources */,
+				D23B303826CF9C370025C1CE /* UserReserveInfo.swift in Sources */,
 				D21DA88226C35DF70068AD9A /* StadiumViewController.swift in Sources */,
 				D2F029F326C0FFD7003C0239 /* DetailsVC.swift in Sources */,
 				D21DA88426C373530068AD9A /* StadiumTableViewCell.swift in Sources */,
