@@ -200,7 +200,8 @@ class ReserveViewController: UIViewController {
             "totalPrice": self.totalPrice,
             "equipmentState": self.option1State,
             "screenState": self.option2State,
-            "selectTime": self.selectTimeDB
+            "selectTime": self.selectTimeDB,
+            "date": self.year + self.userSelectDay
           
         ]) { err in
             if let err = err {

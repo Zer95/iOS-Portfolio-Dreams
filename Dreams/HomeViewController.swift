@@ -85,7 +85,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         print("\(#function)")
     }
     
-    
+
     func UserDataLoad() {
         
         
@@ -93,9 +93,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
           
             let user = Auth.auth().currentUser
             if let user = user {
-              // The user's ID, unique to the Firebase project.
-              // Do NOT use this value to authenticate with your backend server,
-              // if you have one. Use getTokenWithCompletion:completion: instead.
+        
               let uid = user.uid
        
                 
@@ -113,19 +111,18 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
           // ...
         }
 
-        print("Log: \(self.userUid)")
+        print("[Log]: \(self.userUid)")
         
-        let year = DateToString(RE_Date: Date(),format: "YYYY")
         
         db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").getDocuments { (querySnapshot, err) in
             if let err = err {
-                print("Log Error getting documents: \(err)")
+                print("[Log] Error getting documents: \(err)")
             } else {
                 self.userReserveCnt = querySnapshot!.documents.count
-                print("Log Read 개수: \(querySnapshot!.documents.count)")
+                print("[Log] Read 개수: \(querySnapshot!.documents.count)")
                 for document in querySnapshot!.documents {
                     
-                  //  print("Log \(document.documentID) => \(document.data())")
+                  //  print("[Log] \(document.documentID) => \(document.data())")
                     
                     let info = document.data()
                     let stadiumName = info["stadiumName"] as? String ?? ""
@@ -134,7 +131,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
                     let equipmentState = info["equipmentState"] as? Bool ?? false
                     let screenState = info["screenState"] as? Bool ?? false
                     let selectTime = info["selectTime"] as? [Int] ?? []
-                    print("Log 셀렉 배열 \(selectTime)")
+                    print("[Log] 셀렉 배열 \(selectTime)")
                     self.userReserveDataModel.userReserveDataList.append(UserReserveInfo(stadiumName: stadiumName, reserveTime: reserveTime, totalPrice: totalPrice, equipmentState: equipmentState, screenState: screenState, selectTime: selectTime))
                     
                 }
@@ -146,25 +143,66 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     }
     }
     
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        self.calendarHeightConstraint.constant = bounds.height
-        self.view.layoutIfNeeded()
-    }
-    
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("did select date \(self.dateFormatter.string(from: date))")
-        let selectedDates = calendar.selectedDates.map({self.dateFormatter.string(from: $0)})
-        print("selected dates is \(selectedDates)")
-        if monthPosition == .next || monthPosition == .previous {
-            calendar.setCurrentPage(date, animated: true)
+    func UserSelectDataLoad(day: String) {
+        
+        let year = DateToString(RE_Date: Date(),format: "YYYY")
+
+        let queryDate = year + day
+        
+        if Auth.auth().currentUser != nil {
+          
+            let user = Auth.auth().currentUser
+            if let user = user {
+            
+              let uid = user.uid
+       
+                
+              var multiFactorString = "MultiFactor: "
+              for info in user.multiFactor.enrolledFactors {
+                multiFactorString += info.displayName ?? "[DispayName]"
+                multiFactorString += " "
+              }
+             
+                self.userUid = uid
+            }
+            
+        } else {
+          // No user is signed in.
+          // ...
         }
-    }
 
-    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        print("\(self.dateFormatter.string(from: calendar.currentPage))")
+        print("[Log] 쿼리데이터  \(queryDate)")
+        
+        
+        db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").whereField("date",isEqualTo: queryDate).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("[Log] Error getting documents: \(err)")
+            } else {
+                self.userReserveCnt = querySnapshot!.documents.count
+                print("[Log] Read 개수: \(querySnapshot!.documents.count)")
+                for document in querySnapshot!.documents {
+                    
+                  //  print("[Log] \(document.documentID) => \(document.data())")
+                    
+                    let info = document.data()
+                    let stadiumName = info["stadiumName"] as? String ?? ""
+                    let reserveTime = info["reserveTime"] as? String  ?? ""
+                    let totalPrice = info["totalPrice"] as? Int ?? 0
+                    let equipmentState = info["equipmentState"] as? Bool ?? false
+                    let screenState = info["screenState"] as? Bool ?? false
+                    let selectTime = info["selectTime"] as? [Int] ?? []
+                    print("[Log] 셀렉 배열 \(selectTime)")
+                    self.userReserveDataModel.userReserveDataList.append(UserReserveInfo(stadiumName: stadiumName, reserveTime: reserveTime, totalPrice: totalPrice, equipmentState: equipmentState, screenState: screenState, selectTime: selectTime))
+                    
+                }
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+    }
     }
     
-
     func DateToString(RE_Date: Date, format: String) -> String {
         let date:Date = RE_Date
         let dateFormatter = DateFormatter()
@@ -172,6 +210,30 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
+    
+    
+    // MARK: - Calendar
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        self.calendarHeightConstraint.constant = bounds.height
+        self.view.layoutIfNeeded()
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        // 초기화 필수
+        self.userReserveDataModel.userReserveDataList = []
+        
+        let day = DateToString(RE_Date: date,format: "MMdd")
+        print("[Log] 선택된 날짜는 \(day)")
+        self.UserSelectDataLoad(day: day)
+    }
+
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        print("\(self.dateFormatter.string(from: calendar.currentPage))")
+    }
+    
+
+  
 
  
     
@@ -202,7 +264,7 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.screenState.text = "스크린 전광판: \(userReserveDataModel.userReserveDataList[indexPath.row].screenState)"
         cell.reserveTime.text = "예약 일시: \(userReserveDataModel.userReserveDataList[indexPath.row].reserveTime)"
         
-        print("Log MVVM Check : \(CheckData)")
+        print("[Log] MVVM Check : \(CheckData)")
         
         return cell
     }
@@ -220,6 +282,15 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 }
 
 }
+
+
+
+
+
+
+
+
+
 class homeCollcectionCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var allView: UIView!
