@@ -195,6 +195,12 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.allView.layer.shadowRadius = 4.0
         
         let CheckData = userReserveDataModel.userReserveDataList[indexPath.row]
+        cell.stadiumName.text = userReserveDataModel.userReserveDataList[indexPath.row].stadiumName
+        cell.selectTime.text = "예약시간: \(userReserveDataModel.userReserveDataList[indexPath.row].selectTime)"
+        cell.totalPrice.text = "결제금액: \(userReserveDataModel.userReserveDataList[indexPath.row].totalPrice)"
+        cell.equipmentState.text = "장비대여: \(userReserveDataModel.userReserveDataList[indexPath.row].equipmentState)"
+        cell.screenState.text = "스크린 전광판: \(userReserveDataModel.userReserveDataList[indexPath.row].screenState)"
+        cell.reserveTime.text = "예약 일시: \(userReserveDataModel.userReserveDataList[indexPath.row].reserveTime)"
         
         print("Log MVVM Check : \(CheckData)")
         
@@ -216,8 +222,15 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 }
 class homeCollcectionCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var allView: UIView!
+    
+    @IBOutlet weak var stadiumName: UILabel!
+    @IBOutlet weak var selectTime: UILabel!
+    @IBOutlet weak var totalPrice: UILabel!
+    @IBOutlet weak var equipmentState: UILabel!
+    @IBOutlet weak var screenState: UILabel!
+    
+    @IBOutlet weak var reserveTime: UILabel!
     
     
 }
