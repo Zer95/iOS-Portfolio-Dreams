@@ -241,6 +241,13 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if self.userReserveCnt == 0 {
+            collectionView.backgroundView = UIImageView(image: UIImage(named: "back2"))
+        } else {
+            collectionView.backgroundView = UIImageView(image: UIImage(named: "back1"))
+        }
+        
         return self.userReserveCnt
     }
     
