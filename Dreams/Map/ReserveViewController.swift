@@ -44,8 +44,9 @@ class ReserveViewController: UIViewController {
     var selectTime1: [String] = []
     
     var userUid = ""
+    var year = ""
     var userSelectDay = ""
-    
+    var userSelecrTime = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,7 @@ class ReserveViewController: UIViewController {
         
         ServerDataLoad()
         
+        self.year = DateToString(RE_Date: Date(),format: "YYYY")
         let today = DateToString(RE_Date: Date(),format: "MMdd")
         self.userSelectDay = today
         dayDataLoad(day: today)
@@ -103,12 +105,13 @@ class ReserveViewController: UIViewController {
         
         self.alreadyTime = []
         
-        let year = DateToString(RE_Date: Date(),format: "YYYY")
+        
    //     let day = DateToString(RE_Date: Date(),format: "MMdd")
         print("특검 오늘의 년도는 \(year)")
         print("특검 오늘의 날짜는 \(day)")
         
-        db.collection("Stadium").document(stadiumKeyName).collection("Reserve").document("Year-\(year)").collection("Day-\(day)").getDocuments { (querySnapshot, err) in
+        
+        db.collection("Stadium").document(stadiumKeyName).collection("Reserve").document("Year-\(self.year)").collection("Day-\(day)").getDocuments { (querySnapshot, err) in
             if let err = err {
 
                 print("Error getting documents: \(err)")
@@ -160,8 +163,26 @@ class ReserveViewController: UIViewController {
         }
         
         print("특검 유저 정보 \(self.userUid)")
+     
+        
+        
+        let userSelectTime = self.selectTime
+        if userSelectTime.count > 0 {
             
-        self.db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").document("\(self.userSelectDay)").setData([
+           
+            for time in userSelectTime {
+               
+                if userSelectTime.last != time {
+                    self.userSelecrTime  = self.userSelecrTime + "\(self.openTime + time),"
+                } else {
+                    self.userSelecrTime  = self.userSelecrTime + "\(self.openTime + time)-"
+                }
+            }
+            
+        let dayPath = self.year + self.userSelectDay + "-Time"+self.userSelecrTime + self.stadiumKeyName
+     
+            
+        self.db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").document(dayPath).setData([
             "title": "야구장",
             "date": "\(Date())"
           
@@ -172,7 +193,16 @@ class ReserveViewController: UIViewController {
                 print("Document successfully written!")
             }
         }
-
+        } else{
+            let alert = UIAlertController(title: "알림", message: "시간을 선택해주세요!", preferredStyle: .alert)
+                                   alert.addAction(UIAlertAction(title: "확인", style: .default){
+                                   UIAlertAction in
+                                   
+                                      
+                             })
+                            present(alert, animated: true, completion: nil)
+        }
+        self.userSelecrTime = ""
         
     }
     
@@ -241,9 +271,8 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
         cell.time.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         let time = self.openTime + indexPath.row
-        
-        
-        cell.time.setTitle("\(time):00", for: .normal)
+        let timeString = "\(time):00"
+        cell.time.setTitle(timeString, for: .normal)
         
         
      
