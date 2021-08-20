@@ -199,7 +199,8 @@ class ReserveViewController: UIViewController {
             "reserveTime": "\(self.DateToString(RE_Date: Date()))",
             "totalPrice": self.totalPrice,
             "equipmentState": self.option1State,
-            "screenState": self.option2State
+            "screenState": self.option2State,
+            "selectTime": self.selectTimeDB
           
         ]) { err in
             if let err = err {
@@ -222,7 +223,13 @@ class ReserveViewController: UIViewController {
                 
                 }
                 
-                
+                let alert = UIAlertController(title: "알림", message: "예약이 완료 되었습니다.", preferredStyle: .alert)
+                                       alert.addAction(UIAlertAction(title: "확인", style: .default){
+                                       UIAlertAction in
+                                        self.dismiss(animated: true, completion: nil)
+                                          
+                                 })
+                self.present(alert, animated: true, completion: nil)
                 
             }
         }
