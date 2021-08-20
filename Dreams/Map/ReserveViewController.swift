@@ -44,9 +44,12 @@ class ReserveViewController: UIViewController {
     var selectTime1: [String] = []
     
     var userUid = ""
+    var userEmail = ""
+    var userName = ""
+    
     var year = ""
     var userSelectDay = ""
-    var userSelecrTime = ""
+    var userSelectTime = ""
     
     var option1State = false
     var option2State = false
@@ -156,8 +159,12 @@ class ReserveViewController: UIViewController {
             if let user = user {
           
               let uid = user.uid
-       
+              let email = user.email ?? ""
+              let name = user.displayName ?? ""
+                
                 self.userUid = uid
+                self.userEmail = email
+                self.userName = name
             }
             
         } else {
@@ -176,13 +183,13 @@ class ReserveViewController: UIViewController {
             for time in userSelectTime {
                
                 if userSelectTime.last != time {
-                    self.userSelecrTime  = self.userSelecrTime + "\(self.openTime + time),"
+                    self.userSelectTime  = self.userSelectTime + "\(self.openTime + time),"
                 } else {
-                    self.userSelecrTime  = self.userSelecrTime + "\(self.openTime + time)-"
+                    self.userSelectTime  = self.userSelectTime + "\(self.openTime + time)"
                 }
             }
             
-        let dayPath = self.year + self.userSelectDay + "-Time"+self.userSelecrTime + self.stadiumKeyName
+        let dayPath = self.year + self.userSelectDay + "-Time"+self.userSelectTime + "-" +  self.stadiumKeyName
      
             
         self.db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").document(dayPath).setData([
@@ -197,6 +204,21 @@ class ReserveViewController: UIViewController {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+                
+                // 사용자 DB 성공 후
+                self.db.collection("Stadium").document(self.stadiumKeyName).collection("Reserve").document("Year-\(self.year)").collection("Day-\(self.userSelectDay)").document("Time-\(self.userSelectTime)").setData([
+                    "ClientName": self.userName,
+                    "ClientEmail": self.userEmail,
+                    "ClinetUid":self.userUid,
+                    "equipmentState": self.option1State,
+                    "screenState": self.option2State
+                    
+                ])
+                
+                
+                
+                
+                
             }
         }
         } else{
@@ -208,7 +230,7 @@ class ReserveViewController: UIViewController {
                              })
                             present(alert, animated: true, completion: nil)
         }
-        self.userSelecrTime = ""
+       // self.userSelectTime = ""
         
     }
     
