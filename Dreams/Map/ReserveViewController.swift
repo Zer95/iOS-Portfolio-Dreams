@@ -48,6 +48,9 @@ class ReserveViewController: UIViewController {
     var userSelectDay = ""
     var userSelecrTime = ""
     
+    var option1State = false
+    var option2State = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -183,8 +186,11 @@ class ReserveViewController: UIViewController {
      
             
         self.db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").document(dayPath).setData([
-            "title": "야구장",
-            "date": "\(Date())"
+            "stadiumName": self.stadiumName,
+            "reserveTime": "\(self.DateToString(RE_Date: Date()))",
+            "totalPrice": self.totalPrice,
+            "equipmentState": self.option1State,
+            "screenState": self.option2State
           
         ]) { err in
             if let err = err {
@@ -206,7 +212,16 @@ class ReserveViewController: UIViewController {
         
     }
     
-    
+    // 날짜 데이터 문자열로 변환
+    func DateToString(RE_Date: Date) -> String {
+        let date:Date = RE_Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        dateFormatter.dateFormat = "yyyy-MM-dd:HH:mm:ss"
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
 
     @IBAction func ReserveBtn(_ sender: Any) {
         self.ReserveDataSave()
@@ -223,8 +238,10 @@ class ReserveViewController: UIViewController {
         
         if optionBtn1.isSelected == true {
             self.totalPrice = self.totalPrice + self.equipmentPrice
+            self.option1State = true
         } else {
             self.totalPrice = self.totalPrice - self.equipmentPrice
+            self.option1State = false
         }
         self.reserveBtn.setTitle("예약하기 ( +\(self.priceFormatter(number: self.totalPrice))원 )", for: .normal)
     }
@@ -234,8 +251,10 @@ class ReserveViewController: UIViewController {
         
         if optionBtn2.isSelected == true {
             self.totalPrice = self.totalPrice + self.screenPrice
+            self.option2State = true
         } else {
             self.totalPrice = self.totalPrice - self.screenPrice
+            self.option2State = false
         }
        
         self.reserveBtn.setTitle("예약하기 ( +\(self.priceFormatter(number: self.totalPrice))원 )", for: .normal)
