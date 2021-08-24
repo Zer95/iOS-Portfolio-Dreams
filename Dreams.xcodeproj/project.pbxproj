@@ -25,6 +25,8 @@
 		D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7426B7AF4400DF1669 /* Main.storyboard */; };
 		D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7726B7AF4400DF1669 /* Assets.xcassets */; };
 		D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */; };
+		D2BCCB5D26D510930045A973 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5C26D510930045A973 /* ShopViewController.swift */; };
+		D2BCCB5F26D5176F0045A973 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */; };
 		D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E026C0BF4D003C0239 /* HomeViewController.swift */; };
 		D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E226C0C1DD003C0239 /* SettingViewController.swift */; };
 		D2F029E926C0EF18003C0239 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E826C0EF18003C0239 /* MapViewController.swift */; };
@@ -60,6 +62,8 @@
 		D2582E7A26B7AF4400DF1669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2582E7C26B7AF4400DF1669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D271A24026BBDB040001B0F9 /* Dreams.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dreams.entitlements; sourceTree = "<group>"; };
+		D2BCCB5C26D510930045A973 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		D2F029E026C0BF4D003C0239 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2F029E226C0C1DD003C0239 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D2F029E826C0EF18003C0239 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				D23B303726CF9C370025C1CE /* UserReserveInfo.swift */,
 				D214492E26BAB696008D702F /* MainViewController.swift */,
 				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
+				D2BCCB5C26D510930045A973 /* ShopViewController.swift */,
+				D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */,
 				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
 				D2F029F626C112D8003C0239 /* GoogleService-Info.plist */,
 				D2582E7726B7AF4400DF1669 /* Assets.xcassets */,
@@ -308,7 +314,9 @@
 				D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */,
 				D2F029ED26C0FEC2003C0239 /* CustomMakerView.swift in Sources */,
 				D2582E6F26B7AF4400DF1669 /* AppDelegate.swift in Sources */,
+				D2BCCB5F26D5176F0045A973 /* ShopDetailViewController.swift in Sources */,
 				D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */,
+				D2BCCB5D26D510930045A973 /* ShopViewController.swift in Sources */,
 				D214492726BA37CF008D702F /* ViewController.swift in Sources */,
 				D23B303826CF9C370025C1CE /* UserReserveInfo.swift in Sources */,
 				D21DA88226C35DF70068AD9A /* StadiumViewController.swift in Sources */,

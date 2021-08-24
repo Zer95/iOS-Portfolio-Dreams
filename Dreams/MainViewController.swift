@@ -23,18 +23,18 @@ class MainViewController: SOTabBarController {
         
         self.delegate = self
         let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
-        let contentStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Content")
         let stadiumStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Stadium")
+        let shopStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Shop")
         let settingStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Setting")
     
         
         homeStoryboard.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_Selected"))
-        contentStoryboard.tabBarItem = UITabBarItem(title: "컨텐츠", image: UIImage(named: "chat"), selectedImage: UIImage(named: "chat_Selected"))
         stadiumStoryboard.tabBarItem = UITabBarItem(title: "경기장", image: UIImage(named: "music"), selectedImage: UIImage(named: "music_Selected"))
+        shopStoryboard.tabBarItem = UITabBarItem(title: "상점", image: UIImage(named: "chat"), selectedImage: UIImage(named: "chat_Selected"))
         settingStoryboard.tabBarItem = UITabBarItem(title: "설정", image: UIImage(named: "menu"), selectedImage: UIImage(named: "menu_Selected"))
      
            
-        viewControllers = [homeStoryboard,stadiumStoryboard,contentStoryboard,  settingStoryboard]
+        viewControllers = [homeStoryboard,stadiumStoryboard,shopStoryboard,  settingStoryboard]
     }
     
 }
