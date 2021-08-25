@@ -6,30 +6,63 @@
 //
 
 import UIKit
+import Firebase
 
 class ShopViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var ref: DatabaseReference!
+    let db = Firestore.firestore()
+    
+    var readCategory: [String : Any] = [:]
+    var readCategoryValue: [String] = []
+    var readCategoryKey: [String] = []
+    var CategoryCnt = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        shopDataLoad()
 
     }
     
-
+    func shopDataLoad() {
+        db.collection("Shop").document("Category").getDocument { (querySnapshot, err) in
+            if let err = err {
+                print("[Log] Error getting documents: \(err)")
+            } else {
+                let readData = querySnapshot?.data()
+                self.readCategory = readData!
+          
+                for (key, value) in readData! {
+                    self.readCategoryKey.append(key)
+                    self.readCategoryValue.append(value as! String)
+                    
+                }
+                print("[Log] 데이터 키 : \(self.readCategoryKey)")
+                print("[Log] 데이터 값 : \(self.readCategoryValue)")
+                print("[Log] 데이터 로드개수 : \(self.readCategory.count)")
+                self.CategoryCnt = self.readCategory.count
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+       
 }
 
-
+}
 extension ShopViewController: UICollectionViewDataSource  , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return self.CategoryCnt
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCollectionCell", for: indexPath) as? ShopCollectionCell else {
             return UICollectionViewCell()
         }
-
+        cell.title.text = self.readCategoryValue[indexPath.row]
         
             return cell
     }
