@@ -44,6 +44,7 @@ class ShopViewController: UIViewController {
                 print("[Log] 데이터 로드개수 : \(self.readCategory.count)")
                 self.CategoryCnt = self.readCategory.count
                 
+    
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -64,8 +65,25 @@ extension ShopViewController: UICollectionViewDataSource  , UICollectionViewDele
         }
         cell.title.text = self.readCategoryValue[indexPath.row]
         
-            return cell
-    }
+        
+        let storageReference = Storage.storage().reference().child("Shop").child("Category").child("\(self.readCategoryKey[indexPath.row]).jpg")
+        storageReference.getData(maxSize: 10 * 1024 * 1024) { data, error in
+            if let error = error {
+            // Uh-oh, an error occurred!
+            print("error: \(error)")
+            } else {
+                
+
+            let image = UIImage(data: data!)
+                cell.imageView.image = image
+              
+                }
+            }
+          return cell
+        }
+        
+          
+   
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
