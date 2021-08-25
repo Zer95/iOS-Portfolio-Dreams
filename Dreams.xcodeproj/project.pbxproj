@@ -25,6 +25,7 @@
 		D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7426B7AF4400DF1669 /* Main.storyboard */; };
 		D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7726B7AF4400DF1669 /* Assets.xcassets */; };
 		D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */; };
+		D283EF9726D6740400E2BB3F /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283EF9626D6740400E2BB3F /* OrderViewController.swift */; };
 		D2AF026326D6259E007C5119 /* ShopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026226D6259E007C5119 /* ShopInfo.swift */; };
 		D2AF026526D62656007C5119 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026426D62656007C5119 /* ShopViewModel.swift */; };
 		D2AF026726D639C9007C5119 /* ShopProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026626D639C9007C5119 /* ShopProductViewController.swift */; };
@@ -65,6 +66,7 @@
 		D2582E7A26B7AF4400DF1669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2582E7C26B7AF4400DF1669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D271A24026BBDB040001B0F9 /* Dreams.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dreams.entitlements; sourceTree = "<group>"; };
+		D283EF9626D6740400E2BB3F /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		D2AF026226D6259E007C5119 /* ShopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfo.swift; sourceTree = "<group>"; };
 		D2AF026426D62656007C5119 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		D2AF026626D639C9007C5119 /* ShopProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProductViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				D2AF026426D62656007C5119 /* ShopViewModel.swift */,
 				D2BCCB5C26D510930045A973 /* ShopViewController.swift */,
 				D2AF026226D6259E007C5119 /* ShopInfo.swift */,
+				D283EF9626D6740400E2BB3F /* OrderViewController.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				D23B303826CF9C370025C1CE /* UserReserveInfo.swift in Sources */,
 				D21DA88226C35DF70068AD9A /* StadiumViewController.swift in Sources */,
 				D2F029F326C0FFD7003C0239 /* DetailsVC.swift in Sources */,
+				D283EF9726D6740400E2BB3F /* OrderViewController.swift in Sources */,
 				D21DA88426C373530068AD9A /* StadiumTableViewCell.swift in Sources */,
 				D2582E7126B7AF4400DF1669 /* SceneDelegate.swift in Sources */,
 				D214492D26BA9305008D702F /* AgreeViewController.swift in Sources */,

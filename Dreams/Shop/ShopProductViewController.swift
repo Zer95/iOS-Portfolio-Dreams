@@ -16,6 +16,8 @@ class ShopProductViewController: UIViewController {
     @IBOutlet weak var delivery: UILabel!
     @IBOutlet weak var stock: UILabel!
     
+    @IBOutlet weak var buyBtn: UIButton!
+    
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
@@ -37,6 +39,15 @@ class ShopProductViewController: UIViewController {
         delivery.text = "배송비: \(recieveInfo.delivery)원"
         stock.text = "남은 수량: \(recieveInfo.stock)"
         
+        buyBtn.layer.cornerRadius = 10
+        buyBtn.layer.borderWidth = 1.0
+        buyBtn.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        buyBtn.layer.shadowColor = UIColor.black.cgColor
+        buyBtn.layer.shadowOffset = CGSize(width: 1 , height: 1)
+        buyBtn.layer.shadowOpacity = 0.5
+        buyBtn.layer.shadowRadius = 4.0
+        
+        
         let storageReference = self.recieveImageReference
         storageReference?.getData(maxSize: 10 * 1024 * 1024) { data, error in
             if let error = error {
@@ -53,4 +64,9 @@ class ShopProductViewController: UIViewController {
         
     }
 
+    @IBAction func buyBtn(_ sender: Any) {
+        let VC = self.storyboard?.instantiateViewController(identifier: "OrderViewController") as! OrderViewController
+        VC.modalPresentationStyle = .fullScreen
+        self.present(VC, animated: true, completion: nil)
+    }
 }
