@@ -9,6 +9,7 @@ import UIKit
 
 struct ShopInfo {
     
+    let keyName: String
     let name: String
     let price: Int
     let stock: Int
@@ -20,7 +21,8 @@ struct ShopInfo {
     }
     
 
-    init(name: String, price:Int, stock: Int, delivery: Int) {
+    init(keyName: String,name: String, price:Int, stock: Int, delivery: Int) {
+        self.keyName = keyName
         self.name = name
         self.price = price
         self.stock = stock

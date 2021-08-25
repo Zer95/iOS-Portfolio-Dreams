@@ -41,7 +41,7 @@ class ShopDetailViewController: UIViewController {
                 guard let stock = info["stock"] as? Int else {return}
                 guard let delivery = info["delivery"] as? Int else {return}
                 
-                self.shopViewModel.shopList.append(ShopInfo(name: name, price: price, stock: stock, delivery: delivery))
+                self.shopViewModel.shopList.append(ShopInfo(keyName: document.documentID, name: name, price: price, stock: stock, delivery: delivery))
             }
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -63,6 +63,21 @@ extension ShopDetailViewController: UICollectionViewDataSource  , UICollectionVi
         cell.name.text = shopViewModel.shopList[indexPath.row].name
         cell.price.text = "\(shopViewModel.shopList[indexPath.row].price)원"
         cell.delivery.text = "\(shopViewModel.shopList[indexPath.row].delivery)원"
+        
+        
+        let storageReference = Storage.storage().reference().child("Shop").child("Data").child(self.recieveData).child("\(shopViewModel.shopList[indexPath.row].keyName).jpg")
+        storageReference.getData(maxSize: 10 * 1024 * 1024) { data, error in
+            if let error = error {
+            // Uh-oh, an error occurred!
+            print("error: \(error)")
+            } else {
+                
+
+            let image = UIImage(data: data!)
+                cell.ImageView.image = image
+              
+                }
+            }
         
         
           return cell
