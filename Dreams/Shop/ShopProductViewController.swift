@@ -67,6 +67,7 @@ class ShopProductViewController: UIViewController {
     @IBAction func buyBtn(_ sender: Any) {
         let VC = self.storyboard?.instantiateViewController(identifier: "OrderViewController") as! OrderViewController
         VC.modalPresentationStyle = .fullScreen
+        VC.productInfo = self.recieveInfo
         self.present(VC, animated: true, completion: nil)
     }
 }
