@@ -25,6 +25,8 @@
 		D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7426B7AF4400DF1669 /* Main.storyboard */; };
 		D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7726B7AF4400DF1669 /* Assets.xcassets */; };
 		D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */; };
+		D2AF026326D6259E007C5119 /* ShopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026226D6259E007C5119 /* ShopInfo.swift */; };
+		D2AF026526D62656007C5119 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026426D62656007C5119 /* ShopViewModel.swift */; };
 		D2BCCB5D26D510930045A973 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5C26D510930045A973 /* ShopViewController.swift */; };
 		D2BCCB5F26D5176F0045A973 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */; };
 		D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E026C0BF4D003C0239 /* HomeViewController.swift */; };
@@ -62,6 +64,8 @@
 		D2582E7A26B7AF4400DF1669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2582E7C26B7AF4400DF1669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D271A24026BBDB040001B0F9 /* Dreams.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dreams.entitlements; sourceTree = "<group>"; };
+		D2AF026226D6259E007C5119 /* ShopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfo.swift; sourceTree = "<group>"; };
+		D2AF026426D62656007C5119 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		D2BCCB5C26D510930045A973 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		D2F029E026C0BF4D003C0239 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -130,8 +134,7 @@
 				D23B303726CF9C370025C1CE /* UserReserveInfo.swift */,
 				D214492E26BAB696008D702F /* MainViewController.swift */,
 				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
-				D2BCCB5C26D510930045A973 /* ShopViewController.swift */,
-				D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */,
+				D2AF026126D624B6007C5119 /* Shop */,
 				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
 				D2F029F626C112D8003C0239 /* GoogleService-Info.plist */,
 				D2582E7726B7AF4400DF1669 /* Assets.xcassets */,
@@ -140,6 +143,17 @@
 				D214492826BA3CB3008D702F /* RemoteConfigDefaults.plist */,
 			);
 			path = Dreams;
+			sourceTree = "<group>";
+		};
+		D2AF026126D624B6007C5119 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */,
+				D2AF026426D62656007C5119 /* ShopViewModel.swift */,
+				D2BCCB5C26D510930045A973 /* ShopViewController.swift */,
+				D2AF026226D6259E007C5119 /* ShopInfo.swift */,
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		D2F029F826C126C5003C0239 /* Map */ = {
@@ -304,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D21DA88626C3740E0068AD9A /* StadiunInfo.swift in Sources */,
+				D2AF026326D6259E007C5119 /* ShopInfo.swift in Sources */,
 				D214492F26BAB696008D702F /* MainViewController.swift in Sources */,
 				D2582E7326B7AF4400DF1669 /* LoginViewController.swift in Sources */,
 				D214492B26BA4447008D702F /* SingInViewController.swift in Sources */,
@@ -313,6 +328,7 @@
 				D2F029E926C0EF18003C0239 /* MapViewController.swift in Sources */,
 				D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */,
 				D2F029ED26C0FEC2003C0239 /* CustomMakerView.swift in Sources */,
+				D2AF026526D62656007C5119 /* ShopViewModel.swift in Sources */,
 				D2582E6F26B7AF4400DF1669 /* AppDelegate.swift in Sources */,
 				D2BCCB5F26D5176F0045A973 /* ShopDetailViewController.swift in Sources */,
 				D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */,

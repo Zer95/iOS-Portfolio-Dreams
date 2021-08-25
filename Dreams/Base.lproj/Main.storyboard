@@ -445,6 +445,12 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="189" height="222"/>
+                                        <connections>
+                                            <outlet property="ImageView" destination="GIa-ED-9uP" id="wWl-Fd-h1E"/>
+                                            <outlet property="delivery" destination="aQs-68-QCq" id="v2C-dG-bzc"/>
+                                            <outlet property="name" destination="C6p-qd-Kaj" id="wfl-Zv-C7H"/>
+                                            <outlet property="price" destination="2Zb-fs-x6P" id="OTp-Mf-kdh"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

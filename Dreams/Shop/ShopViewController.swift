@@ -103,7 +103,7 @@ extension ShopViewController: UICollectionViewDelegate {
             let VC = self.storyboard?.instantiateViewController(identifier: "ShopDetailViewController") as! ShopDetailViewController
             VC.modalPresentationStyle = .fullScreen
             VC.modalTransitionStyle = .crossDissolve
-          
+            VC.recieveData = self.readCategoryKey[indexPath.row]
             
             print("클릭 인덱스: \(indexPath.row)")
        

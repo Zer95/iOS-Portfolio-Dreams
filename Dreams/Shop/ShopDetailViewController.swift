@@ -6,29 +6,65 @@
 //
 
 import UIKit
+import Firebase
 
 class ShopDetailViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var ref: DatabaseReference!
+    let db = Firestore.firestore()
+    
+    var recieveData = ""
+    
+    let shopViewModel = ShopViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        ServerDataLoad()
 
     }
     
+    func ServerDataLoad() {
+        db.collection("Shop").document("Category").collection(self.recieveData).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+            }
+            for document in querySnapshot!.documents {
+                print("\(document.documentID) => \(document.data())")
+                
+                let info = document.data()
+                guard let name = info["name"] as? String else {return}
+                guard let price = info["price"] as? Int else {return}
+                guard let stock = info["stock"] as? Int else {return}
+                guard let delivery = info["delivery"] as? Int else {return}
+                
+                self.shopViewModel.shopList.append(ShopInfo(name: name, price: price, stock: stock, delivery: delivery))
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
 }
 
 extension ShopDetailViewController: UICollectionViewDataSource  , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return shopViewModel.numOfShopList
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopDetailCell", for: indexPath) as? ShopDetailCell else {
             return UICollectionViewCell()
         }
-      //  cell.layer.borderWidth = 1
+          
+        cell.name.text = shopViewModel.shopList[indexPath.row].name
+        cell.price.text = "\(shopViewModel.shopList[indexPath.row].price)원"
+        cell.delivery.text = "\(shopViewModel.shopList[indexPath.row].delivery)원"
+        
+        
           return cell
         }
         
@@ -58,6 +94,7 @@ extension ShopDetailViewController: UICollectionViewDelegate {
          
         }
     }
+
 
 class ShopDetailCell: UICollectionViewCell {
     @IBOutlet weak var ImageView: UIImageView!
