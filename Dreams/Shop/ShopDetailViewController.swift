@@ -16,6 +16,7 @@ class ShopDetailViewController: UIViewController {
     let db = Firestore.firestore()
     
     var recieveData = ""
+   
     
     let shopViewModel = ShopViewModel()
     
@@ -62,7 +63,7 @@ extension ShopDetailViewController: UICollectionViewDataSource  , UICollectionVi
           
         cell.name.text = shopViewModel.shopList[indexPath.row].name
         cell.price.text = "\(shopViewModel.shopList[indexPath.row].price)원"
-        cell.delivery.text = "\(shopViewModel.shopList[indexPath.row].delivery)원"
+        cell.delivery.text = "배송비: \(shopViewModel.shopList[indexPath.row].delivery)원"
         
         
         let storageReference = Storage.storage().reference().child("Shop").child("Data").child(self.recieveData).child("\(shopViewModel.shopList[indexPath.row].keyName).jpg")
@@ -105,13 +106,16 @@ extension ShopDetailViewController: UICollectionViewDelegate {
   
         // 셀 클릭시 동작하는 부분
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      
+            
             let VC = self.storyboard?.instantiateViewController(identifier: "ShopProductViewController") as! ShopProductViewController
             VC.modalPresentationStyle = .fullScreen
             VC.modalTransitionStyle = .crossDissolve
             VC.recieveInfo = shopViewModel.shopList[indexPath.row]
             print("클릭 인덱스: \(indexPath.row)")
-       
+            
+            let imageReference = Storage.storage().reference().child("Shop").child("Data").child(self.recieveData).child("\(shopViewModel.shopList[indexPath.row].keyName).jpg")
+            VC.recieveImageReference = imageReference
+            
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
