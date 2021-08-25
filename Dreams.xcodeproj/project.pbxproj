@@ -27,6 +27,7 @@
 		D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */; };
 		D2AF026326D6259E007C5119 /* ShopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026226D6259E007C5119 /* ShopInfo.swift */; };
 		D2AF026526D62656007C5119 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026426D62656007C5119 /* ShopViewModel.swift */; };
+		D2AF026726D639C9007C5119 /* ShopProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026626D639C9007C5119 /* ShopProductViewController.swift */; };
 		D2BCCB5D26D510930045A973 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5C26D510930045A973 /* ShopViewController.swift */; };
 		D2BCCB5F26D5176F0045A973 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */; };
 		D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E026C0BF4D003C0239 /* HomeViewController.swift */; };
@@ -66,6 +67,7 @@
 		D271A24026BBDB040001B0F9 /* Dreams.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dreams.entitlements; sourceTree = "<group>"; };
 		D2AF026226D6259E007C5119 /* ShopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfo.swift; sourceTree = "<group>"; };
 		D2AF026426D62656007C5119 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
+		D2AF026626D639C9007C5119 /* ShopProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProductViewController.swift; sourceTree = "<group>"; };
 		D2BCCB5C26D510930045A973 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		D2F029E026C0BF4D003C0239 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */,
+				D2AF026626D639C9007C5119 /* ShopProductViewController.swift */,
 				D2AF026426D62656007C5119 /* ShopViewModel.swift */,
 				D2BCCB5C26D510930045A973 /* ShopViewController.swift */,
 				D2AF026226D6259E007C5119 /* ShopInfo.swift */,
@@ -321,6 +324,7 @@
 				D2AF026326D6259E007C5119 /* ShopInfo.swift in Sources */,
 				D214492F26BAB696008D702F /* MainViewController.swift in Sources */,
 				D2582E7326B7AF4400DF1669 /* LoginViewController.swift in Sources */,
+				D2AF026726D639C9007C5119 /* ShopProductViewController.swift in Sources */,
 				D214492B26BA4447008D702F /* SingInViewController.swift in Sources */,
 				D21DA88C26C3903C0068AD9A /* DetailStadiumViewController.swift in Sources */,
 				D2FC0AA526C62D3000B4B490 /* ReserveViewController.swift in Sources */,

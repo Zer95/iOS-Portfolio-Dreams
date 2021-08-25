@@ -106,7 +106,13 @@ extension ShopDetailViewController: UICollectionViewDelegate {
         // 셀 클릭시 동작하는 부분
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       
-         
+            let VC = self.storyboard?.instantiateViewController(identifier: "ShopProductViewController") as! ShopProductViewController
+            VC.modalPresentationStyle = .fullScreen
+            VC.modalTransitionStyle = .crossDissolve
+            VC.recieveInfo = shopViewModel.shopList[indexPath.row]
+            print("클릭 인덱스: \(indexPath.row)")
+       
+            self.navigationController?.pushViewController(VC, animated: true)
         }
     }
 
