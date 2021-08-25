@@ -1869,6 +1869,9 @@
                                                         <state key="normal" title="+">
                                                             <color key="titleColor" systemColor="systemPinkColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="productPlus:" destination="egv-96-ent" eventType="touchUpInside" id="6j9-Ky-mTb"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sey-m9-G4o">
                                                         <rect key="frame" x="203" y="45" width="30" height="89"/>
@@ -1877,9 +1880,12 @@
                                                         <state key="normal" title="-">
                                                             <color key="titleColor" systemColor="systemPinkColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="productMinus:" destination="egv-96-ent" eventType="touchUpInside" id="TFw-Aw-ceo"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqB-9l-6Qb">
-                                                        <rect key="frame" x="269" y="58" width="30" height="69"/>
+                                                        <rect key="frame" x="241" y="55" width="84" height="69"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="50"/>
                                                         <nil key="textColor"/>
@@ -1908,7 +1914,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주문금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC9-QJ-v8F">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC9-QJ-v8F">
                                                         <rect key="frame" x="10" y="44" width="59" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2075,7 +2081,9 @@
                     <connections>
                         <outlet property="deliveryLabel" destination="trA-ly-3fA" id="15r-cl-RNe"/>
                         <outlet property="nameLabel" destination="7qK-S3-SCc" id="d4k-3l-0VL"/>
+                        <outlet property="orderBtn" destination="o8W-Z6-Ycx" id="T0b-YK-9z7"/>
                         <outlet property="priceLabel" destination="gnA-3a-dTb" id="qFe-Ac-Z29"/>
+                        <outlet property="productCntLabel" destination="uqB-9l-6Qb" id="sOk-Xc-jh6"/>
                         <outlet property="selectPriceLabel" destination="ucv-tF-zgc" id="rz0-Uf-Oas"/>
                         <outlet property="stockLabel" destination="Vd3-1k-ljH" id="lC5-7w-hNG"/>
                         <outlet property="totalPriceLabel" destination="KGi-ii-JMt" id="3hj-yw-dey"/>
