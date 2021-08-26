@@ -36,7 +36,8 @@ class OrderViewController: UIViewController {
     var productStockCnt = 0
     var productSelectCnt = 1
     
-    
+    var receiveCategory = ""
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -120,7 +121,7 @@ class OrderViewController: UIViewController {
           // ...
         }
         
-        let orderUid = "\(DateToString(RE_Date: Date(), format: "YYYYMMdd"))-\(productInfo.keyName)"
+        let orderUid = "\(DateToString(RE_Date: Date(), format: "YYYYMMddHHmmss"))-\(productInfo.keyName)"
         
         self.db.collection("Users").document(self.userUid).collection("Shop").document("Order").collection("Data").document(orderUid).setData([
             "productName": productInfo.name,
@@ -132,18 +133,29 @@ class OrderViewController: UIViewController {
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
-                let alert = UIAlertController(title: "알림", message: "결제가 완료 되었습니다.", preferredStyle: .alert)
-                                       alert.addAction(UIAlertAction(title: "확인", style: .default){
-                                       UIAlertAction in
-                                        self.dismiss(animated: true, completion: nil)
-                                          
-                                 })
-                self.present(alert, animated: true, completion: nil)
+                
+                self.db.collection("Shop").document("Category").collection(self.receiveCategory).document(self.productInfo.keyName).updateData([
+                    "stock": self.productInfo.stock - self.productSelectCnt
+                 
+                  
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        let alert = UIAlertController(title: "알림", message: "결제가 완료 되었습니다.", preferredStyle: .alert)
+                                               alert.addAction(UIAlertAction(title: "확인", style: .default){
+                                               UIAlertAction in
+                                                self.dismiss(animated: true, completion: nil)
+                                                  
+                                         })
+                        self.present(alert, animated: true, completion: nil)
+                    }
+         
             }
         
     }
     }
-    
+    }
     // #숫자 단위 계산
     func priceFormatter(number: Int) -> String {
         let numberFormatter = NumberFormatter()

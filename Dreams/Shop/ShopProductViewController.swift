@@ -21,9 +21,10 @@ class ShopProductViewController: UIViewController {
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
+    
     var recieveInfo = ShopInfo(keyName: "", name: "", price: 0, stock: 0, delivery: 0)
     var recieveImageReference: StorageReference?
-   
+    var recieveCategory = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +69,7 @@ class ShopProductViewController: UIViewController {
         let VC = self.storyboard?.instantiateViewController(identifier: "OrderViewController") as! OrderViewController
         VC.modalPresentationStyle = .fullScreen
         VC.productInfo = self.recieveInfo
+        VC.receiveCategory = self.recieveCategory
         self.present(VC, animated: true, completion: nil)
     }
 }

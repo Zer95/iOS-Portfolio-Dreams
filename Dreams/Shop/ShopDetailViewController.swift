@@ -111,6 +111,7 @@ extension ShopDetailViewController: UICollectionViewDelegate {
             VC.modalPresentationStyle = .fullScreen
             VC.modalTransitionStyle = .crossDissolve
             VC.recieveInfo = shopViewModel.shopList[indexPath.row]
+            VC.recieveCategory = self.recieveData
             print("클릭 인덱스: \(indexPath.row)")
             
             let imageReference = Storage.storage().reference().child("Shop").child("Data").child(self.recieveData).child("\(shopViewModel.shopList[indexPath.row].keyName).jpg")
