@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class OrderViewController: UIViewController {
 
@@ -22,6 +23,9 @@ class OrderViewController: UIViewController {
     
     @IBOutlet weak var productCntLabel: UILabel!
     
+    var userUid = ""
+    var ref: DatabaseReference!
+    let db = Firestore.firestore()
     
     var productInfo = ShopInfo(keyName: "", name: "", price: 0, stock: 0, delivery: 0)
     
@@ -94,12 +98,69 @@ class OrderViewController: UIViewController {
         }
     }
     
+    @IBAction func OrderBtn(_ sender: Any) {
+        
+        // 유저 정보 조회
+        if Auth.auth().currentUser != nil {
+          
+            let user = Auth.auth().currentUser
+            if let user = user {
+          
+              let uid = user.uid
+//              let email = user.email ?? ""
+//              let name = user.displayName ?? ""
+                
+                self.userUid = uid
+//                self.userEmail = email
+//                self.userName = name
+            }
+            
+        } else {
+          // No user is signed in.
+          // ...
+        }
+        
+        let orderUid = "\(DateToString(RE_Date: Date(), format: "YYYYMMdd"))-\(productInfo.keyName)"
+        
+        self.db.collection("Users").document(self.userUid).collection("Shop").document("Order").collection("Data").document(orderUid).setData([
+            "productName": productInfo.name,
+            "orderTime": DateToString(RE_Date: Date(), format: "YYYY-MM-dd:HH:SS"),
+            "orderCount": self.productSelectCnt,
+            "totalPrice": self.totalPrice
+          
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                let alert = UIAlertController(title: "알림", message: "결제가 완료 되었습니다.", preferredStyle: .alert)
+                                       alert.addAction(UIAlertAction(title: "확인", style: .default){
+                                       UIAlertAction in
+                                        self.dismiss(animated: true, completion: nil)
+                                          
+                                 })
+                self.present(alert, animated: true, completion: nil)
+            }
+        
+    }
+    }
+    
     // #숫자 단위 계산
     func priceFormatter(number: Int) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
         return numberFormatter.string(from: NSNumber(value: number))!
+    }
+    
+    // 날짜 데이터 문자열로 변환
+    func DateToString(RE_Date: Date, format: String) -> String {
+        let date:Date = RE_Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        dateFormatter.dateFormat = format
+        let dateString = dateFormatter.string(from: date)
+        return dateString
     }
     
 }
