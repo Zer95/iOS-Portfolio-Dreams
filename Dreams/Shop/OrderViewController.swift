@@ -142,13 +142,15 @@ class OrderViewController: UIViewController {
                     if let err = err {
                         print("Error writing document: \(err)")
                     } else {
-                        let alert = UIAlertController(title: "알림", message: "결제가 완료 되었습니다.", preferredStyle: .alert)
-                                               alert.addAction(UIAlertAction(title: "확인", style: .default){
-                                               UIAlertAction in
-                                                self.dismiss(animated: true, completion: nil)
-                                                  
-                                         })
-                        self.present(alert, animated: true, completion: nil)
+//                        let alert = UIAlertController(title: "알림", message: "결제가 완료 되었습니다.", preferredStyle: .alert)
+//                                               alert.addAction(UIAlertAction(title: "확인", style: .default){
+//                                               UIAlertAction in
+//                                                self.dismiss(animated: true, completion: nil)
+//
+//                                         })
+//                        self.present(alert, animated: true, completion: nil)
+                        
+                        self.performSegue(withIdentifier: "NativeController", sender: nil)
                     }
          
             }

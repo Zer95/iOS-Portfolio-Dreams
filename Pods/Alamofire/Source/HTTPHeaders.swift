@@ -332,12 +332,12 @@ extension Array where Element == HTTPHeader {
 
 // MARK: - Defaults
 
-extension HTTPHeaders {
+public extension HTTPHeaders {
     /// The default set of `HTTPHeaders` used by Alamofire. Includes `Accept-Encoding`, `Accept-Language`, and
     /// `User-Agent`.
-    public static let `default`: HTTPHeaders = [.defaultAcceptEncoding,
-                                                .defaultAcceptLanguage,
-                                                .defaultUserAgent]
+    static let `default`: HTTPHeaders = [.defaultAcceptEncoding,
+                                         .defaultAcceptLanguage,
+                                         .defaultUserAgent]
 }
 
 extension HTTPHeader {
@@ -440,9 +440,9 @@ extension HTTPURLResponse {
     }
 }
 
-extension URLSessionConfiguration {
+public extension URLSessionConfiguration {
     /// Returns `httpAdditionalHeaders` as `HTTPHeaders`.
-    public var headers: HTTPHeaders {
+    var headers: HTTPHeaders {
         get { (httpAdditionalHeaders as? [String: String]).map(HTTPHeaders.init) ?? HTTPHeaders() }
         set { httpAdditionalHeaders = newValue.dictionary }
     }

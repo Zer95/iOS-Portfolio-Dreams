@@ -24,4 +24,7 @@ pod 'GooglePlaces'
 pod 'MaterialComponents/Buttons'
 pod 'lottie-ios'
 pod 'FSCalendar'
+pod 'Alamofire', '~> 5.1'
+pod 'SwiftyBootpay', '~> 3.3.9'
+pod 'SwiftOTP'
 end

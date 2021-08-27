@@ -45,11 +45,11 @@ import CoreServices
 open class MultipartFormData {
     // MARK: - Helper Types
 
-    enum EncodingCharacters {
+    struct EncodingCharacters {
         static let crlf = "\r\n"
     }
 
-    enum BoundaryGenerator {
+    struct BoundaryGenerator {
         enum BoundaryType {
             case initial, encapsulated, final
         }
@@ -417,12 +417,6 @@ open class MultipartFormData {
             } else {
                 break
             }
-        }
-
-        guard UInt64(encoded.count) == bodyPart.bodyContentLength else {
-            let error = AFError.UnexpectedInputStreamLength(bytesExpected: bodyPart.bodyContentLength,
-                                                            bytesRead: UInt64(encoded.count))
-            throw AFError.multipartEncodingFailed(reason: .inputStreamReadFailed(error: error))
         }
 
         return encoded

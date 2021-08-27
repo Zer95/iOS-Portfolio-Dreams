@@ -14,6 +14,7 @@ import FBSDKCoreKit
 import AuthenticationServices
 import GoogleMaps
 import GooglePlaces
+import SwiftyBootpay
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -58,9 +59,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             
         }
         
+        // 결제 & 통계 
+        Bootpay.sharedInstance.appLaunch(application_id: "6128b7b67b5ba4002352a8ac")
+        
         return true
     }
 
+    func applicationWillResignActive(_ application: UIApplication) {
+        Bootpay.sharedInstance.sessionActive(active: false)
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        Bootpay.sharedInstance.sessionActive(active: true)
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

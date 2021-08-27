@@ -83,8 +83,45 @@ PODS:
   - abseil/base/throw_delegate (0.20200225.0):
     - abseil/base/config
     - abseil/base/raw_logging_internal
+  - abseil/container/common (0.20200225.0):
+    - abseil/meta/type_traits
+    - abseil/types/optional
   - abseil/container/compressed_tuple (0.20200225.0):
     - abseil/utility/utility
+  - abseil/container/container_memory (0.20200225.0):
+    - abseil/memory/memory
+    - abseil/utility/utility
+  - abseil/container/fixed_array (0.20200225.0):
+    - abseil/algorithm/algorithm
+    - abseil/base/core_headers
+    - abseil/base/dynamic_annotations
+    - abseil/base/throw_delegate
+    - abseil/container/compressed_tuple
+    - abseil/memory/memory
+  - abseil/container/flat_hash_map (0.20200225.0):
+    - abseil/algorithm/container
+    - abseil/container/container_memory
+    - abseil/container/hash_function_defaults
+    - abseil/container/raw_hash_map
+    - abseil/memory/memory
+  - abseil/container/hash_function_defaults (0.20200225.0):
+    - abseil/base/config
+    - abseil/hash/hash
+    - abseil/strings/strings
+  - abseil/container/hash_policy_traits (0.20200225.0):
+    - abseil/meta/type_traits
+  - abseil/container/hashtable_debug_hooks (0.20200225.0):
+    - abseil/base/config
+  - abseil/container/hashtablez_sampler (0.20200225.0):
+    - abseil/base/base
+    - abseil/base/core_headers
+    - abseil/base/exponential_biased
+    - abseil/container/have_sse
+    - abseil/debugging/stacktrace
+    - abseil/memory/memory
+    - abseil/synchronization/synchronization
+    - abseil/utility/utility
+  - abseil/container/have_sse (0.20200225.0)
   - abseil/container/inlined_vector (0.20200225.0):
     - abseil/algorithm/algorithm
     - abseil/base/core_headers
@@ -97,6 +134,70 @@ PODS:
     - abseil/memory/memory
     - abseil/meta/type_traits
     - abseil/types/span
+  - abseil/container/layout (0.20200225.0):
+    - abseil/base/core_headers
+    - abseil/meta/type_traits
+    - abseil/strings/strings
+    - abseil/types/span
+    - abseil/utility/utility
+  - abseil/container/raw_hash_map (0.20200225.0):
+    - abseil/base/throw_delegate
+    - abseil/container/container_memory
+    - abseil/container/raw_hash_set
+  - abseil/container/raw_hash_set (0.20200225.0):
+    - abseil/base/bits
+    - abseil/base/config
+    - abseil/base/core_headers
+    - abseil/base/endian
+    - abseil/container/common
+    - abseil/container/compressed_tuple
+    - abseil/container/container_memory
+    - abseil/container/hash_policy_traits
+    - abseil/container/hashtable_debug_hooks
+    - abseil/container/hashtablez_sampler
+    - abseil/container/have_sse
+    - abseil/container/layout
+    - abseil/memory/memory
+    - abseil/meta/type_traits
+    - abseil/utility/utility
+  - abseil/debugging/debugging_internal (0.20200225.0):
+    - abseil/base/config
+    - abseil/base/core_headers
+    - abseil/base/dynamic_annotations
+    - abseil/base/errno_saver
+    - abseil/base/raw_logging_internal
+  - abseil/debugging/demangle_internal (0.20200225.0):
+    - abseil/base/base
+    - abseil/base/config
+    - abseil/base/core_headers
+  - abseil/debugging/stacktrace (0.20200225.0):
+    - abseil/base/config
+    - abseil/base/core_headers
+    - abseil/debugging/debugging_internal
+  - abseil/debugging/symbolize (0.20200225.0):
+    - abseil/base/base
+    - abseil/base/config
+    - abseil/base/core_headers
+    - abseil/base/dynamic_annotations
+    - abseil/base/malloc_internal
+    - abseil/base/raw_logging_internal
+    - abseil/debugging/debugging_internal
+    - abseil/debugging/demangle_internal
+  - abseil/hash/city (0.20200225.0):
+    - abseil/base/config
+    - abseil/base/core_headers
+    - abseil/base/endian
+  - abseil/hash/hash (0.20200225.0):
+    - abseil/base/core_headers
+    - abseil/base/endian
+    - abseil/container/fixed_array
+    - abseil/hash/city
+    - abseil/meta/type_traits
+    - abseil/numeric/int128
+    - abseil/strings/strings
+    - abseil/types/optional
+    - abseil/types/variant
+    - abseil/utility/utility
   - abseil/memory (0.20200225.0):
     - abseil/memory/memory (= 0.20200225.0)
   - abseil/memory/memory (0.20200225.0):
@@ -136,6 +237,31 @@ PODS:
     - abseil/meta/type_traits
     - abseil/numeric/int128
     - abseil/strings/internal
+  - abseil/synchronization/graphcycles_internal (0.20200225.0):
+    - abseil/base/base
+    - abseil/base/base_internal
+    - abseil/base/config
+    - abseil/base/core_headers
+    - abseil/base/malloc_internal
+    - abseil/base/raw_logging_internal
+  - abseil/synchronization/kernel_timeout_internal (0.20200225.0):
+    - abseil/base/core_headers
+    - abseil/base/raw_logging_internal
+    - abseil/time/time
+  - abseil/synchronization/synchronization (0.20200225.0):
+    - abseil/base/atomic_hook
+    - abseil/base/base
+    - abseil/base/base_internal
+    - abseil/base/config
+    - abseil/base/core_headers
+    - abseil/base/dynamic_annotations
+    - abseil/base/malloc_internal
+    - abseil/base/raw_logging_internal
+    - abseil/debugging/stacktrace
+    - abseil/debugging/symbolize
+    - abseil/synchronization/graphcycles_internal
+    - abseil/synchronization/kernel_timeout_internal
+    - abseil/time/time
   - abseil/time (0.20200225.0):
     - abseil/time/internal (= 0.20200225.0)
     - abseil/time/time (= 0.20200225.0)
@@ -212,7 +338,7 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
-  - Alamofire (5.4.3)
+  - Alamofire (5.2.2)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -224,6 +350,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
+  - CryptoSwift (1.4.1)
   - FBAEMKit (11.1.0):
     - FBAEMKit/AEM (= 11.1.0)
   - FBAEMKit/AEM (11.1.0):
@@ -241,32 +368,32 @@ PODS:
   - FBSDKLoginKit/Login (11.1.0):
     - FBSDKCoreKit (~> 11.1.0)
     - FBSDKCoreKit_Basics (~> 11.1.0)
-  - Firebase/Analytics (8.4.0):
+  - Firebase/Analytics (8.6.0):
     - Firebase/Core
-  - Firebase/Auth (8.4.0):
+  - Firebase/Auth (8.6.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 8.4.0)
-  - Firebase/Core (8.4.0):
+    - FirebaseAuth (~> 8.6.0)
+  - Firebase/Core (8.6.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (~> 8.4.0)
-  - Firebase/CoreOnly (8.4.0):
-    - FirebaseCore (= 8.4.0)
-  - Firebase/Database (8.4.0):
+    - FirebaseAnalytics (~> 8.6.0)
+  - Firebase/CoreOnly (8.6.0):
+    - FirebaseCore (= 8.6.0)
+  - Firebase/Database (8.6.0):
     - Firebase/CoreOnly
-    - FirebaseDatabase (~> 8.4.0)
-  - Firebase/Firestore (8.4.0):
+    - FirebaseDatabase (~> 8.6.0)
+  - Firebase/Firestore (8.6.0):
     - Firebase/CoreOnly
-    - FirebaseFirestore (~> 8.4.0)
-  - Firebase/RemoteConfig (8.4.0):
+    - FirebaseFirestore (~> 8.6.0)
+  - Firebase/RemoteConfig (8.6.0):
     - Firebase/CoreOnly
-    - FirebaseRemoteConfig (~> 8.4.0)
-  - Firebase/Storage (8.4.0):
+    - FirebaseRemoteConfig (~> 8.6.0)
+  - Firebase/Storage (8.6.0):
     - Firebase/CoreOnly
-    - FirebaseStorage (~> 8.4.0)
-  - FirebaseABTesting (8.5.0):
+    - FirebaseStorage (~> 8.6.0)
+  - FirebaseABTesting (8.6.0):
     - FirebaseCore (~> 8.0)
-  - FirebaseAnalytics (8.4.0):
-    - FirebaseAnalytics/AdIdSupport (= 8.4.0)
+  - FirebaseAnalytics (8.6.0):
+    - FirebaseAnalytics/AdIdSupport (= 8.6.0)
     - FirebaseCore (~> 8.0)
     - FirebaseInstallations (~> 8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -274,35 +401,36 @@ PODS:
     - GoogleUtilities/Network (~> 7.4)
     - "GoogleUtilities/NSData+zlib (~> 7.4)"
     - nanopb (~> 2.30908.0)
-  - FirebaseAnalytics/AdIdSupport (8.4.0):
+  - FirebaseAnalytics/AdIdSupport (8.6.0):
     - FirebaseCore (~> 8.0)
     - FirebaseInstallations (~> 8.0)
-    - GoogleAppMeasurement (= 8.4.0)
+    - GoogleAppMeasurement (= 8.6.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
     - GoogleUtilities/MethodSwizzler (~> 7.4)
     - GoogleUtilities/Network (~> 7.4)
     - "GoogleUtilities/NSData+zlib (~> 7.4)"
     - nanopb (~> 2.30908.0)
-  - FirebaseAuth (8.4.0):
+  - FirebaseAuth (8.6.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
     - GoogleUtilities/Environment (~> 7.4)
     - GTMSessionFetcher/Core (~> 1.5)
-  - FirebaseCore (8.4.0):
+  - FirebaseCore (8.6.0):
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
-  - FirebaseCoreDiagnostics (8.4.0):
+  - FirebaseCoreDiagnostics (8.6.0):
     - GoogleDataTransport (~> 9.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
     - nanopb (~> 2.30908.0)
-  - FirebaseDatabase (8.4.0):
+  - FirebaseDatabase (8.6.0):
     - FirebaseCore (~> 8.0)
     - leveldb-library (~> 1.22)
-  - FirebaseFirestore (8.4.0):
+  - FirebaseFirestore (8.6.0):
     - abseil/algorithm (= 0.20200225.0)
     - abseil/base (= 0.20200225.0)
+    - abseil/container/flat_hash_map (= 0.20200225.0)
     - abseil/memory (= 0.20200225.0)
     - abseil/meta (= 0.20200225.0)
     - abseil/strings/strings (= 0.20200225.0)
@@ -312,29 +440,29 @@ PODS:
     - "gRPC-C++ (~> 1.28.0)"
     - leveldb-library (~> 1.22)
     - nanopb (~> 2.30908.0)
-  - FirebaseInstallations (8.4.0):
+  - FirebaseInstallations (8.6.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (< 3.0, >= 1.2)
-  - FirebaseRemoteConfig (8.4.0):
+  - FirebaseRemoteConfig (8.6.0):
     - FirebaseABTesting (~> 8.0)
     - FirebaseCore (~> 8.0)
     - FirebaseInstallations (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
     - "GoogleUtilities/NSData+zlib (~> 7.4)"
-  - FirebaseStorage (8.4.0):
+  - FirebaseStorage (8.6.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
   - FSCalendar (2.8.2)
-  - GoogleAppMeasurement (8.4.0):
-    - GoogleAppMeasurement/AdIdSupport (= 8.4.0)
+  - GoogleAppMeasurement (8.6.0):
+    - GoogleAppMeasurement/AdIdSupport (= 8.6.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
     - GoogleUtilities/MethodSwizzler (~> 7.4)
     - GoogleUtilities/Network (~> 7.4)
     - "GoogleUtilities/NSData+zlib (~> 7.4)"
     - nanopb (~> 2.30908.0)
-  - GoogleAppMeasurement/AdIdSupport (8.4.0):
+  - GoogleAppMeasurement/AdIdSupport (8.6.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
     - GoogleUtilities/MethodSwizzler (~> 7.4)
     - GoogleUtilities/Network (~> 7.4)
@@ -354,24 +482,24 @@ PODS:
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleUtilities/AppDelegateSwizzler (7.5.0):
+  - GoogleUtilities/AppDelegateSwizzler (7.5.1):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.5.0):
+  - GoogleUtilities/Environment (7.5.1):
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/Logger (7.5.0):
+  - GoogleUtilities/Logger (7.5.1):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.5.0):
+  - GoogleUtilities/MethodSwizzler (7.5.1):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (7.5.0):
+  - GoogleUtilities/Network (7.5.1):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.5.0)"
-  - GoogleUtilities/Reachability (7.5.0):
+  - "GoogleUtilities/NSData+zlib (7.5.1)"
+  - GoogleUtilities/Reachability (7.5.1):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (7.5.0):
+  - GoogleUtilities/UserDefaults (7.5.1):
     - GoogleUtilities/Logger
   - "gRPC-C++ (1.28.2)":
     - "gRPC-C++/Implementation (= 1.28.2)"
@@ -401,38 +529,39 @@ PODS:
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.6.1)
-  - KakaoSDK (2.5.3):
-    - KakaoSDKAuth (= 2.5.3)
-    - KakaoSDKCommon (= 2.5.3)
-    - KakaoSDKLink (= 2.5.3)
-    - KakaoSDKNavi (= 2.5.3)
-    - KakaoSDKStory (= 2.5.3)
-    - KakaoSDKTalk (= 2.5.3)
-    - KakaoSDKTemplate (= 2.5.3)
-    - KakaoSDKUser (= 2.5.3)
-  - KakaoSDKAuth (2.5.3):
-    - KakaoSDKCommon (= 2.5.3)
-  - KakaoSDKCommon (2.5.3):
-    - KakaoSDKCommon/Common (= 2.5.3)
-    - KakaoSDKCommon/Network (= 2.5.3)
-  - KakaoSDKCommon/Common (2.5.3)
-  - KakaoSDKCommon/Network (2.5.3):
+  - JGProgressHUD (2.2)
+  - KakaoSDK (2.6.0):
+    - KakaoSDKAuth (= 2.6.0)
+    - KakaoSDKCommon (= 2.6.0)
+    - KakaoSDKLink (= 2.6.0)
+    - KakaoSDKNavi (= 2.6.0)
+    - KakaoSDKStory (= 2.6.0)
+    - KakaoSDKTalk (= 2.6.0)
+    - KakaoSDKTemplate (= 2.6.0)
+    - KakaoSDKUser (= 2.6.0)
+  - KakaoSDKAuth (2.6.0):
+    - KakaoSDKCommon (= 2.6.0)
+  - KakaoSDKCommon (2.6.0):
+    - KakaoSDKCommon/Common (= 2.6.0)
+    - KakaoSDKCommon/Network (= 2.6.0)
+  - KakaoSDKCommon/Common (2.6.0)
+  - KakaoSDKCommon/Network (2.6.0):
     - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.5.3)
-  - KakaoSDKLink (2.5.3):
-    - KakaoSDKCommon (= 2.5.3)
-    - KakaoSDKTemplate (= 2.5.3)
-  - KakaoSDKNavi (2.5.3):
-    - KakaoSDKCommon/Common (= 2.5.3)
-  - KakaoSDKStory (2.5.3):
-    - KakaoSDKUser (= 2.5.3)
-  - KakaoSDKTalk (2.5.3):
-    - KakaoSDKTemplate (= 2.5.3)
-    - KakaoSDKUser (= 2.5.3)
-  - KakaoSDKTemplate (2.5.3):
-    - KakaoSDKCommon/Common (= 2.5.3)
-  - KakaoSDKUser (2.5.3):
-    - KakaoSDKAuth (= 2.5.3)
+    - KakaoSDKCommon/Common (= 2.6.0)
+  - KakaoSDKLink (2.6.0):
+    - KakaoSDKCommon (= 2.6.0)
+    - KakaoSDKTemplate (= 2.6.0)
+  - KakaoSDKNavi (2.6.0):
+    - KakaoSDKCommon/Common (= 2.6.0)
+  - KakaoSDKStory (2.6.0):
+    - KakaoSDKUser (= 2.6.0)
+  - KakaoSDKTalk (2.6.0):
+    - KakaoSDKTemplate (= 2.6.0)
+    - KakaoSDKUser (= 2.6.0)
+  - KakaoSDKTemplate (2.6.0):
+    - KakaoSDKCommon/Common (= 2.6.0)
+  - KakaoSDKUser (2.6.0):
+    - KakaoSDKAuth (= 2.6.0)
   - leveldb-library (1.22.1)
   - lottie-ios (3.2.3)
   - MaterialComponents/AnimationTiming (124.2.0)
@@ -490,11 +619,21 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - ObjectMapper (4.2.0)
   - PromisesObjC (2.0.0)
   - SnapKit (5.0.1)
   - SOTabBar (1.1.3)
+  - SwiftOTP (3.0.0)
+  - SwiftyBootpay (3.3.833):
+    - Alamofire (~> 5.2.2)
+    - CryptoSwift
+    - JGProgressHUD
+    - ObjectMapper
+    - SnapKit (~> 5.0.0)
+    - SwiftOTP
 
 DEPENDENCIES:
+  - Alamofire (~> 5.1)
   - FBSDKLoginKit
   - Firebase/Analytics
   - Firebase/Auth
@@ -512,6 +651,8 @@ DEPENDENCIES:
   - MaterialComponents/Buttons
   - SnapKit (~> 5.0.0)
   - SOTabBar
+  - SwiftOTP
+  - SwiftyBootpay (~> 3.3.9)
 
 SPEC REPOS:
   trunk:
@@ -519,6 +660,7 @@ SPEC REPOS:
     - Alamofire
     - AppAuth
     - BoringSSL-GRPC
+    - CryptoSwift
     - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
@@ -545,6 +687,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
+    - JGProgressHUD
     - KakaoSDK
     - KakaoSDKAuth
     - KakaoSDKCommon
@@ -560,60 +703,68 @@ SPEC REPOS:
     - MDFInternationalization
     - MDFTextAccessibility
     - nanopb
+    - ObjectMapper
     - PromisesObjC
     - SnapKit
     - SOTabBar
+    - SwiftOTP
+    - SwiftyBootpay
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
+  CryptoSwift: 0bc800a7e6a24c4fc9ebeab97d44b0d5f73a78bd
   FBAEMKit: 5c8a8d08e5b2c79628490784883e0fcc75b12615
   FBSDKCoreKit: 7ccb8b4bb2b5ee2ad94327b774dc23f03509675d
   FBSDKCoreKit_Basics: 8f978bce195845f609b0ec6b425949d0d24f525b
   FBSDKLoginKit: d65eb587a9eaa89295338fb0bb3b358bde0b7ae4
-  Firebase: 54cdc8bc9c9b3de54f43dab86e62f5a76b47034f
-  FirebaseABTesting: f7cb3fbed1c5bd3e733a79d9955447be3f3b06a5
-  FirebaseAnalytics: 4751d6a49598a2b58da678cc07df696bcd809ab9
-  FirebaseAuth: 8ef169751d795f20921d425f7b0131cc1c70935c
-  FirebaseCore: 31f389c37ac1ea52454a53d3081f2d7019485a4a
-  FirebaseCoreDiagnostics: cad03be1904b975f845e632f2720c3337da27faf
-  FirebaseDatabase: 38f21731dea277e454060d0d39c1bf2aaa12bbb9
-  FirebaseFirestore: 99613cefa9102c08da94f584faa5adfaf21f31da
-  FirebaseInstallations: 1585729afc787877763208c2088ed84221161f77
-  FirebaseRemoteConfig: 0b813f093033c56fe74a91996044a239ab5acb02
-  FirebaseStorage: e6065bcbf70e2a06a8c3ddc66cbe03a395bbddc4
+  Firebase: 21ac9f28b09a8bdfc005f34c984fca84e7e8786d
+  FirebaseABTesting: c3e48ebf5e7e5c674c5a131c68e941d7921d83dc
+  FirebaseAnalytics: 8f32ae54ad42754f503354782575c4ddfc1425c3
+  FirebaseAuth: 223adeeb2262b417532e89bf06a960e3a0a1e9e4
+  FirebaseCore: 620b677f70f5470a8e59cb77f3ddc666f6f09785
+  FirebaseCoreDiagnostics: 3721920bde3a9a6d5aa093c1d25e9d3e47f694af
+  FirebaseDatabase: 917fbeed577a68eb1ba0eb48c52a3aa10ac13f92
+  FirebaseFirestore: 7b8bd72aff4d3ad91498343e81fdbaa994ce8abe
+  FirebaseInstallations: 0ede6ffcd215b8f93c19d9b06c1c54e2d4107e98
+  FirebaseRemoteConfig: 9ee4672d4eacf646256e26cfac61021b3a390ea4
+  FirebaseStorage: 2765944230981e63f8bd2938d9d5819158b7c34c
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
-  GoogleAppMeasurement: 6b6a08fd9c71f4dbc89e0e812acca81d797aa342
+  GoogleAppMeasurement: 2c0c6e2a7ab3fe730ade6379f732bdefb46f50b0
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
   GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
-  GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
+  GoogleUtilities: 3df19e3c24f7bbc291d8b5809aa6b0d41e642437
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
-  KakaoSDK: 61f5d72d4c90188bf3d6567ffeef42d2827e9f77
-  KakaoSDKAuth: b1a0b9a84c21c967c4139d221edce83a7f15cdfe
-  KakaoSDKCommon: 08548932f6f570215ea038241a98157c0b3f7a8b
-  KakaoSDKLink: 4d35879b0abd90fbd0bc0de56dbb06097e9b31d3
-  KakaoSDKNavi: 31fd6ad030cf7200d546202cbe22f7a8b38eb983
-  KakaoSDKStory: 6d666f665fbe4b8453ce19959b9bb9e3bf38a5df
-  KakaoSDKTalk: 58cf9c530cc8024ae2ed3839d40acd992ecaf909
-  KakaoSDKTemplate: 5939681de6c24fd81e93bf824982e979e794f87e
-  KakaoSDKUser: 5d2de71fe070455bbaaad6a37af3eb500fbc8972
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
+  KakaoSDK: fa00ea44415f172721d7469388c04db8912330cd
+  KakaoSDKAuth: 037e6260f4468cbc3bde89a802864d6b58c5271c
+  KakaoSDKCommon: 38154188336a1118f1b757f0fec54ff989365ddc
+  KakaoSDKLink: 8fe5ee4d3b12178e56ca911015ae028ef33cc8be
+  KakaoSDKNavi: 0db736a5c07492593c8607f2a32048564db75dda
+  KakaoSDKStory: ee7099dab1399f029b6b5d6d7c25db0a2b6f4b03
+  KakaoSDKTalk: b129bb2dd2069e17d5463747d66f9d38f2067ca9
+  KakaoSDKTemplate: 8218258409a8829c364029698c515665c6d0d886
+  KakaoSDKUser: ff9d7436ccbf0d65615bc56f3f4e31fb06830db2
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
+  SwiftOTP: ec3848f12a4541f29d96f6a0fe63dcbb8448d96f
+  SwiftyBootpay: 5313189ecd6ae8f46132b48ff78060daeaa724ca
 
-PODFILE CHECKSUM: 5a2d78cb4d58f23ce50add308d81c34befe0d89f
+PODFILE CHECKSUM: d9c868c9378c6febcda4df692e7a6a5aae6204c1
 
 COCOAPODS: 1.10.1

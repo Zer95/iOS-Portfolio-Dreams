@@ -1982,20 +1982,16 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kakaoPay" translatesAutoresizingMaskIntoConstraints="NO" id="ioF-d0-miU">
-                                                        <rect key="frame" x="10" y="44" width="87" height="43"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="87" id="XTs-Ok-2ha"/>
-                                                            <constraint firstAttribute="height" constant="43" id="g9j-Ug-lzM"/>
-                                                        </constraints>
-                                                    </imageView>
+                                                    <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m3R-2N-447">
+                                                        <rect key="frame" x="61" y="34" width="240" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </webView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="ioF-d0-miU" firstAttribute="leading" secondItem="dje-GT-o63" secondAttribute="leading" constant="10" id="9S8-wy-Wem"/>
                                                     <constraint firstItem="z2i-iP-DxV" firstAttribute="leading" secondItem="dje-GT-o63" secondAttribute="leading" constant="10" id="Gvq-vz-IbJ"/>
                                                     <constraint firstAttribute="height" constant="170" id="Ndc-tJ-oH6"/>
-                                                    <constraint firstItem="ioF-d0-miU" firstAttribute="top" secondItem="z2i-iP-DxV" secondAttribute="bottom" constant="10" id="g2Q-2R-fy9"/>
                                                     <constraint firstItem="z2i-iP-DxV" firstAttribute="top" secondItem="dje-GT-o63" secondAttribute="top" constant="10" id="z0J-lV-6Np"/>
                                                 </constraints>
                                             </view>
@@ -2090,11 +2086,43 @@
                         <outlet property="selectPriceLabel" destination="ucv-tF-zgc" id="rz0-Uf-Oas"/>
                         <outlet property="stockLabel" destination="Vd3-1k-ljH" id="lC5-7w-hNG"/>
                         <outlet property="totalPriceLabel" destination="KGi-ii-JMt" id="3hj-yw-dey"/>
+                        <segue destination="aid-As-V7f" kind="show" identifier="NativeController" id="XjH-MK-FiI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8po-vt-8WY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4820" y="1515.6398104265402"/>
+        </scene>
+        <!--Native Controller-->
+        <scene sceneID="E79-dZ-1lL">
+            <objects>
+                <viewController storyboardIdentifier="NativeController" id="aid-As-V7f" customClass="NativeController" customModule="Dreams" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cpJ-j4-R3w">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Fb4-0t-4I1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VnF-5Z-RDd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tFQ-Yx-SwR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4820" y="2238"/>
+        </scene>
+        <!--Pay-->
+        <scene sceneID="W8n-PP-S0X">
+            <objects>
+                <viewController storyboardIdentifier="Pay" title="Pay" id="TNg-u4-lbg" customClass="NativeBioController" customModule="Dreams" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Obg-BS-ZzD">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ybq-ii-AgV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qCS-IN-L1i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5817" y="1687"/>
         </scene>
     </scenes>
     <resources>
@@ -2109,7 +2137,6 @@
         <image name="google" width="824" height="824"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="kakao" width="822" height="824"/>
-        <image name="kakaoPay" width="241" height="100"/>
         <image name="mainBackground" width="800" height="1146"/>
         <image name="photo" width="4000" height="4000"/>
         <image name="posu1" width="500" height="500"/>
