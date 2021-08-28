@@ -11,19 +11,22 @@ import Alamofire
 
 //MARK: ViewController Init
 class NativeController: UIViewController {
+    
+    @IBOutlet weak var paymentTypeLabel: UILabel!
+    
     var payType = 1 // 1일경우 인앱결제, 2일경우 지문결제
     var vc: BootpayController!
    
     let application_id = "6128b7b67b5ba4002352a8ac"
    
+    var paymentType = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
        
-       
-      //  setUI()
-        nativeClick()
+        paymentTypeLabel.text = self.paymentType
+     
     }
    
    override func viewWillAppear(_ animated: Bool) {
@@ -158,7 +161,20 @@ extension NativeController {
             $0.account_expire_at = "2020-12-07" // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
           //  $0.method = "card" // 결제수단
             $0.show_agree_window = false
-            $0.methods = [Method.BANK, Method.CARD, Method.PHONE, Method.VBANK, Method.KAKAO, Method.NPAY]
+            
+            switch self.paymentType {
+            case "kakaoPay":
+                $0.method = Method.KAKAO
+            case "naverPay":
+                $0.method = Method.NPAY
+            case "card":
+                $0.method = Method.CARD
+            case "bank":
+                $0.method = Method.BANK
+            default:
+                break
+            }
+         //   $0.methods = [Method.BANK, Method.CARD, Method.PHONE, Method.VBANK, Method.KAKAO, Method.NPAY]
          //   $0.method = Method.BANK
             $0.ux = UX.PG_DIALOG
          }

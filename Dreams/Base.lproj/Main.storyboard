@@ -1990,6 +1990,9 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                         </state>
                                                         <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="selectPay1:" destination="egv-96-ent" eventType="touchUpInside" id="qU3-nJ-K8I"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juU-67-v7Z">
                                                         <rect key="frame" x="46" y="38" width="87" height="34"/>
@@ -2004,6 +2007,9 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                         </state>
                                                         <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="selectPay2:" destination="egv-96-ent" eventType="touchUpInside" id="PgZ-L3-2ak"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH4-Xw-ACK">
                                                         <rect key="frame" x="10" y="126" width="28" height="27.333333333333329"/>
@@ -2013,6 +2019,9 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                         </state>
                                                         <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="selectPay3:" destination="egv-96-ent" eventType="touchUpInside" id="StO-yR-eOm"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwX-K3-YFL">
                                                         <rect key="frame" x="10" y="164" width="28" height="27.333333333333329"/>
@@ -2022,6 +2031,9 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                         </state>
                                                         <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="selectPay4:" destination="egv-96-ent" eventType="touchUpInside" id="Dlc-BH-9ft"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpN-Rs-F9t">
                                                         <rect key="frame" x="46" y="122" width="87" height="34"/>
@@ -2138,6 +2150,10 @@
                         <outlet property="orderBtn" destination="o8W-Z6-Ycx" id="T0b-YK-9z7"/>
                         <outlet property="priceLabel" destination="gnA-3a-dTb" id="qFe-Ac-Z29"/>
                         <outlet property="productCntLabel" destination="uqB-9l-6Qb" id="sOk-Xc-jh6"/>
+                        <outlet property="selectPay1" destination="iJS-U7-LnW" id="dXp-nT-SAr"/>
+                        <outlet property="selectPay2" destination="wj4-Nq-7gZ" id="let-6X-M51"/>
+                        <outlet property="selectPay3" destination="tH4-Xw-ACK" id="Yuf-6g-iF9"/>
+                        <outlet property="selectPay4" destination="YwX-K3-YFL" id="eck-wM-nl8"/>
                         <outlet property="selectPriceLabel" destination="ucv-tF-zgc" id="rz0-Uf-Oas"/>
                         <outlet property="stockLabel" destination="Vd3-1k-ljH" id="lC5-7w-hNG"/>
                         <outlet property="totalPriceLabel" destination="KGi-ii-JMt" id="3hj-yw-dey"/>
@@ -2182,6 +2198,13 @@
                                             <action selector="cancleBtn:" destination="TNg-u4-lbg" eventType="touchUpInside" id="bn8-t5-Tbh"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgZ-fj-YWx">
+                                        <rect key="frame" x="133" y="106" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -2190,6 +2213,9 @@
                         <color key="backgroundColor" red="0.57025209407216493" green="0.57025209407216493" blue="0.57025209407216493" alpha="0.85581420068027214" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="wHV-Bm-Ji2"/>
+                    <connections>
+                        <outlet property="paymentTypeLabel" destination="xgZ-fj-YWx" id="urR-bQ-ObB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCS-IN-L1i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

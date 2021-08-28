@@ -23,6 +23,13 @@ class OrderViewController: UIViewController {
     
     @IBOutlet weak var productCntLabel: UILabel!
     
+    @IBOutlet weak var selectPay1: UIButton!
+    @IBOutlet weak var selectPay2: UIButton!
+    @IBOutlet weak var selectPay3: UIButton!
+    @IBOutlet weak var selectPay4: UIButton!
+    var selectPayType = ""
+    
+    
     var userUid = ""
     var ref: DatabaseReference!
     let db = Firestore.firestore()
@@ -99,6 +106,41 @@ class OrderViewController: UIViewController {
         }
     }
     
+    @IBAction func selectPay1(_ sender: Any) {
+        selectPay1.isSelected = true
+        selectPay2.isSelected = false
+        selectPay3.isSelected = false
+        selectPay4.isSelected = false
+        self.selectPayType = "kakaoPay"
+        
+    }
+    
+    @IBAction func selectPay2(_ sender: Any) {
+        selectPay1.isSelected = false
+        selectPay2.isSelected = true
+        selectPay3.isSelected = false
+        selectPay4.isSelected = false
+        self.selectPayType = "naverPay"
+    }
+    
+    @IBAction func selectPay3(_ sender: Any) {
+        selectPay1.isSelected = false
+        selectPay2.isSelected = false
+        selectPay3.isSelected = true
+        selectPay4.isSelected = false
+        self.selectPayType = "card"
+    }
+    
+    @IBAction func selectPay4(_ sender: Any) {
+        selectPay1.isSelected = false
+        selectPay2.isSelected = false
+        selectPay3.isSelected = false
+        selectPay4.isSelected = true
+        self.selectPayType = "bank"
+    }
+    
+    
+    
     @IBAction func OrderBtn(_ sender: Any) {
         
         // 유저 정보 조회
@@ -120,7 +162,7 @@ class OrderViewController: UIViewController {
           // No user is signed in.
           // ...
         }
-        
+
         let orderUid = "\(DateToString(RE_Date: Date(), format: "YYYYMMddHHmmss"))-\(productInfo.keyName)"
         
         self.db.collection("Users").document(self.userUid).collection("Shop").document("Order").collection("Data").document(orderUid).setData([
@@ -153,6 +195,7 @@ class OrderViewController: UIViewController {
                         let VC =  self.storyboard?.instantiateViewController(withIdentifier:"NativeController") as! NativeController
                         VC.modalPresentationStyle = .overFullScreen
                         VC.modalTransitionStyle = .crossDissolve
+                        VC.paymentType = self.selectPayType
                         self.present(VC, animated: true, completion: nil)
                     }
          
