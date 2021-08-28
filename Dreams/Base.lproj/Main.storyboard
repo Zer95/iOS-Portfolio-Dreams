@@ -1974,7 +1974,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dje-GT-o63">
-                                                <rect key="frame" x="0.0" y="490" width="390" height="170"/>
+                                                <rect key="frame" x="0.0" y="490" width="390" height="200"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결제수단" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2i-iP-DxV">
                                                         <rect key="frame" x="10" y="10" width="70" height="24"/>
@@ -1982,21 +1982,76 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m3R-2N-447">
-                                                        <rect key="frame" x="61" y="34" width="240" height="128"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJS-U7-LnW">
+                                                        <rect key="frame" x="10" y="42" width="28" height="27.333333333333329"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </webView>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="circle" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                        </state>
+                                                        <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juU-67-v7Z">
+                                                        <rect key="frame" x="46" y="38" width="87" height="34"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="kakaoPay"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wj4-Nq-7gZ">
+                                                        <rect key="frame" x="10" y="84" width="28" height="27.333333333333329"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="circle" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                        </state>
+                                                        <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH4-Xw-ACK">
+                                                        <rect key="frame" x="10" y="126" width="28" height="27.333333333333329"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="circle" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                        </state>
+                                                        <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwX-K3-YFL">
+                                                        <rect key="frame" x="10" y="164" width="28" height="27.333333333333329"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="circle" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                        </state>
+                                                        <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpN-Rs-F9t">
+                                                        <rect key="frame" x="46" y="122" width="87" height="34"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="카드 결제">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RN3-c5-Bgs">
+                                                        <rect key="frame" x="46" y="157" width="87" height="34"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="계좌이체">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwd-qI-WhX">
+                                                        <rect key="frame" x="46" y="80" width="87" height="34"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="naverPay.png"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="z2i-iP-DxV" firstAttribute="leading" secondItem="dje-GT-o63" secondAttribute="leading" constant="10" id="Gvq-vz-IbJ"/>
-                                                    <constraint firstAttribute="height" constant="170" id="Ndc-tJ-oH6"/>
+                                                    <constraint firstAttribute="height" constant="200" id="Ndc-tJ-oH6"/>
                                                     <constraint firstItem="z2i-iP-DxV" firstAttribute="top" secondItem="dje-GT-o63" secondAttribute="top" constant="10" id="z0J-lV-6Np"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zQ-NK-xEQ">
-                                                <rect key="frame" x="0.0" y="680" width="390" height="170"/>
+                                                <rect key="frame" x="0.0" y="710" width="390" height="170"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="결제 진행 및 필수동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yP-pp-STp">
                                                         <rect key="frame" x="8" y="8" width="170" height="24"/>
@@ -2012,7 +2067,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xg-hR-USW">
-                                                <rect key="frame" x="0.0" y="870" width="390" height="170"/>
+                                                <rect key="frame" x="0.0" y="900" width="390" height="170"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="기타" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0v3-RX-xck">
                                                         <rect key="frame" x="8" y="8" width="35" height="24"/>
@@ -2086,43 +2141,59 @@
                         <outlet property="selectPriceLabel" destination="ucv-tF-zgc" id="rz0-Uf-Oas"/>
                         <outlet property="stockLabel" destination="Vd3-1k-ljH" id="lC5-7w-hNG"/>
                         <outlet property="totalPriceLabel" destination="KGi-ii-JMt" id="3hj-yw-dey"/>
-                        <segue destination="aid-As-V7f" kind="show" identifier="NativeController" id="XjH-MK-FiI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8po-vt-8WY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4820" y="1515.6398104265402"/>
         </scene>
-        <!--Native Controller-->
-        <scene sceneID="E79-dZ-1lL">
-            <objects>
-                <viewController storyboardIdentifier="NativeController" id="aid-As-V7f" customClass="NativeController" customModule="Dreams" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cpJ-j4-R3w">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Fb4-0t-4I1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="VnF-5Z-RDd"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tFQ-Yx-SwR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4820" y="2238"/>
-        </scene>
         <!--Pay-->
         <scene sceneID="W8n-PP-S0X">
             <objects>
-                <viewController storyboardIdentifier="Pay" title="Pay" id="TNg-u4-lbg" customClass="NativeBioController" customModule="Dreams" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NativeController" title="Pay" id="TNg-u4-lbg" customClass="NativeController" customModule="Dreams" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Obg-BS-ZzD">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZHM-ud-T2d">
+                                <rect key="frame" x="28" y="172" width="332" height="346"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="정말로 결제 하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaU-VB-kof">
+                                        <rect key="frame" x="76" y="162" width="179" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6o-a6-iag">
+                                        <rect key="frame" x="65" y="279" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="결제"/>
+                                        <connections>
+                                            <action selector="paymentBtn:" destination="TNg-u4-lbg" eventType="touchUpInside" id="7c2-cR-pkO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omD-EF-eYw">
+                                        <rect key="frame" x="237" y="279" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="취소"/>
+                                        <connections>
+                                            <action selector="cancleBtn:" destination="TNg-u4-lbg" eventType="touchUpInside" id="bn8-t5-Tbh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ybq-ii-AgV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.57025209407216493" green="0.57025209407216493" blue="0.57025209407216493" alpha="0.85581420068027214" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wHV-Bm-Ji2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCS-IN-L1i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5817" y="1687"/>
+            <point key="canvasLocation" x="5636.9230769230771" y="1515.6398104265402"/>
         </scene>
     </scenes>
     <resources>
@@ -2132,12 +2203,15 @@
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="circle.dashed.inset.fill" catalog="system" width="128" height="121"/>
         <image name="facebook" width="824" height="824"/>
         <image name="fiberchannel" catalog="system" width="128" height="92"/>
         <image name="google" width="824" height="824"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="kakao" width="822" height="824"/>
+        <image name="kakaoPay" width="241" height="100"/>
         <image name="mainBackground" width="800" height="1146"/>
+        <image name="naverPay.png" width="199" height="78"/>
         <image name="photo" width="4000" height="4000"/>
         <image name="posu1" width="500" height="500"/>
         <image name="star" catalog="system" width="128" height="116"/>

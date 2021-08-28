@@ -25,7 +25,7 @@ class MainViewController: SOTabBarController {
         let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
         let stadiumStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Stadium")
         let shopStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Shop")
-        let settingStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Pay")
+        let settingStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Setting")
     
         
         homeStoryboard.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_Selected"))

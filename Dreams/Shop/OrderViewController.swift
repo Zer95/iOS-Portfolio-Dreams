@@ -150,7 +150,10 @@ class OrderViewController: UIViewController {
 //                                         })
 //                        self.present(alert, animated: true, completion: nil)
                         
-                        self.performSegue(withIdentifier: "NativeController", sender: nil)
+                        let VC =  self.storyboard?.instantiateViewController(withIdentifier:"NativeController") as! NativeController
+                        VC.modalPresentationStyle = .overFullScreen
+                        VC.modalTransitionStyle = .crossDissolve
+                        self.present(VC, animated: true, completion: nil)
                     }
          
             }

@@ -32,6 +32,8 @@
 		D2AF026726D639C9007C5119 /* ShopProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026626D639C9007C5119 /* ShopProductViewController.swift */; };
 		D2BCCB5D26D510930045A973 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5C26D510930045A973 /* ShopViewController.swift */; };
 		D2BCCB5F26D5176F0045A973 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */; };
+		D2C8898D26D9FD8500E8B043 /* naverPay.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C8898C26D9FD8500E8B043 /* naverPay.png */; };
+		D2C8898F26D9FEFF00E8B043 /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C8898E26D9FEFE00E8B043 /* card.png */; };
 		D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E026C0BF4D003C0239 /* HomeViewController.swift */; };
 		D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E226C0C1DD003C0239 /* SettingViewController.swift */; };
 		D2F029E926C0EF18003C0239 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E826C0EF18003C0239 /* MapViewController.swift */; };
@@ -74,6 +76,8 @@
 		D2AF026626D639C9007C5119 /* ShopProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProductViewController.swift; sourceTree = "<group>"; };
 		D2BCCB5C26D510930045A973 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
+		D2C8898C26D9FD8500E8B043 /* naverPay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = naverPay.png; path = ../../../../../Downloads/NAVER_Pay_Logo/naverPay.png; sourceTree = "<group>"; };
+		D2C8898E26D9FEFE00E8B043 /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = card.png; path = ../../../../../Downloads/card.png; sourceTree = "<group>"; };
 		D2F029E026C0BF4D003C0239 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2F029E226C0C1DD003C0239 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D2F029E826C0EF18003C0239 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
 				D2F029F626C112D8003C0239 /* GoogleService-Info.plist */,
 				D2582E7726B7AF4400DF1669 /* Assets.xcassets */,
+				D2C8898E26D9FEFE00E8B043 /* card.png */,
+				D2C8898C26D9FD8500E8B043 /* naverPay.png */,
 				D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */,
 				D2582E7C26B7AF4400DF1669 /* Info.plist */,
 				D214492826BA3CB3008D702F /* RemoteConfigDefaults.plist */,
@@ -252,9 +258,11 @@
 			files = (
 				D21DA88A26C3796C0068AD9A /* reservation.json in Resources */,
 				D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */,
+				D2C8898F26D9FEFF00E8B043 /* card.png in Resources */,
 				D214492926BA3CB3008D702F /* RemoteConfigDefaults.plist in Resources */,
 				D2F029F726C112D8003C0239 /* GoogleService-Info.plist in Resources */,
 				D2FC0AA726C62F9900B4B490 /* baseball.json in Resources */,
+				D2C8898D26D9FD8500E8B043 /* naverPay.png in Resources */,
 				D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */,
 				D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */,
 			);

@@ -20,13 +20,10 @@ class NativeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = UIColor.white
        
        
-       
-        setUI()
-        sendAnaylticsUserLogin() // 유저 로그인 시점에 호출
-        sendAnaylticsPageCall() // 페이지 유입(추적) 시점에 호출, 로그인 통신이 완료된 후에 호출해야 함
+      //  setUI()
+        nativeClick()
     }
    
    override func viewWillAppear(_ animated: Bool) {
@@ -34,25 +31,17 @@ class NativeController: UIViewController {
       
       self.navigationController?.navigationBar.isHidden = true
    }
-   
-    func setUI() {
-      let titles = ["일반 결제 테스트", "인앱결제(원스토어) 테스트", "지문결제 테스트"]
-      let selectors = [#selector(nativeClick), #selector(onestoreClick), #selector(fingerClick)]
-//      let selectors = [#selector(onestoreClick), #selector(nativeClick), #selector(remoteLinkClick), #selector(remoteOrderClick), #selector(remotePreClick)]
-      let array = 0...(titles.count-1)
-      let unitHeight = self.view.frame.height / CGFloat(array.count)
-      for i in array {
-         let btn = UIButton(type: .roundedRect)
-         btn.frame = CGRect(x: 0, y: unitHeight * CGFloat(i), width: self.view.frame.width, height: unitHeight)
-         btn.setTitle(titles[i], for: .normal)
-         btn.addTarget(self, action: selectors[i], for: .touchUpInside)
-         self.view.addSubview(btn)
-      }
-      
-     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(goClose))
-        
+    
+    
+    @IBAction func paymentBtn(_ sender: Any) {
+        presentBootpayController()
     }
-   
+    
+    @IBAction func cancleBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+
    @objc func goClose() {
       Bootpay.removePaymentWindow()
    }
@@ -73,212 +62,7 @@ class NativeController: UIViewController {
    
 //   @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
   
-   @objc func remoteLinkClick() {
-      let item1 = BootpayItem().params {
-         $0.item_name = "미\"키's 마우스" // 주문정보에 담길 상품명
-         $0.qty = 1 // 해당 상품의 주문 수량
-         $0.unique = "ITEM_CODE_MOUSE" // 해당 상품의 고유 키
-         $0.price = 1000 // 상품의 가격
-      }
-      let item2 = BootpayItem().params {
-         $0.item_name = "키보드" // 주문정보에 담길 상품명
-         $0.qty = 1 // 해당 상품의 주문 수량
-         $0.unique = "ITEM_CODE_KEYBOARD" // 해당 상품의 고유 키
-         $0.price = 10000 // 상품의 가격
-         $0.cat1 = "패션"
-         $0.cat2 = "여\"성'상의"
-         $0.cat3 = "블라우스"
-      }
-      
-      // 커스텀 변수로, 서버에서 해당 값을 그대로 리턴 받음
-      let customParams: [String: String] = [
-         "callbackParam1": "value12",
-         "callbackParam2": "value34",
-         "callbackParam3": "value56",
-         "callbackParam4": "value78",
-         ]
-      
-      // 구매자 정보
-      let bootUser = BootpayUser()
-      bootUser.params {
-         $0.username = "사용자 이름"
-         $0.email = "user1234@gmail.com"
-         $0.area = "서울" // 사용자 주소
-         $0.phone = "010-1234-4567"
-      }
-      
-      let payload = BootpayPayload()
-      // 주문정보 - 실제 결제창에 반영되는 정보
-      payload.params {
-         $0.price = 1000 // 결제할 금액
-         $0.name = "블링\"블링's 마스카라" // 결제할 상품명
-         $0.order_id = "1234_1234_124" // 결제 고유번호
-         $0.params = customParams // 커스텀 변수
-         $0.application_id = application_id
-//         $0.user_info = bootUser
-         $0.pg = "danal" // 결제할 PG사
-         //            $0.account_expire_at = "2018-09-25" // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
-         //            $0.method = "card" // 결제수단
-         $0.methods = ["card", "phone"]
-         $0.sms_use = true
-         $0.ux = "BOOTPAY_REMOTE_LINK"
-      }
-      var items = [BootpayItem]()
-      items.append(item1)
-      items.append(item2)
-      
-      let smsPayload = SMSPayload()
-      smsPayload.params {
-         $0.msg = "결제링크 안내입니다\n[결제링크]"
-         $0.sp = "010-1234-4678"
-         $0.rps = ["010-1234-4678"]
-      }
-      
-      
-      Bootpay.request(self, sendable: self, payload: payload, user: bootUser, items: items, smsPayload: smsPayload)
-//      Bootpay.request_link(request, items: items, user: bootUser, extra: nil, smsPayload: smsPayload)
-   }
-   
-   @objc func remoteOrderClick() {
-      let item1 = BootpayItem().params {
-         $0.item_name = "미\"키's 마우스" // 주문정보에 담길 상품명
-         $0.qty = 1 // 해당 상품의 주문 수량
-         $0.unique = "ITEM_CODE_MOUSE" // 해당 상품의 고유 키
-         $0.price = 1000 // 상품의 가격
-      }
-      let item2 = BootpayItem().params {
-         $0.item_name = "키보드" // 주문정보에 담길 상품명
-         $0.qty = 1 // 해당 상품의 주문 수량
-         $0.unique = "ITEM_CODE_KEYBOARD" // 해당 상품의 고유 키
-         $0.price = 10000 // 상품의 가격
-         $0.cat1 = "패션"
-         $0.cat2 = "여\"성'상의"
-         $0.cat3 = "블라우스"
-      }
-      
-      // 커스텀 변수로, 서버에서 해당 값을 그대로 리턴 받음
-      let customParams: [String: String] = [
-         "callbackParam1": "value12",
-         "callbackParam2": "value34",
-         "callbackParam3": "value56",
-         "callbackParam4": "value78",
-         ]
-      
-      // 구매자 정보
-      let bootUser = BootpayUser()
-      bootUser.params {
-         $0.username = "사용자 이름"
-         $0.email = "user1234@gmail.com"
-         $0.area = "서울" // 사용자 주소
-         $0.phone = "010-1234-4567"
-      }
-      
-      let payload = BootpayPayload()
-      
-      
-      //         $0.application_id = "5a52cc39396fa6449880c0f0"
-      
-      // 주문정보 - 실제 결제창에 반영되는 정보
-      payload.params {
-         $0.price = 1000 // 결제할 금액
-         $0.name = "블링\"블링's 마스카라" // 결제할 상품명
-         $0.order_id = "1234_1234_124" // 결제 고유번호
-         $0.params = customParams // 커스텀 변수
-         $0.application_id = application_id
-         //         $0.user_info = bootUser
-         $0.pg = "payletter" // 결제할 PG사
-         //            $0.account_expire_at = "2018-09-25" // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
-         //            $0.method = "card" // 결제수단
-         $0.method = "card"
-//         $0.methods = ["card", "phone"]
-         $0.sms_use = true
-         $0.ux = "BOOTPAY_REMOTE_FORM"
-      }
-      var items = [BootpayItem]()
-      items.append(item1)
-      items.append(item2)
-      
-      let smsPayload = SMSPayload()
-      smsPayload.params {
-         $0.msg = "결제링크 안내입니다\n[결제링크]"
-         $0.sp = "010-1234-4678"
-         $0.rps = ["010-1234-4678"]
-      }
-      
-      Bootpay.request(self, sendable: self, payload: payload, user: bootUser, items: items, smsPayload: smsPayload)
-//      Bootpay.request_form(request, user: bootUser, items: items, extra: nil, smsPayload: smsPayload, remoteForm: nil)
-   
-   }
-   
-   @objc func remotePreClick() {
-      let item1 = BootpayItem().params {
-         $0.item_name = "미\"키's 마우스" // 주문정보에 담길 상품명
-         $0.qty = 1 // 해당 상품의 주문 수량
-         $0.unique = "ITEM_CODE_MOUSE" // 해당 상품의 고유 키
-         $0.price = 1000 // 상품의 가격
-      }
-      let item2 = BootpayItem().params {
-         $0.item_name = "키보드" // 주문정보에 담길 상품명
-         $0.qty = 1 // 해당 상품의 주문 수량
-         $0.unique = "ITEM_CODE_KEYBOARD" // 해당 상품의 고유 키
-         $0.price = 10000 // 상품의 가격
-         $0.cat1 = "패션"
-         $0.cat2 = "여\"성'상의"
-         $0.cat3 = "블라우스"
-      }
-      
-      // 커스텀 변수로, 서버에서 해당 값을 그대로 리턴 받음
-      let customParams: [String: String] = [
-         "callbackParam1": "value12",
-         "callbackParam2": "value34",
-         "callbackParam3": "value56",
-         "callbackParam4": "value78",
-         ]
-      
-      // 구매자 정보
-      let bootUser = BootpayUser()
-      bootUser.params {
-         $0.username = "사용자 이름"
-         $0.email = "user1234@gmail.com"
-         $0.area = "서울" // 사용자 주소
-         $0.phone = "010-1234-4567"
-      }
-      
-      let payload = BootpayPayload()
-      
-      
-      //         $0.application_id = "5a52cc39396fa6449880c0f0"
-      
-      // 주문정보 - 실제 결제창에 반영되는 정보
-      payload.params {
-         $0.price = 1000 // 결제할 금액
-         $0.name = "블링\"블링's 마스카라" // 결제할 상품명
-         $0.order_id = "1234_1234_124" // 결제 고유번호
-         $0.params = customParams // 커스텀 변수
-         $0.application_id = application_id
-         //         $0.user_info = bootUser
-         $0.pg = "danal" // 결제할 PG사
-         //            $0.account_expire_at = "2018-09-25" // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. 오늘 날짜보다 더 뒤(미래)여야 합니다 )
-         //            $0.method = "card" // 결제수단
-         $0.methods = ["card", "phone"]
-         $0.sms_use = true
-         $0.ux = "BOOTPAY_REMOTE_PRE"
-      }
-      var items = [BootpayItem]()
-      items.append(item1)
-      items.append(item2)
-      
-      let smsPayload = SMSPayload()
-      smsPayload.params {
-         $0.msg = "결제링크 안내입니다\n[결제링크]"
-         $0.sp = "010-1234-4678"
-         $0.rps = ["010-1234-4678"]
-      }
-      
-      Bootpay.request(self, sendable: self, payload: payload, user: bootUser, items: items, smsPayload: smsPayload)
-//      Bootpay.request_pre(request, user: bootUser, items: items, extra: nil, smsPayload: smsPayload, remotePre: nil)
-      
-   }
+  
     
    override func didReceiveMemoryWarning() {
        super.didReceiveMemoryWarning()
