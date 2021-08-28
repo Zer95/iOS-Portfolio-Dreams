@@ -79,13 +79,23 @@ class SettingViewController: UIViewController {
         GIDSignIn.sharedInstance().disconnect()
         
         // 카카오 계정 연결 해제 ( 토큰삭제 및 회원 탈퇴 )
-        UserApi.shared.unlink {(error) in
+//        UserApi.shared.unlink {(error) in
+//            if let error = error {
+//                print(error)
+//            }
+//            else {
+//                print("unlink() success.")
+//
+//            }
+//        }
+        
+        // 카카오 로그아웃
+        UserApi.shared.logout {(error) in
             if let error = error {
                 print(error)
             }
             else {
-                print("unlink() success.")
-                
+                print("logout() success.")
             }
         }
         
