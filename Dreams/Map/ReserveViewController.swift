@@ -27,6 +27,8 @@ class ReserveViewController: UIViewController {
     
     let dateFormatter = DateFormatter()
     
+    let formetter = Formatter()
+    
     var stadiumName = ""
     var stadiumKeyName = ""
     
@@ -91,8 +93,8 @@ class ReserveViewController: UIViewController {
                 self.stadiumPrice = price
                 self.equipmentPrice = equipmentPrice
                 self.screenPrice = screenPrice
-                self.optionLabel1.text = "장비대여 (+\(self.priceFormatter(number: self.equipmentPrice))원)"
-                self.optionLabel2.text = "스크린 점수판 (+\(self.priceFormatter(number: self.screenPrice))원)"
+                self.optionLabel1.text = "장비대여 (+\(self.formetter.priceFormatter(number: self.equipmentPrice))원)"
+                self.optionLabel2.text = "스크린 점수판 (+\(self.formetter.priceFormatter(number: self.screenPrice))원)"
              
                 
                 // 오픈 마감 시간
@@ -278,7 +280,7 @@ class ReserveViewController: UIViewController {
             self.totalPrice = self.totalPrice - self.equipmentPrice
             self.option1State = false
         }
-        self.reserveBtn.setTitle("예약하기 ( +\(self.priceFormatter(number: self.totalPrice))원 )", for: .normal)
+        self.reserveBtn.setTitle("예약하기 ( +\(self.formetter.priceFormatter(number: self.totalPrice))원 )", for: .normal)
     }
     
     @IBAction func optionBtn2(_ sender: Any) {
@@ -292,18 +294,10 @@ class ReserveViewController: UIViewController {
             self.option2State = false
         }
        
-        self.reserveBtn.setTitle("예약하기 ( +\(self.priceFormatter(number: self.totalPrice))원 )", for: .normal)
+        self.reserveBtn.setTitle("예약하기 ( +\(self.formetter.priceFormatter(number: self.totalPrice))원 )", for: .normal)
     }
     
   
-    // #숫자 단위 계산
-    func priceFormatter(number: Int) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        return numberFormatter.string(from: NSNumber(value: number))!
-    }
-    
 }
 
 
@@ -402,7 +396,7 @@ extension ReserveViewController: UICollectionViewDataSource, UICollectionViewDel
         }
      
       
-        self.reserveBtn.setTitle("예약하기 ( +\(self.priceFormatter(number: self.totalPrice))원 )", for: .normal)
+        self.reserveBtn.setTitle("예약하기 ( +\(self.formetter.priceFormatter(number: self.totalPrice))원 )", for: .normal)
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -440,7 +434,7 @@ extension ReserveViewController : FSCalendarDelegate, FSCalendarDataSource, FSCa
         optionBtn1.isSelected = false
         optionBtn2.isSelected = false
         self.totalPrice = 0
-        self.reserveBtn.setTitle("예약하기 ( +\(self.priceFormatter(number: self.totalPrice))원 )", for: .normal)
+        self.reserveBtn.setTitle("예약하기 ( +\(self.formetter.priceFormatter(number: self.totalPrice))원 )", for: .normal)
         
         dayDataLoad(day: day)
         print("특검" + day + " 선택됨")

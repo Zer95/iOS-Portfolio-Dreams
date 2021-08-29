@@ -15,6 +15,8 @@ class ShopDetailViewController: UIViewController {
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
+    let formatter = Formatter()
+    
     var recieveData = ""
    
     
@@ -62,8 +64,10 @@ extension ShopDetailViewController: UICollectionViewDataSource  , UICollectionVi
         }
           
         cell.name.text = shopViewModel.shopList[indexPath.row].name
-        cell.price.text = "\(shopViewModel.shopList[indexPath.row].price)원"
-        cell.delivery.text = "배송비: \(shopViewModel.shopList[indexPath.row].delivery)원"
+        let price = formatter.priceFormatter(number: shopViewModel.shopList[indexPath.row].price)
+        cell.price.text = "\(price)원"
+        let delivery = formatter.priceFormatter(number: shopViewModel.shopList[indexPath.row].delivery)
+        cell.delivery.text = "배송비: \(delivery)원"
         
         
         let storageReference = Storage.storage().reference().child("Shop").child("Data").child(self.recieveData).child("\(shopViewModel.shopList[indexPath.row].keyName).jpg")

@@ -21,6 +21,7 @@ class ShopProductViewController: UIViewController {
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
+    let formatter = Formatter()
     
     var recieveInfo = ShopInfo(keyName: "", name: "", price: 0, stock: 0, delivery: 0)
     var recieveImageReference: StorageReference?
@@ -36,8 +37,8 @@ class ShopProductViewController: UIViewController {
     
     func updateUI(){
         name.text  = recieveInfo.name
-        price.text = "\(recieveInfo.price)원"
-        delivery.text = "배송비: \(recieveInfo.delivery)원"
+        price.text = "\(formatter.priceFormatter(number: recieveInfo.price))원"
+        delivery.text = "배송비: \(formatter.priceFormatter(number: recieveInfo.delivery))원"
         stock.text = "남은 수량: \(recieveInfo.stock)"
         
         buyBtn.layer.cornerRadius = 10

@@ -22,6 +22,7 @@ class StadiumViewController: UIViewController {
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
+    let formetter = Formatter()
   
     
     var imageGet: [UIImage]! = []
@@ -163,7 +164,8 @@ extension StadiumViewController:UITableViewDataSource{
         
 
         cell.Title.text = stadiumViewModel.stadiumList[indexPath.row].title
-        cell.Price.text = "시간당: \(stadiumViewModel.stadiumList[indexPath.row].price)"
+        let price = formetter.priceFormatter(number: stadiumViewModel.stadiumList[indexPath.row].price)
+        cell.Price.text = "시간당: \(price)원"
         cell.Address.text = stadiumViewModel.stadiumList[indexPath.row].address
         
         

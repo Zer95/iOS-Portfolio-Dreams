@@ -25,7 +25,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var noticeLabel: UILabel!
     
-    let stringValue = StringValue()
+    let formatter = Formatter()
     
     var images = ["banner4.png","banner3.png"]
     var notices = ["공지사항 안내",""]
@@ -322,7 +322,8 @@ extension HomeViewController: UICollectionViewDataSource {
         let CheckData = userReserveDataModel.userReserveDataList[indexPath.row]
         cell.stadiumName.text = userReserveDataModel.userReserveDataList[indexPath.row].stadiumName
         cell.selectTime.text = "예약시간: \(userReserveDataModel.userReserveDataList[indexPath.row].selectTime)"
-        cell.totalPrice.text = "결제금액: \(userReserveDataModel.userReserveDataList[indexPath.row].totalPrice)"
+        let price = formatter.priceFormatter(number: userReserveDataModel.userReserveDataList[indexPath.row].totalPrice)
+        cell.totalPrice.text = "결제금액: \(price)원"
         cell.equipmentState.text = "장비대여: \(userReserveDataModel.userReserveDataList[indexPath.row].equipmentState)"
         cell.screenState.text = "스크린 전광판: \(userReserveDataModel.userReserveDataList[indexPath.row].screenState)"
         cell.reserveTime.text = "예약 일시: \(userReserveDataModel.userReserveDataList[indexPath.row].reserveTime)"

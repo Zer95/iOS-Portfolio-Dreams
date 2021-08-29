@@ -34,6 +34,8 @@ class OrderViewController: UIViewController {
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
+    let formatter = Formatter()
+    
     var productInfo = ShopInfo(keyName: "", name: "", price: 0, stock: 0, delivery: 0)
     
     var totalPrice = 0
@@ -55,18 +57,18 @@ class OrderViewController: UIViewController {
     func updateUI() {
         nameLabel.text = productInfo.name
         
-        priceLabel.text = "\(priceFormatter(number: productInfo.price))원"
+        priceLabel.text = "\(formatter.priceFormatter(number: productInfo.price))원"
         self.productPrice = productInfo.price
         
         stockLabel.text = "잔여 수량: \(productInfo.stock)"
         self.productStockCnt = productInfo.stock
         
-        deliveryLabel.text = "+ \(priceFormatter(number:productInfo.delivery))원"
+        deliveryLabel.text = "+ \(formatter.priceFormatter(number:productInfo.delivery))원"
         self.deliveryPrice = productInfo.delivery
         
         let defaultTotal = productInfo.price + productInfo.delivery
-        totalPriceLabel.text = "\(priceFormatter(number:defaultTotal))원"
-        orderBtn.setTitle("\(priceFormatter(number:defaultTotal))원 결제하기", for: .normal)
+        totalPriceLabel.text = "\(formatter.priceFormatter(number:defaultTotal))원"
+        orderBtn.setTitle("(\(formatter.priceFormatter(number: defaultTotal)))원 결제하기", for: .normal)
     }
     
 
@@ -82,9 +84,9 @@ class OrderViewController: UIViewController {
         self.totalPrice = selectProductPrice + deliveryPrice
         
         self.productCntLabel.text = "\(self.productSelectCnt)"
-        self.selectPriceLabel.text = "\(priceFormatter(number:selectProductPrice))원"
-        self.totalPriceLabel.text = "\(priceFormatter(number:self.totalPrice))원"
-        orderBtn.setTitle("\(priceFormatter(number:self.totalPrice))원 결제하기", for: .normal)
+            self.selectPriceLabel.text = "\(formatter.priceFormatter(number:selectProductPrice))원"
+            self.totalPriceLabel.text = "\(formatter.priceFormatter(number:self.totalPrice))원"
+            orderBtn.setTitle("\(formatter.priceFormatter(number:self.totalPrice))원 결제하기", for: .normal)
         } else {
             print("최대 선택 개수 입니다!")
         }
@@ -98,9 +100,9 @@ class OrderViewController: UIViewController {
             self.totalPrice = selectProductPrice + deliveryPrice
             
             self.productCntLabel.text = "\(self.productSelectCnt)"
-            self.selectPriceLabel.text = "\(priceFormatter(number:selectProductPrice))원"
-            self.totalPriceLabel.text = "\(priceFormatter(number:self.totalPrice))원"
-            orderBtn.setTitle("\(priceFormatter(number:self.totalPrice))원 결제하기", for: .normal)
+            self.selectPriceLabel.text = "\(formatter.priceFormatter(number:selectProductPrice))원"
+            self.totalPriceLabel.text = "\(formatter.priceFormatter(number:self.totalPrice))원"
+            orderBtn.setTitle("\(formatter.priceFormatter(number:self.totalPrice))원 결제하기", for: .normal)
         } else {
             print("1개이상은 필수 입니다!")
         }
@@ -204,13 +206,7 @@ class OrderViewController: UIViewController {
     }
     }
     }
-    // #숫자 단위 계산
-    func priceFormatter(number: Int) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        return numberFormatter.string(from: NSNumber(value: number))!
-    }
+  
     
     // 날짜 데이터 문자열로 변환
     func DateToString(RE_Date: Date, format: String) -> String {
