@@ -41,6 +41,7 @@
 		D2F029EF26C0FF4B003C0239 /* StadiumPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029EE26C0FF4B003C0239 /* StadiumPreviewView.swift */; };
 		D2F029F326C0FFD7003C0239 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029F226C0FFD7003C0239 /* DetailsVC.swift */; };
 		D2F029F726C112D8003C0239 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2F029F626C112D8003C0239 /* GoogleService-Info.plist */; };
+		D2F1103726DB4C1F007AFA9F /* StringValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1103626DB4C1F007AFA9F /* StringValue.swift */; };
 		D2FC0AA526C62D3000B4B490 /* ReserveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */; };
 		D2FC0AA726C62F9900B4B490 /* baseball.json in Resources */ = {isa = PBXBuildFile; fileRef = D2FC0AA626C62F9900B4B490 /* baseball.json */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		D2F029EE26C0FF4B003C0239 /* StadiumPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumPreviewView.swift; sourceTree = "<group>"; };
 		D2F029F226C0FFD7003C0239 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		D2F029F626C112D8003C0239 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D2F1103626DB4C1F007AFA9F /* StringValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValue.swift; sourceTree = "<group>"; };
 		D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewController.swift; sourceTree = "<group>"; };
 		D2FC0AA626C62F9900B4B490 /* baseball.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = baseball.json; path = ../../../../../Downloads/baseball.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,8 +147,9 @@
 				D214492E26BAB696008D702F /* MainViewController.swift */,
 				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
 				D2AF026126D624B6007C5119 /* Shop */,
-				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
+				D2F1103526DB4BF2007AFA9F /* Util */,
 				D2F029F626C112D8003C0239 /* GoogleService-Info.plist */,
+				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
 				D2582E7726B7AF4400DF1669 /* Assets.xcassets */,
 				D2C8898E26D9FEFE00E8B043 /* card.png */,
 				D2C8898C26D9FD8500E8B043 /* naverPay.png */,
@@ -185,6 +188,14 @@
 				D21DA88526C3740E0068AD9A /* StadiunInfo.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		D2F1103526DB4BF2007AFA9F /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D2F1103626DB4C1F007AFA9F /* StringValue.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		F87E3FFD7FA5F4B626853612 /* Pods */ = {
@@ -337,6 +348,7 @@
 				D21DA88626C3740E0068AD9A /* StadiunInfo.swift in Sources */,
 				D2AF026326D6259E007C5119 /* ShopInfo.swift in Sources */,
 				D214492F26BAB696008D702F /* MainViewController.swift in Sources */,
+				D2F1103726DB4C1F007AFA9F /* StringValue.swift in Sources */,
 				D2582E7326B7AF4400DF1669 /* LoginViewController.swift in Sources */,
 				D2AF026726D639C9007C5119 /* ShopProductViewController.swift in Sources */,
 				D214492B26BA4447008D702F /* SingInViewController.swift in Sources */,

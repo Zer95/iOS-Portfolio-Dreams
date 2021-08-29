@@ -23,8 +23,12 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var noticeLabel: UILabel!
+    
+    let stringValue = StringValue()
     
     var images = ["banner4.png","banner3.png"]
+    var notices = ["",""]
     var timer = Timer()
     var autoNum:Int = 1
     
@@ -57,6 +61,8 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
    
+        notices[0] = stringValue.notice1
+        notices[1] = stringValue.notice2
           //  navigationController?.setNavigationBarHidden(true, animated: animated)
         }
     
@@ -99,6 +105,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         imageView.image = UIImage(named: String(images[0]))
+        noticeLabel.text = notices[0]
         timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(autoChange), userInfo: nil, repeats: true)
       
     }
@@ -110,6 +117,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         }
         pageControl.currentPage = autoNum
         imageView.image = UIImage(named: String(images[autoNum]))
+        noticeLabel.text = notices[autoNum]
         autoNum += 1
     }
     

@@ -1781,6 +1781,7 @@
                         <outlet property="collectionView" destination="VnK-U1-viL" id="h8U-FM-MKn"/>
                         <outlet property="imageView" destination="tr0-vX-UOM" id="zXt-8i-onj"/>
                         <outlet property="notiView" destination="QBE-jW-KEt" id="LVN-Rs-r4G"/>
+                        <outlet property="noticeLabel" destination="M6V-k9-ZOQ" id="Q3y-1Y-sjC"/>
                         <outlet property="pageControl" destination="LJO-Hn-c61" id="5h7-Kc-Ok8"/>
                     </connections>
                 </viewController>
