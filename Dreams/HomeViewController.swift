@@ -28,7 +28,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     let stringValue = StringValue()
     
     var images = ["banner4.png","banner3.png"]
-    var notices = ["",""]
+    var notices = ["공지사항 안내",""]
     var timer = Timer()
     var autoNum:Int = 1
     
@@ -61,8 +61,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
    
-        notices[0] = stringValue.notice1
-        notices[1] = stringValue.notice2
+        self.readServerNotice()
           //  navigationController?.setNavigationBarHidden(true, animated: animated)
         }
     
@@ -99,6 +98,23 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     }
     
 
+    func readServerNotice() {
+        db.collection("Setting").document("Notice").getDocument() { (querySnapshot, err) in
+            if let err = err {
+            print("Error getting documents: \(err)")
+            } else {
+                
+                let info = querySnapshot!
+                
+                guard let noti1 = info["Noti1"] else {return}
+                guard let noti2 = info["Noti2"] else {return}
+                self.notices[0] = "\(noti1)"
+                self.notices[1] = "\(noti2)"
+              
+
+             }
+    }
+    }
     func imagePageControl() {
         pageControl.numberOfPages = 2
         pageControl.currentPage = 1
