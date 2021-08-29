@@ -198,10 +198,11 @@ class ReserveViewController: UIViewController {
             
         self.db.collection("Users").document(self.userUid).collection("Stadium").document("Reserve").collection("Data").document(dayPath).setData([
             "stadiumName": self.stadiumName,
-            "reserveTime": "\(self.DateToString(RE_Date: Date()))",
+            "reserveTime": "\(self.DateToString(RE_Date: Date(), format: "YYYY-MM-dd HH:mm"))",
             "totalPrice": self.totalPrice,
             "equipmentState": self.option1State,
             "screenState": self.option2State,
+            "selectDay": "\(self.DateToString(RE_Date: Date(), format: "YY년/MM월/dd일"))",
             "selectTime": self.selectTimeDB,
             "date": self.year + self.userSelectDay
           

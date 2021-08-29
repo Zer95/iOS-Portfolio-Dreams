@@ -185,9 +185,10 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
                     let totalPrice = info["totalPrice"] as? Int ?? 0
                     let equipmentState = info["equipmentState"] as? Bool ?? false
                     let screenState = info["screenState"] as? Bool ?? false
+                    let selectDay = info["selectDay"] as? String  ?? ""
                     let selectTime = info["selectTime"] as? [Int] ?? []
                     print("[Log] 셀렉 배열 \(selectTime)")
-                    self.userReserveDataModel.userReserveDataList.append(UserReserveInfo(stadiumName: stadiumName, reserveTime: reserveTime, totalPrice: totalPrice, equipmentState: equipmentState, screenState: screenState, selectTime: selectTime))
+                    self.userReserveDataModel.userReserveDataList.append(UserReserveInfo(stadiumName: stadiumName, reserveTime: reserveTime, totalPrice: totalPrice, equipmentState: equipmentState, screenState: screenState, selectDay: selectDay, selectTime: selectTime))
                     
                 }
                 
@@ -245,9 +246,10 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
                     let totalPrice = info["totalPrice"] as? Int ?? 0
                     let equipmentState = info["equipmentState"] as? Bool ?? false
                     let screenState = info["screenState"] as? Bool ?? false
+                    let selectDay = info["selectDay"] as? String  ?? ""
                     let selectTime = info["selectTime"] as? [Int] ?? []
                     print("[Log] 셀렉 배열 \(selectTime)")
-                    self.userReserveDataModel.userReserveDataList.append(UserReserveInfo(stadiumName: stadiumName, reserveTime: reserveTime, totalPrice: totalPrice, equipmentState: equipmentState, screenState: screenState, selectTime: selectTime))
+                    self.userReserveDataModel.userReserveDataList.append(UserReserveInfo(stadiumName: stadiumName, reserveTime: reserveTime, totalPrice: totalPrice, equipmentState: equipmentState, screenState: screenState, selectDay: selectDay, selectTime: selectTime))
                     
                 }
                 
@@ -321,6 +323,7 @@ extension HomeViewController: UICollectionViewDataSource {
         
         let CheckData = userReserveDataModel.userReserveDataList[indexPath.row]
         cell.stadiumName.text = userReserveDataModel.userReserveDataList[indexPath.row].stadiumName
+        cell.selectDate.text = "예약날짜: \(userReserveDataModel.userReserveDataList[indexPath.row].selectDay)"
         cell.selectTime.text = "예약시간: \(userReserveDataModel.userReserveDataList[indexPath.row].selectTime)"
         let price = formatter.priceFormatter(number: userReserveDataModel.userReserveDataList[indexPath.row].totalPrice)
         cell.totalPrice.text = "결제금액: \(price)원"
@@ -373,6 +376,7 @@ class homeCollcectionCell: UICollectionViewCell {
     @IBOutlet weak var allView: UIView!
     
     @IBOutlet weak var stadiumName: UILabel!
+    @IBOutlet weak var selectDate: UILabel!
     @IBOutlet weak var selectTime: UILabel!
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var equipmentState: UILabel!
