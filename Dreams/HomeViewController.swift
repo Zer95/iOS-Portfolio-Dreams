@@ -281,6 +281,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         let day = DateToString(RE_Date: date,format: "MMdd")
         print("[Log] 선택된 날짜는 \(day)")
         self.UserSelectDataLoad(day: day)
+        self.calendar.setScope(.week, animated: true)
     }
 
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
