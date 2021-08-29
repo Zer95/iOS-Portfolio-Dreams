@@ -21,6 +21,13 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     
     @IBOutlet weak var notiView: UIView!
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    var images = ["banner4.png","banner3.png"]
+    var timer = Timer()
+    var autoNum:Int = 1
+    
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
@@ -60,7 +67,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         notiView.layer.borderColor =  #colorLiteral(red: 0.9122878909, green: 0.9124409556, blue: 0.9122678041, alpha: 1)
         
     
-        
+        imagePageControl()
         
         collectionView.backgroundView = UIImageView(image: UIImage(named: "back1"))
         
@@ -86,6 +93,30 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     }
     
 
+    func imagePageControl() {
+        pageControl.numberOfPages = 2
+        pageControl.currentPage = 1
+        pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        imageView.image = UIImage(named: String(images[0]))
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(autoChange), userInfo: nil, repeats: true)
+      
+    }
+    
+ 
+    @objc func autoChange(){
+        if autoNum == 2{
+            autoNum = 0
+        }
+        pageControl.currentPage = autoNum
+        imageView.image = UIImage(named: String(images[autoNum]))
+        autoNum += 1
+    }
+    
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+        imageView.image = UIImage(named: images[pageControl.currentPage])
+    }
+    
     func UserDataLoad() {
         
         

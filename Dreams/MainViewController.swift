@@ -15,6 +15,12 @@ class MainViewController: SOTabBarController {
         SOTabBarSetting.tabBarCircleSize = CGSize(width: 60, height: 60)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            navigationController?.setNavigationBarHidden(true, animated: animated)
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
