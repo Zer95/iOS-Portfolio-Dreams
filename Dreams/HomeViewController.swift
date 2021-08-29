@@ -324,8 +324,21 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.selectTime.text = "예약시간: \(userReserveDataModel.userReserveDataList[indexPath.row].selectTime)"
         let price = formatter.priceFormatter(number: userReserveDataModel.userReserveDataList[indexPath.row].totalPrice)
         cell.totalPrice.text = "결제금액: \(price)원"
-        cell.equipmentState.text = "장비대여: \(userReserveDataModel.userReserveDataList[indexPath.row].equipmentState)"
-        cell.screenState.text = "스크린 전광판: \(userReserveDataModel.userReserveDataList[indexPath.row].screenState)"
+        
+        let equipmentState = userReserveDataModel.userReserveDataList[indexPath.row].equipmentState
+        if equipmentState == true {
+            cell.equipmentState.text = "장비대여: ⭕️"
+        } else {
+            cell.equipmentState.text = "장비대여: ❌"
+        }
+       
+        let screenState = userReserveDataModel.userReserveDataList[indexPath.row].screenState
+        if screenState == true {
+            cell.screenState.text = "스크린 전광판: ⭕️"
+        } else {
+            cell.screenState.text = "스크린 전광판: ❌"
+        }
+       
         cell.reserveTime.text = "예약 일시: \(userReserveDataModel.userReserveDataList[indexPath.row].reserveTime)"
         
         print("[Log] MVVM Check : \(CheckData)")
