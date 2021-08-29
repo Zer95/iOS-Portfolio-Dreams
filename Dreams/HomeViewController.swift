@@ -71,7 +71,8 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         notiView.layer.borderWidth = 0.5
         notiView.layer.borderColor =  #colorLiteral(red: 0.9122878909, green: 0.9124409556, blue: 0.9122678041, alpha: 1)
         
-    
+        calendarUI()
+        
         imagePageControl()
         
         collectionView.backgroundView = UIImageView(image: UIImage(named: "back1"))
@@ -97,6 +98,16 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         print("\(#function)")
     }
     
+    func calendarUI() {
+        
+        calendar.appearance.headerDateFormat = "YYYY년 M월"
+        calendar.appearance.headerTitleColor = #colorLiteral(red: 0, green: 0.7328820229, blue: 0.4503706694, alpha: 1)
+        calendar.appearance.weekdayTextColor = .orange
+        calendar.appearance.titleWeekendColor = .red
+        calendar.appearance.selectionColor = #colorLiteral(red: 0.0379126817, green: 0.5588994026, blue: 0.3463691771, alpha: 1)
+        
+        
+    }
 
     func readServerNotice() {
         db.collection("Setting").document("Notice").getDocument() { (querySnapshot, err) in
