@@ -351,30 +351,32 @@
                                     <constraint firstItem="jAC-vE-GBG" firstAttribute="top" secondItem="PWJ-RY-NY0" secondAttribute="top" id="vxz-46-w4W"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1" translatesAutoresizingMaskIntoConstraints="NO" id="Ola-Iw-yLb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIM-fF-aty">
                                 <rect key="frame" x="0.0" y="84" width="390" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="C0p-G2-GNS"/>
+                                    <constraint firstAttribute="height" constant="150" id="t2k-od-xY6"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jd9-Re-yYM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PWJ-RY-NY0" firstAttribute="top" secondItem="jd9-Re-yYM" secondAttribute="top" id="7vu-qS-F8u"/>
                             <constraint firstItem="PWJ-RY-NY0" firstAttribute="trailing" secondItem="jd9-Re-yYM" secondAttribute="trailing" id="844-K2-s61"/>
-                            <constraint firstItem="Ola-Iw-yLb" firstAttribute="trailing" secondItem="jd9-Re-yYM" secondAttribute="trailing" id="8J9-yU-8af"/>
                             <constraint firstItem="PWJ-RY-NY0" firstAttribute="leading" secondItem="jd9-Re-yYM" secondAttribute="leading" id="8XM-sc-gfP"/>
-                            <constraint firstItem="nFB-Lk-V2t" firstAttribute="top" secondItem="Ola-Iw-yLb" secondAttribute="bottom" id="HZ3-bk-CUq"/>
                             <constraint firstItem="nFB-Lk-V2t" firstAttribute="leading" secondItem="jd9-Re-yYM" secondAttribute="leading" id="Qpa-8g-tch"/>
+                            <constraint firstItem="jd9-Re-yYM" firstAttribute="trailing" secondItem="eIM-fF-aty" secondAttribute="trailing" id="R4N-HO-vgl"/>
                             <constraint firstItem="jd9-Re-yYM" firstAttribute="trailing" secondItem="nFB-Lk-V2t" secondAttribute="trailing" id="TfQ-0h-FBF"/>
-                            <constraint firstItem="Ola-Iw-yLb" firstAttribute="top" secondItem="PWJ-RY-NY0" secondAttribute="bottom" id="XVz-oX-10t"/>
-                            <constraint firstItem="Ola-Iw-yLb" firstAttribute="leading" secondItem="jd9-Re-yYM" secondAttribute="leading" id="lzf-Ly-gMc"/>
+                            <constraint firstItem="eIM-fF-aty" firstAttribute="leading" secondItem="jd9-Re-yYM" secondAttribute="leading" id="eZd-Nm-tPT"/>
+                            <constraint firstItem="nFB-Lk-V2t" firstAttribute="top" secondItem="eIM-fF-aty" secondAttribute="bottom" id="q3j-hh-zr5"/>
+                            <constraint firstItem="eIM-fF-aty" firstAttribute="top" secondItem="PWJ-RY-NY0" secondAttribute="bottom" id="zJv-II-yzv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="상점" id="gZk-dj-wKG"/>
                     <connections>
                         <outlet property="collectionView" destination="nFB-Lk-V2t" id="ehO-Zr-pTs"/>
+                        <outlet property="topView" destination="eIM-fF-aty" id="ewt-y8-ZzP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeD-8R-Js4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -782,9 +784,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnx-6D-3Ml">
-                                <rect key="frame" x="0.0" y="244" width="390" height="566"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xla-5L-rD9">
+                                <rect key="frame" x="0.0" y="84" width="390" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="kEk-Tg-Xpp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWh-Mc-1Jh">
+                                <rect key="frame" x="0.0" y="44" width="390" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="경기장" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcg-yj-mO5">
+                                        <rect key="frame" x="166.66666666666666" y="0.0" width="57" height="26"/>
+                                        <fontDescription key="fontDescription" name="DXWRbtStd-B" family="DXWRbtStd" pointSize="25"/>
+                                        <color key="textColor" red="0.06190561503" green="0.32750278710000003" blue="0.26062071320000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" systemColor="systemOrangeColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="zcg-yj-mO5" firstAttribute="top" secondItem="MWh-Mc-1Jh" secondAttribute="top" id="f1z-GJ-xEJ"/>
+                                    <constraint firstItem="zcg-yj-mO5" firstAttribute="centerX" secondItem="MWh-Mc-1Jh" secondAttribute="centerX" id="orO-zu-duW"/>
+                                    <constraint firstAttribute="height" constant="40" id="zw0-QN-XKZ"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnx-6D-3Ml">
+                                <rect key="frame" x="0.0" y="284" width="390" height="566"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="566" id="nRy-6y-DL9"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="StadiumTableViewCell" rowHeight="240" id="KWS-Hp-1cJ" customClass="StadiumTableViewCell" customModule="Dreams" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="240"/>
@@ -872,22 +902,19 @@
                                     <outlet property="delegate" destination="8xr-pu-AMG" id="qRY-GW-aX0"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xla-5L-rD9">
-                                <rect key="frame" x="0.0" y="44" width="390" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A0K-xl-ITb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Xla-5L-rD9" firstAttribute="top" secondItem="A0K-xl-ITb" secondAttribute="top" id="7ax-WN-uhY"/>
-                            <constraint firstItem="bnx-6D-3Ml" firstAttribute="trailing" secondItem="A0K-xl-ITb" secondAttribute="trailing" id="C0t-LV-nyd"/>
-                            <constraint firstItem="Xla-5L-rD9" firstAttribute="trailing" secondItem="A0K-xl-ITb" secondAttribute="trailing" id="GuK-l4-ix1"/>
-                            <constraint firstItem="bnx-6D-3Ml" firstAttribute="bottom" secondItem="A0K-xl-ITb" secondAttribute="bottom" id="Inc-eK-nvC"/>
-                            <constraint firstItem="bnx-6D-3Ml" firstAttribute="top" secondItem="A0K-xl-ITb" secondAttribute="top" constant="200" id="XGB-es-DmY"/>
-                            <constraint firstItem="bnx-6D-3Ml" firstAttribute="leading" secondItem="A0K-xl-ITb" secondAttribute="leading" id="aef-mb-dt5"/>
-                            <constraint firstItem="Xla-5L-rD9" firstAttribute="leading" secondItem="A0K-xl-ITb" secondAttribute="leading" id="tCA-hs-Uox"/>
-                            <constraint firstItem="bnx-6D-3Ml" firstAttribute="top" secondItem="Xla-5L-rD9" secondAttribute="bottom" id="u3r-OD-18x"/>
+                            <constraint firstItem="bnx-6D-3Ml" firstAttribute="leading" secondItem="A0K-xl-ITb" secondAttribute="leading" id="3Vy-JN-YTM"/>
+                            <constraint firstItem="bnx-6D-3Ml" firstAttribute="top" secondItem="Xla-5L-rD9" secondAttribute="bottom" id="6Im-ph-PJk"/>
+                            <constraint firstItem="MWh-Mc-1Jh" firstAttribute="trailing" secondItem="A0K-xl-ITb" secondAttribute="trailing" id="AdI-5A-iWz"/>
+                            <constraint firstItem="Xla-5L-rD9" firstAttribute="leading" secondItem="A0K-xl-ITb" secondAttribute="leading" id="Dis-2F-Tqr"/>
+                            <constraint firstItem="Xla-5L-rD9" firstAttribute="top" secondItem="MWh-Mc-1Jh" secondAttribute="bottom" id="IVV-RB-zke"/>
+                            <constraint firstItem="bnx-6D-3Ml" firstAttribute="trailing" secondItem="A0K-xl-ITb" secondAttribute="trailing" id="NVy-aU-Ijp"/>
+                            <constraint firstItem="MWh-Mc-1Jh" firstAttribute="leading" secondItem="A0K-xl-ITb" secondAttribute="leading" id="VyX-XQ-vsI"/>
+                            <constraint firstItem="MWh-Mc-1Jh" firstAttribute="top" secondItem="A0K-xl-ITb" secondAttribute="top" id="gD9-YP-7ig"/>
+                            <constraint firstItem="Xla-5L-rD9" firstAttribute="trailing" secondItem="A0K-xl-ITb" secondAttribute="trailing" id="rjF-uK-VtS"/>
                         </constraints>
                     </view>
                     <connections>

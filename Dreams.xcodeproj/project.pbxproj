@@ -16,7 +16,6 @@
 		D21DA88226C35DF70068AD9A /* StadiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DA88126C35DF70068AD9A /* StadiumViewController.swift */; };
 		D21DA88426C373530068AD9A /* StadiumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DA88326C373530068AD9A /* StadiumTableViewCell.swift */; };
 		D21DA88626C3740E0068AD9A /* StadiunInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DA88526C3740E0068AD9A /* StadiunInfo.swift */; };
-		D21DA88A26C3796C0068AD9A /* reservation.json in Resources */ = {isa = PBXBuildFile; fileRef = D21DA88926C3796C0068AD9A /* reservation.json */; };
 		D21DA88C26C3903C0068AD9A /* DetailStadiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21DA88B26C3903C0068AD9A /* DetailStadiumViewController.swift */; };
 		D23B303826CF9C370025C1CE /* UserReserveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B303726CF9C370025C1CE /* UserReserveInfo.swift */; };
 		D23D792126D901280014750A /* NativeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23D792026D901280014750A /* NativeController.swift */; };
@@ -44,8 +43,11 @@
 		D2F1103726DB4C1F007AFA9F /* StringValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1103626DB4C1F007AFA9F /* StringValue.swift */; };
 		D2F1103926DB5573007AFA9F /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1103826DB5573007AFA9F /* Formatter.swift */; };
 		D2F1103D26DB753B007AFA9F /* DXWRbtStd-B.otf in Resources */ = {isa = PBXBuildFile; fileRef = D2F1103C26DB7538007AFA9F /* DXWRbtStd-B.otf */; };
+		D2F1104126DB7CE2007AFA9F /* shop.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F1104026DB7CE2007AFA9F /* shop.json */; };
+		D2F1104326DB7E17007AFA9F /* find.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F1104226DB7E17007AFA9F /* find.json */; };
+		D2F1105826DB83DA007AFA9F /* map2.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F1105626DB83DA007AFA9F /* map2.json */; };
+		D2F1105926DB83DA007AFA9F /* map1.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F1105726DB83DA007AFA9F /* map1.json */; };
 		D2FC0AA526C62D3000B4B490 /* ReserveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */; };
-		D2FC0AA726C62F9900B4B490 /* baseball.json in Resources */ = {isa = PBXBuildFile; fileRef = D2FC0AA626C62F9900B4B490 /* baseball.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +62,6 @@
 		D21DA88126C35DF70068AD9A /* StadiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumViewController.swift; sourceTree = "<group>"; };
 		D21DA88326C373530068AD9A /* StadiumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumTableViewCell.swift; sourceTree = "<group>"; };
 		D21DA88526C3740E0068AD9A /* StadiunInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiunInfo.swift; sourceTree = "<group>"; };
-		D21DA88926C3796C0068AD9A /* reservation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = reservation.json; path = ../../../../../Downloads/reservation.json; sourceTree = "<group>"; };
 		D21DA88B26C3903C0068AD9A /* DetailStadiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStadiumViewController.swift; sourceTree = "<group>"; };
 		D23B303726CF9C370025C1CE /* UserReserveInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReserveInfo.swift; sourceTree = "<group>"; };
 		D23D792026D901280014750A /* NativeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeController.swift; sourceTree = "<group>"; };
@@ -91,8 +92,11 @@
 		D2F1103626DB4C1F007AFA9F /* StringValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValue.swift; sourceTree = "<group>"; };
 		D2F1103826DB5573007AFA9F /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		D2F1103C26DB7538007AFA9F /* DXWRbtStd-B.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DXWRbtStd-B.otf"; sourceTree = SOURCE_ROOT; };
+		D2F1104026DB7CE2007AFA9F /* shop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shop.json; path = ../../../../../Downloads/shop.json; sourceTree = "<group>"; };
+		D2F1104226DB7E17007AFA9F /* find.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = find.json; path = ../../../../../Downloads/find.json; sourceTree = "<group>"; };
+		D2F1105626DB83DA007AFA9F /* map2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = map2.json; path = ../../../../../Downloads/map2.json; sourceTree = "<group>"; };
+		D2F1105726DB83DA007AFA9F /* map1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = map1.json; path = ../../../../../Downloads/map1.json; sourceTree = "<group>"; };
 		D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewController.swift; sourceTree = "<group>"; };
-		D2FC0AA626C62F9900B4B490 /* baseball.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = baseball.json; path = ../../../../../Downloads/baseball.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +141,10 @@
 			isa = PBXGroup;
 			children = (
 				D271A24026BBDB040001B0F9 /* Dreams.entitlements */,
-				D2FC0AA626C62F9900B4B490 /* baseball.json */,
-				D21DA88926C3796C0068AD9A /* reservation.json */,
+				D2F1104226DB7E17007AFA9F /* find.json */,
+				D2F1104026DB7CE2007AFA9F /* shop.json */,
+				D2F1105726DB83DA007AFA9F /* map1.json */,
+				D2F1105626DB83DA007AFA9F /* map2.json */,
 				D2582E6E26B7AF4400DF1669 /* AppDelegate.swift */,
 				D2582E7026B7AF4400DF1669 /* SceneDelegate.swift */,
 				D2582E7226B7AF4400DF1669 /* LoginViewController.swift */,
@@ -273,13 +279,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D21DA88A26C3796C0068AD9A /* reservation.json in Resources */,
+				D2F1105926DB83DA007AFA9F /* map1.json in Resources */,
+				D2F1105826DB83DA007AFA9F /* map2.json in Resources */,
+				D2F1104126DB7CE2007AFA9F /* shop.json in Resources */,
 				D2F1103D26DB753B007AFA9F /* DXWRbtStd-B.otf in Resources */,
+				D2F1104326DB7E17007AFA9F /* find.json in Resources */,
 				D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */,
 				D2C8898F26D9FEFF00E8B043 /* card.png in Resources */,
 				D214492926BA3CB3008D702F /* RemoteConfigDefaults.plist in Resources */,
 				D2F029F726C112D8003C0239 /* GoogleService-Info.plist in Resources */,
-				D2FC0AA726C62F9900B4B490 /* baseball.json in Resources */,
 				D2C8898D26D9FD8500E8B043 /* naverPay.png in Resources */,
 				D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */,
 				D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */,

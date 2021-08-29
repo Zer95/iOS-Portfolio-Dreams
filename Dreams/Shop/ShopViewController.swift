@@ -7,23 +7,42 @@
 
 import UIKit
 import Firebase
+import Lottie
 
 class ShopViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var topView: UIView!
     
     var ref: DatabaseReference!
     let db = Firestore.firestore()
+    
+    let animationView = AnimationView()
     
     var readCategory: [String : Any] = [:]
     var readCategoryValue: [String] = []
     var readCategoryKey: [String] = []
     var CategoryCnt = 0
     
+    override func viewDidAppear(_ animated: Bool) {
+       // navigationController?.setNavigationBarHidden(true, animated: animated)
+        topViewAnimation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         shopDataLoad()
+        topViewAnimation()
 
+    }
+    
+    func topViewAnimation() {
+        animationView.animation = Animation.named("shop")
+        animationView.frame = topView.bounds
+        animationView.contentMode = .scaleToFill
+        animationView.loopMode = .loop
+        animationView.play()
+        topView.addSubview(animationView)
     }
     
     func shopDataLoad() {
