@@ -43,6 +43,7 @@
 		D2F029F726C112D8003C0239 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2F029F626C112D8003C0239 /* GoogleService-Info.plist */; };
 		D2F1103726DB4C1F007AFA9F /* StringValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1103626DB4C1F007AFA9F /* StringValue.swift */; };
 		D2F1103926DB5573007AFA9F /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1103826DB5573007AFA9F /* Formatter.swift */; };
+		D2F1103D26DB753B007AFA9F /* DXWRbtStd-B.otf in Resources */ = {isa = PBXBuildFile; fileRef = D2F1103C26DB7538007AFA9F /* DXWRbtStd-B.otf */; };
 		D2FC0AA526C62D3000B4B490 /* ReserveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */; };
 		D2FC0AA726C62F9900B4B490 /* baseball.json in Resources */ = {isa = PBXBuildFile; fileRef = D2FC0AA626C62F9900B4B490 /* baseball.json */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		D2F029F626C112D8003C0239 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2F1103626DB4C1F007AFA9F /* StringValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValue.swift; sourceTree = "<group>"; };
 		D2F1103826DB5573007AFA9F /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		D2F1103C26DB7538007AFA9F /* DXWRbtStd-B.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DXWRbtStd-B.otf"; sourceTree = SOURCE_ROOT; };
 		D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewController.swift; sourceTree = "<group>"; };
 		D2FC0AA626C62F9900B4B490 /* baseball.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = baseball.json; path = ../../../../../Downloads/baseball.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 				D2AF026126D624B6007C5119 /* Shop */,
 				D2F1103526DB4BF2007AFA9F /* Util */,
 				D2F029F626C112D8003C0239 /* GoogleService-Info.plist */,
+				D2F1103C26DB7538007AFA9F /* DXWRbtStd-B.otf */,
 				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
 				D2582E7726B7AF4400DF1669 /* Assets.xcassets */,
 				D2C8898E26D9FEFE00E8B043 /* card.png */,
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D21DA88A26C3796C0068AD9A /* reservation.json in Resources */,
+				D2F1103D26DB753B007AFA9F /* DXWRbtStd-B.otf in Resources */,
 				D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */,
 				D2C8898F26D9FEFF00E8B043 /* card.png in Resources */,
 				D214492926BA3CB3008D702F /* RemoteConfigDefaults.plist in Resources */,

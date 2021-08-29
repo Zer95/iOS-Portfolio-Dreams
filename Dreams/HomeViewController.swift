@@ -335,7 +335,7 @@ extension HomeViewController: UICollectionViewDataSource {
         let CheckData = userReserveDataModel.userReserveDataList[indexPath.row]
         cell.stadiumName.text = userReserveDataModel.userReserveDataList[indexPath.row].stadiumName
         cell.selectDate.text = "예약날짜: \(userReserveDataModel.userReserveDataList[indexPath.row].selectDay)"
-        cell.selectTime.text = "예약시간: \(userReserveDataModel.userReserveDataList[indexPath.row].selectTime)"
+        cell.selectTime.text = "예약시간: \(userReserveDataModel.userReserveDataList[indexPath.row].selectTime)시"
         let price = formatter.priceFormatter(number: userReserveDataModel.userReserveDataList[indexPath.row].totalPrice)
         cell.totalPrice.text = "결제금액: \(price)원"
         
