@@ -42,10 +42,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var stadiumImage: UIImage?
     var stadiumDataCnt = 0
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+   
+            navigationController?.setNavigationBarHidden(false, animated: animated)
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Home"
+        self.title = "지도로 찾기"
         self.view.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.topItem?.title = ""
         myMapView.delegate=self
         
         locationManager.delegate = self

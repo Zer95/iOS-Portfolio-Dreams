@@ -10,6 +10,8 @@ import UIKit
 
 class StadiumPreviewView: UIView {
     
+    let formatter = Formatter()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor=UIColor.clear
@@ -21,7 +23,7 @@ class StadiumPreviewView: UIView {
     func setData(title: String, img: UIImage, price: Int) {
         lblTitle.text = title
         imgView.image = img
-        lblPrice.text = "$\(price)"
+        lblPrice.text = "운영시간:월~금 10~23시 \n시간당: \(formatter.priceFormatter(number: price))원"
     }
     
     func setupViews() {
@@ -47,8 +49,8 @@ class StadiumPreviewView: UIView {
         addSubview(lblPrice)
         lblPrice.centerXAnchor.constraint(equalTo: centerXAnchor).isActive=true
         lblPrice.centerYAnchor.constraint(equalTo: imgView.centerYAnchor).isActive=true
-        lblPrice.widthAnchor.constraint(equalToConstant: 90).isActive=true
-        lblPrice.heightAnchor.constraint(equalToConstant: 40).isActive=true
+        lblPrice.widthAnchor.constraint(equalToConstant: 200).isActive=true
+        lblPrice.heightAnchor.constraint(equalToConstant: 80).isActive=true
     }
     
     let containerView: UIView = {
@@ -78,7 +80,8 @@ class StadiumPreviewView: UIView {
     let lblPrice: UILabel = {
         let lbl=UILabel()
         lbl.text="$12"
-        lbl.font=UIFont.boldSystemFont(ofSize: 32)
+        lbl.numberOfLines = 2
+        lbl.font=UIFont.boldSystemFont(ofSize: 16)
         lbl.textColor=UIColor.white
         lbl.backgroundColor=UIColor(white: 0.2, alpha: 0.8)
         lbl.textAlignment = .center
