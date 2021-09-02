@@ -27,6 +27,9 @@ class OrderViewController: UIViewController {
     @IBOutlet weak var selectPay2: UIButton!
     @IBOutlet weak var selectPay3: UIButton!
     @IBOutlet weak var selectPay4: UIButton!
+    
+    @IBOutlet weak var paymentAgreeBtn: UIButton!
+    
     var selectPayType = ""
     
     
@@ -141,10 +144,28 @@ class OrderViewController: UIViewController {
         self.selectPayType = "bank"
     }
     
+    @IBAction func paymentAgreeBtn(_ sender: Any) {
+        paymentAgreeBtn.isSelected = !paymentAgreeBtn.isSelected
+    }
+    
+    @IBAction func agreeBtn(_ sender: Any) {
+    }
     
     
     @IBAction func OrderBtn(_ sender: Any) {
         
+        if self.paymentAgreeBtn.isSelected { // 약관동의가 되어 있는지 확인
+           OderEvent()// 비밀번호 일치 & 약관을 모두 동의 할 경우 회원가입 하는 함수 호출
+        } else {
+            let alert = UIAlertController(title: "", message: "결제동의를 눌러주세요.", preferredStyle: .alert)
+                                   alert.addAction(UIAlertAction(title: "확인", style: .default){
+                                   UIAlertAction in
+                             })
+                            present(alert, animated: true, completion: nil)
+        }
+    }
+  
+    func OderEvent() {
         // 유저 정보 조회
         if Auth.auth().currentUser != nil {
           
@@ -205,8 +226,8 @@ class OrderViewController: UIViewController {
         
     }
     }
+        
     }
-  
     
     // 날짜 데이터 문자열로 변환
     func DateToString(RE_Date: Date, format: String) -> String {
