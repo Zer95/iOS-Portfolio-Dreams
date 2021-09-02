@@ -123,6 +123,7 @@ extension ShopViewController: UICollectionViewDelegate {
             VC.modalPresentationStyle = .fullScreen
             VC.modalTransitionStyle = .crossDissolve
             VC.recieveData = self.readCategoryKey[indexPath.row]
+            VC.recieveTitle = self.readCategoryValue[indexPath.row]
             
             print("클릭 인덱스: \(indexPath.row)")
        

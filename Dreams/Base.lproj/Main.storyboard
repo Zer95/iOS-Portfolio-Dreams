@@ -295,7 +295,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="114" height="138"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posu1" translatesAutoresizingMaskIntoConstraints="NO" id="U0f-aq-kPw">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="U0f-aq-kPw">
                                                     <rect key="frame" x="14" y="8" width="83" height="85"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="85" id="ILt-5g-t0p"/>
@@ -435,7 +435,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="189" height="222"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posu1" translatesAutoresizingMaskIntoConstraints="NO" id="GIa-ED-9uP">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="GIa-ED-9uP">
                                                     <rect key="frame" x="0.0" y="0.0" width="189" height="140"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="140" id="lJJ-ST-SYK"/>
@@ -558,7 +558,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2W-2X-hwu">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posu1" translatesAutoresizingMaskIntoConstraints="NO" id="iGO-84-N9G">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="iGO-84-N9G">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="330"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="330" id="Xdz-42-TxY"/>
@@ -2344,7 +2344,6 @@
         <image name="mainBackground" width="800" height="1146"/>
         <image name="naverPay.png" width="199" height="78"/>
         <image name="photo" width="4000" height="4000"/>
-        <image name="posu1" width="500" height="500"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

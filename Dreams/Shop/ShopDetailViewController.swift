@@ -18,12 +18,20 @@ class ShopDetailViewController: UIViewController {
     let formatter = Formatter()
     
     var recieveData = ""
+    var recieveTitle = ""
    
     
     let shopViewModel = ShopViewModel()
     
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = self.recieveTitle
         
         ServerDataLoad()
 
