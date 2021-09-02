@@ -72,6 +72,8 @@ class OrderViewController: UIViewController {
         let defaultTotal = productInfo.price + productInfo.delivery
         totalPriceLabel.text = "\(formatter.priceFormatter(number:defaultTotal))원"
         orderBtn.setTitle("(\(formatter.priceFormatter(number: defaultTotal)))원 결제하기", for: .normal)
+        
+        self.selectPay1.isSelected = true
     }
     
 

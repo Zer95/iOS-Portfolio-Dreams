@@ -1951,7 +1951,7 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dreams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLv-nd-zFZ">
-                                        <rect key="frame" x="154" y="0.0" width="82.333333333333314" height="36.666666666666664"/>
+                                        <rect key="frame" x="154" y="0.0" width="82" height="36.666666666666664"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
                                         <color key="textColor" red="0.06190561503" green="0.32750278710000003" blue="0.26062071320000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2240,96 +2240,89 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dje-GT-o63">
-                                                <rect key="frame" x="0.0" y="460" width="390" height="200"/>
+                                                <rect key="frame" x="0.0" y="460" width="390" height="220"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결제수단" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2i-iP-DxV">
-                                                        <rect key="frame" x="10" y="10" width="69.333333333333329" height="24"/>
+                                                        <rect key="frame" x="15" y="20" width="69.333333333333329" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJS-U7-LnW">
-                                                        <rect key="frame" x="10" y="42" width="28" height="27.333333333333329"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="circle" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
-                                                        </state>
-                                                        <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="selectPay1:" destination="egv-96-ent" eventType="touchUpInside" id="qU3-nJ-K8I"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juU-67-v7Z">
-                                                        <rect key="frame" x="46" y="38" width="87" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="kakaoPay"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wj4-Nq-7gZ">
-                                                        <rect key="frame" x="10" y="84" width="28" height="27.333333333333329"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="circle" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
-                                                        </state>
-                                                        <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="selectPay2:" destination="egv-96-ent" eventType="touchUpInside" id="PgZ-L3-2ak"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH4-Xw-ACK">
-                                                        <rect key="frame" x="10" y="126" width="28" height="27.333333333333329"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="circle" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
-                                                        </state>
-                                                        <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="selectPay3:" destination="egv-96-ent" eventType="touchUpInside" id="StO-yR-eOm"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwX-K3-YFL">
-                                                        <rect key="frame" x="10" y="164" width="28" height="27.333333333333329"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="circle" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
-                                                        </state>
-                                                        <state key="selected" image="circle.dashed.inset.fill" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="selectPay4:" destination="egv-96-ent" eventType="touchUpInside" id="Dlc-BH-9ft"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpN-Rs-F9t">
-                                                        <rect key="frame" x="46" y="122" width="87" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="카드 결제">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RN3-c5-Bgs">
-                                                        <rect key="frame" x="46" y="157" width="87" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="계좌이체">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwd-qI-WhX">
-                                                        <rect key="frame" x="46" y="80" width="87" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="naverPay.png"/>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="aPl-4z-ObM">
+                                                        <rect key="frame" x="20" y="64" width="350" height="121"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="LkM-3b-qhR">
+                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="54"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7Y-F9-Rh0">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="168" height="54"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="54" id="YU4-L9-b3d"/>
+                                                                            <constraint firstAttribute="width" constant="168" id="iWr-a3-iBY"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="Button" image="kakaoPayIcon1"/>
+                                                                        <state key="selected" image="kakaoPayIcon2"/>
+                                                                        <connections>
+                                                                            <action selector="selectPay1:" destination="egv-96-ent" eventType="touchUpInside" id="I8S-Zq-xOm"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvr-ed-ymI">
+                                                                        <rect key="frame" x="180" y="0.0" width="170" height="54"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="168" id="5nV-pd-3X7"/>
+                                                                            <constraint firstAttribute="height" constant="54" id="XJz-F6-BZ2"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="Button" image="nPayIcon1"/>
+                                                                        <state key="selected" image="nPayIcon2"/>
+                                                                        <connections>
+                                                                            <action selector="selectPay2:" destination="egv-96-ent" eventType="touchUpInside" id="P3M-lB-RVG"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="LyP-IN-WoL">
+                                                                <rect key="frame" x="0.0" y="67" width="350" height="54"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gC-7E-b5R">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="168" height="54"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="54" id="0t2-tg-ZVH"/>
+                                                                            <constraint firstAttribute="width" constant="168" id="BKv-jA-Mlk"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="Button" image="cardPayIcon1"/>
+                                                                        <state key="selected" image="cardPayIcon2"/>
+                                                                        <connections>
+                                                                            <action selector="selectPay3:" destination="egv-96-ent" eventType="touchUpInside" id="tvG-0X-yTs"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5d-X1-Q7z">
+                                                                        <rect key="frame" x="182" y="0.0" width="168" height="54"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="168" id="WZb-qT-uWt"/>
+                                                                            <constraint firstAttribute="height" constant="54" id="n3x-40-OZM"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="Button" image="bankPayIcon1"/>
+                                                                        <state key="selected" image="bankPayIcon2"/>
+                                                                        <connections>
+                                                                            <action selector="selectPay4:" destination="egv-96-ent" eventType="touchUpInside" id="18a-wn-XPK"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="z2i-iP-DxV" firstAttribute="leading" secondItem="dje-GT-o63" secondAttribute="leading" constant="10" id="Gvq-vz-IbJ"/>
-                                                    <constraint firstAttribute="height" constant="200" id="Ndc-tJ-oH6"/>
-                                                    <constraint firstItem="z2i-iP-DxV" firstAttribute="top" secondItem="dje-GT-o63" secondAttribute="top" constant="10" id="z0J-lV-6Np"/>
+                                                    <constraint firstItem="z2i-iP-DxV" firstAttribute="leading" secondItem="dje-GT-o63" secondAttribute="leading" constant="15" id="Gvq-vz-IbJ"/>
+                                                    <constraint firstAttribute="height" constant="220" id="Ndc-tJ-oH6"/>
+                                                    <constraint firstItem="aPl-4z-ObM" firstAttribute="centerX" secondItem="dje-GT-o63" secondAttribute="centerX" id="UD0-RK-Wxd"/>
+                                                    <constraint firstItem="aPl-4z-ObM" firstAttribute="top" secondItem="z2i-iP-DxV" secondAttribute="bottom" constant="20" id="b8F-Tt-oYR"/>
+                                                    <constraint firstItem="z2i-iP-DxV" firstAttribute="top" secondItem="dje-GT-o63" secondAttribute="top" constant="20" id="z0J-lV-6Np"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zQ-NK-xEQ">
-                                                <rect key="frame" x="0.0" y="670" width="390" height="170"/>
+                                                <rect key="frame" x="0.0" y="690" width="390" height="170"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uXH-Fx-nsS">
                                                         <rect key="frame" x="15" y="14.999999999999998" width="181" height="27.333333333333329"/>
@@ -2404,9 +2397,20 @@
                                                     <constraint firstItem="Xob-CY-xaR" firstAttribute="top" secondItem="yoj-5S-s79" secondAttribute="bottom" id="mpu-9l-nbc"/>
                                                 </constraints>
                                             </view>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="개별 판매자가 등록한 마켓플레이스(오픈마켓) 상품에 대한 광고, 상품주문, 배송 및 환불의 의무와 책임은 각 판매자가 부담하고, 이에 대하여 쿠팡은 통신판매중개자로서 통신판매의 당사자가 아니므로 일체 책임을 지지 않습니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0cQ-34-eht">
+                                                <rect key="frame" x="15" y="875" width="360" height="100"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="1hv-qt-xZt"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.95585364100000003" green="0.95583301779999996" blue="0.95583707090000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
+                                            <constraint firstItem="0cQ-34-eht" firstAttribute="leading" secondItem="dpp-bb-FeG" secondAttribute="leading" constant="15" id="2a1-lK-Ui1"/>
                                             <constraint firstAttribute="trailing" secondItem="bid-8j-lbt" secondAttribute="trailing" id="6X2-u0-xii"/>
                                             <constraint firstAttribute="trailing" secondItem="dje-GT-o63" secondAttribute="trailing" id="7BC-Bw-HO2"/>
                                             <constraint firstItem="dje-GT-o63" firstAttribute="top" secondItem="QBH-Eb-Shr" secondAttribute="bottom" constant="10" id="8Ck-lY-TQM"/>
@@ -2420,9 +2424,11 @@
                                             <constraint firstItem="QBH-Eb-Shr" firstAttribute="top" secondItem="bGn-1K-ljK" secondAttribute="bottom" constant="10" id="VbZ-sK-4Mi"/>
                                             <constraint firstAttribute="trailing" secondItem="1zQ-NK-xEQ" secondAttribute="trailing" id="dCo-Ct-KF4"/>
                                             <constraint firstItem="bGn-1K-ljK" firstAttribute="leading" secondItem="dpp-bb-FeG" secondAttribute="leading" id="hBq-ms-bY6"/>
+                                            <constraint firstItem="0cQ-34-eht" firstAttribute="top" secondItem="1zQ-NK-xEQ" secondAttribute="bottom" constant="15" id="mGH-kU-elu"/>
                                             <constraint firstAttribute="height" constant="1000" id="nei-4t-rSH"/>
                                             <constraint firstItem="QBH-Eb-Shr" firstAttribute="leading" secondItem="dpp-bb-FeG" secondAttribute="leading" id="qpO-yz-KvM"/>
                                             <constraint firstItem="bid-8j-lbt" firstAttribute="leading" secondItem="dpp-bb-FeG" secondAttribute="leading" id="v2c-hd-kQ4"/>
+                                            <constraint firstAttribute="trailing" secondItem="0cQ-34-eht" secondAttribute="trailing" constant="15" id="x6E-Dk-wtT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2458,10 +2464,10 @@
                         <outlet property="paymentAgreeBtn" destination="Vbb-iu-5aE" id="V0r-IG-Yrw"/>
                         <outlet property="priceLabel" destination="gnA-3a-dTb" id="qFe-Ac-Z29"/>
                         <outlet property="productCntLabel" destination="uqB-9l-6Qb" id="sOk-Xc-jh6"/>
-                        <outlet property="selectPay1" destination="iJS-U7-LnW" id="dXp-nT-SAr"/>
-                        <outlet property="selectPay2" destination="wj4-Nq-7gZ" id="let-6X-M51"/>
-                        <outlet property="selectPay3" destination="tH4-Xw-ACK" id="Yuf-6g-iF9"/>
-                        <outlet property="selectPay4" destination="YwX-K3-YFL" id="eck-wM-nl8"/>
+                        <outlet property="selectPay1" destination="w7Y-F9-Rh0" id="wg5-gg-SIw"/>
+                        <outlet property="selectPay2" destination="rvr-ed-ymI" id="ZKy-Oi-bqC"/>
+                        <outlet property="selectPay3" destination="4gC-7E-b5R" id="wu1-Dv-g6g"/>
+                        <outlet property="selectPay4" destination="W5d-X1-Q7z" id="02H-b6-lDP"/>
                         <outlet property="selectPriceLabel" destination="ucv-tF-zgc" id="rz0-Uf-Oas"/>
                         <outlet property="stockLabel" destination="Vd3-1k-ljH" id="lC5-7w-hNG"/>
                         <outlet property="totalPriceLabel" destination="KGi-ii-JMt" id="3hj-yw-dey"/>
@@ -2532,23 +2538,28 @@
     </scenes>
     <resources>
         <image name="apple" width="824" height="824"/>
+        <image name="bankPayIcon1" width="447" height="179"/>
+        <image name="bankPayIcon2" width="443" height="177"/>
         <image name="banner1" width="1200" height="849"/>
+        <image name="cardPayIcon1" width="447" height="181"/>
+        <image name="cardPayIcon2" width="443" height="177"/>
         <image name="cash" width="40" height="40"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="circle" catalog="system" width="128" height="121"/>
-        <image name="circle.dashed.inset.fill" catalog="system" width="128" height="121"/>
         <image name="facebook" width="824" height="824"/>
         <image name="fiberchannel" catalog="system" width="128" height="92"/>
         <image name="google" width="824" height="824"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="kakao" width="822" height="824"/>
-        <image name="kakaoPay" width="241" height="100"/>
+        <image name="kakaoPayIcon1" width="449" height="181"/>
+        <image name="kakaoPayIcon2" width="443" height="177"/>
         <image name="loading" width="1277" height="1125"/>
         <image name="mainBackground" width="800" height="1146"/>
-        <image name="naverPay.png" width="199" height="78"/>
+        <image name="nPayIcon1" width="447" height="181"/>
+        <image name="nPayIcon2" width="443" height="177"/>
         <image name="photo" width="4000" height="4000"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
