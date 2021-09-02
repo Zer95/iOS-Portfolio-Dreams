@@ -556,7 +556,7 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="702"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2W-2X-hwu">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="2000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="2500"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePD-qN-7TI">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="620"/>
@@ -700,16 +700,59 @@
                                                     <constraint firstAttribute="trailing" secondItem="iGO-84-N9G" secondAttribute="trailing" id="ugD-Hp-sL8"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyX-El-itF">
+                                                <rect key="frame" x="0.0" y="640" width="390" height="1700"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D0-Cg-XnT">
+                                                        <rect key="frame" x="15" y="10" width="69.333333333333329" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="productInfo" translatesAutoresizingMaskIntoConstraints="NO" id="29r-o0-HhH">
+                                                        <rect key="frame" x="0.0" y="44" width="390" height="1660"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1660" id="C6C-C2-Neb"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1700" id="Juy-1t-Edi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="29r-o0-HhH" secondAttribute="trailing" id="Srd-dO-9nB"/>
+                                                    <constraint firstItem="29r-o0-HhH" firstAttribute="top" secondItem="1D0-Cg-XnT" secondAttribute="bottom" constant="10" id="XJJ-Qr-1Kt"/>
+                                                    <constraint firstItem="29r-o0-HhH" firstAttribute="leading" secondItem="GyX-El-itF" secondAttribute="leading" id="XMh-d1-HAk"/>
+                                                    <constraint firstItem="1D0-Cg-XnT" firstAttribute="top" secondItem="GyX-El-itF" secondAttribute="top" constant="10" id="t8Z-fg-iIG"/>
+                                                    <constraint firstItem="1D0-Cg-XnT" firstAttribute="leading" secondItem="GyX-El-itF" secondAttribute="leading" constant="15" id="zXS-pG-IsG"/>
+                                                </constraints>
+                                            </view>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="개별 판매자가 등록한 마켓플레이스(오픈마켓) 상품에 대한 광고, 상품주문, 배송 및 환불의 의무와 책임은 각 판매자가 부담하고, 이에 대하여 쿠팡은 통신판매중개자로서 통신판매의 당사자가 아니므로 일체 책임을 지지 않습니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ClX-Ta-Kvs">
+                                                <rect key="frame" x="15" y="2360" width="360" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="2CG-zD-ZfR"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
+                                            <constraint firstItem="GyX-El-itF" firstAttribute="top" secondItem="ePD-qN-7TI" secondAttribute="bottom" constant="20" id="3d5-Mq-NoB"/>
+                                            <constraint firstItem="GyX-El-itF" firstAttribute="leading" secondItem="C2W-2X-hwu" secondAttribute="leading" id="C7E-LP-jke"/>
+                                            <constraint firstAttribute="trailing" secondItem="ClX-Ta-Kvs" secondAttribute="trailing" constant="15" id="D1h-z8-5Uf"/>
                                             <constraint firstItem="ePD-qN-7TI" firstAttribute="leading" secondItem="C2W-2X-hwu" secondAttribute="leading" id="FOg-Mz-ssn"/>
                                             <constraint firstAttribute="trailing" secondItem="ePD-qN-7TI" secondAttribute="trailing" id="GYU-6s-AMZ"/>
                                             <constraint firstItem="ePD-qN-7TI" firstAttribute="top" secondItem="C2W-2X-hwu" secondAttribute="top" id="LlV-up-L3Y"/>
-                                            <constraint firstAttribute="height" constant="2000" id="x0D-sD-EyQ"/>
+                                            <constraint firstItem="ClX-Ta-Kvs" firstAttribute="top" secondItem="GyX-El-itF" secondAttribute="bottom" constant="20" id="by0-gH-92o"/>
+                                            <constraint firstAttribute="trailing" secondItem="GyX-El-itF" secondAttribute="trailing" id="k0k-Es-a4n"/>
+                                            <constraint firstItem="ClX-Ta-Kvs" firstAttribute="leading" secondItem="C2W-2X-hwu" secondAttribute="leading" constant="15" id="nmL-bg-qQA"/>
+                                            <constraint firstAttribute="height" constant="2500" id="x0D-sD-EyQ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="C2W-2X-hwu" secondAttribute="bottom" id="EGI-ne-RyZ"/>
                                     <constraint firstAttribute="trailing" secondItem="C2W-2X-hwu" secondAttribute="trailing" id="HAZ-hI-3Bp"/>
@@ -720,7 +763,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dy9-t8-YnG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8Vz-ca-3Du" firstAttribute="top" secondItem="Dy9-t8-YnG" secondAttribute="top" id="DSj-zW-XRl"/>
                             <constraint firstItem="19l-J6-OoN" firstAttribute="bottom" secondItem="Dy9-t8-YnG" secondAttribute="bottom" id="Ggt-Zp-Sax"/>
@@ -2451,6 +2494,7 @@
         <image name="mainBackground" width="800" height="1146"/>
         <image name="naverPay.png" width="199" height="78"/>
         <image name="photo" width="4000" height="4000"/>
+        <image name="productInfo" width="1000" height="5300"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="star.fill.left" catalog="system" width="128" height="116"/>
@@ -2466,9 +2510,6 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
