@@ -18,6 +18,8 @@ class ShopProductViewController: UIViewController {
     
     @IBOutlet weak var buyBtn: UIButton!
     
+    @IBOutlet weak var pointView: UIView!
+    
     var ref: DatabaseReference!
     let db = Firestore.firestore()
     
@@ -36,6 +38,7 @@ class ShopProductViewController: UIViewController {
     }
     
     func updateUI(){
+        self.navigationController?.navigationBar.topItem?.title = ""
         name.text  = recieveInfo.name
         price.text = "\(formatter.priceFormatter(number: recieveInfo.price))원"
         delivery.text = "배송비: \(formatter.priceFormatter(number: recieveInfo.delivery))원"
@@ -48,6 +51,11 @@ class ShopProductViewController: UIViewController {
         buyBtn.layer.shadowOffset = CGSize(width: 1 , height: 1)
         buyBtn.layer.shadowOpacity = 0.5
         buyBtn.layer.shadowRadius = 4.0
+        
+        
+        pointView.layer.cornerRadius = 7
+        pointView.layer.borderWidth = 1.0
+        pointView.layer.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         
         let storageReference = self.recieveImageReference
