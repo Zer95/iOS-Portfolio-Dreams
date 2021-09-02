@@ -65,12 +65,24 @@ class ReserveViewController: UIViewController {
         
         print("받아온 키 값: \(stadiumKeyName)")
         
+        calendarUI()
         ServerDataLoad()
         
         self.year = DateToString(RE_Date: Date(),format: "YYYY")
         let today = DateToString(RE_Date: Date(),format: "MMdd")
         self.userSelectDay = today
         dayDataLoad(day: today)
+    }
+    
+    func calendarUI() {
+        
+        calendar.appearance.headerDateFormat = "YYYY년 M월"
+        calendar.appearance.headerTitleColor = #colorLiteral(red: 0, green: 0.7328820229, blue: 0.4503706694, alpha: 1)
+        calendar.appearance.weekdayTextColor = .orange
+        calendar.appearance.titleWeekendColor = .red
+        calendar.appearance.selectionColor = #colorLiteral(red: 0.0379126817, green: 0.5588994026, blue: 0.3463691771, alpha: 1)
+        
+        
     }
     
     func ServerDataLoad() {

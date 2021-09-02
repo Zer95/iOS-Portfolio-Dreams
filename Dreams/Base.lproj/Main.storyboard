@@ -1282,10 +1282,10 @@
             </objects>
             <point key="canvasLocation" x="1520" y="113.74407582938387"/>
         </scene>
-        <!--회원가입-->
+        <!--예약-->
         <scene sceneID="fY8-uB-sCc">
             <objects>
-                <viewController storyboardIdentifier="ReserveViewController" id="mbB-Tm-eju" customClass="ReserveViewController" customModule="Dreams" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReserveViewController" title="예약" id="mbB-Tm-eju" customClass="ReserveViewController" customModule="Dreams" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KuA-LS-aPO">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1514,34 +1514,6 @@
                                                     <constraint firstItem="eKy-pT-pg5" firstAttribute="leading" secondItem="kd7-bW-GHt" secondAttribute="leading" constant="15" id="zbi-6t-LI8"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSq-2O-EUd">
-                                                <rect key="frame" x="20" y="641" width="350" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woZ-Ry-9SB">
-                                                        <rect key="frame" x="0.0" y="11.666666666666629" width="28" height="27"/>
-                                                        <color key="tintColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" image="circle" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
-                                                        </state>
-                                                        <state key="selected" image="checkmark.circle.fill" catalog="system"/>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추가 없음" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEe-RX-H0g">
-                                                        <rect key="frame" x="38" y="16" width="56" height="18"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="woZ-Ry-9SB" firstAttribute="centerY" secondItem="TSq-2O-EUd" secondAttribute="centerY" id="RHG-tL-0hr"/>
-                                                    <constraint firstItem="woZ-Ry-9SB" firstAttribute="leading" secondItem="TSq-2O-EUd" secondAttribute="leading" id="U2e-mF-eis"/>
-                                                    <constraint firstItem="sEe-RX-H0g" firstAttribute="leading" secondItem="woZ-Ry-9SB" secondAttribute="trailing" constant="10" id="cVy-tF-jL4"/>
-                                                    <constraint firstAttribute="height" constant="50" id="iFI-rU-Cfr"/>
-                                                    <constraint firstItem="sEe-RX-H0g" firstAttribute="centerY" secondItem="TSq-2O-EUd" secondAttribute="centerY" id="o2v-dB-09y"/>
-                                                    <constraint firstAttribute="width" constant="350" id="xO6-sp-R6b"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1563,7 +1535,6 @@
                                             <constraint firstItem="7Jc-of-XWO" firstAttribute="leading" secondItem="ZVl-eD-wTo" secondAttribute="leading" constant="20" id="ZAo-DX-R5A"/>
                                             <constraint firstItem="Cg8-Ep-eyL" firstAttribute="width" secondItem="ZVl-eD-wTo" secondAttribute="width" id="ZYh-ws-Zd4"/>
                                             <constraint firstAttribute="trailing" secondItem="zEz-Im-m8H" secondAttribute="trailing" id="ZeG-Wx-wtg"/>
-                                            <constraint firstItem="TSq-2O-EUd" firstAttribute="leading" secondItem="ZVl-eD-wTo" secondAttribute="leading" constant="20" id="aTP-HJ-72h"/>
                                             <constraint firstItem="h69-Cv-dug" firstAttribute="top" secondItem="kd7-bW-GHt" secondAttribute="bottom" id="byY-cu-PVm"/>
                                             <constraint firstItem="ZSI-ht-BTj" firstAttribute="top" secondItem="7Jc-of-XWO" secondAttribute="bottom" constant="5" id="gto-cr-XcY"/>
                                             <constraint firstItem="zEz-Im-m8H" firstAttribute="leading" secondItem="ZVl-eD-wTo" secondAttribute="leading" id="mh7-pc-was"/>
@@ -1571,7 +1542,6 @@
                                             <constraint firstItem="4pe-jY-q0m" firstAttribute="top" secondItem="zEz-Im-m8H" secondAttribute="bottom" id="rAi-B9-6Xh"/>
                                             <constraint firstItem="8SP-vs-kws" firstAttribute="top" secondItem="Hpo-vg-cQO" secondAttribute="bottom" constant="5" id="rpu-HF-6qh"/>
                                             <constraint firstItem="kd7-bW-GHt" firstAttribute="leading" secondItem="ZVl-eD-wTo" secondAttribute="leading" id="tqa-ms-OQ3"/>
-                                            <constraint firstItem="TSq-2O-EUd" firstAttribute="top" secondItem="Iuq-z5-1Pg" secondAttribute="bottom" id="uMz-EN-NmF"/>
                                             <constraint firstItem="Cg8-Ep-eyL" firstAttribute="leading" secondItem="ZVl-eD-wTo" secondAttribute="leading" id="vhw-dq-GmH"/>
                                             <constraint firstItem="ZSI-ht-BTj" firstAttribute="leading" secondItem="ZVl-eD-wTo" secondAttribute="leading" constant="20" id="wTm-24-Emi"/>
                                         </constraints>
