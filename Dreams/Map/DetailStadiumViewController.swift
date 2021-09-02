@@ -17,6 +17,12 @@ class DetailStadiumViewController: UIViewController {
     
   
     @IBOutlet weak var stadiumTitleLabel: UILabel!
+    @IBOutlet weak var comment1Label: UILabel!
+    @IBOutlet weak var comment2Label: UILabel!
+    @IBOutlet weak var openTiemLabel: UILabel!
+    @IBOutlet weak var maxPersonLabel: UILabel!
+    @IBOutlet weak var telLabel: UILabel!
+    
     @IBOutlet weak var backBtn: UIImageView!
     
    
@@ -50,9 +56,8 @@ class DetailStadiumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-  
+        ServerDataLoad()
         
-        stadiumTitleLabel.text = detailTitle
         
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
@@ -120,6 +125,40 @@ class DetailStadiumViewController: UIViewController {
         
         
     }
+    
+    
+    func ServerDataLoad() {
+        db.collection("Stadium").document(self.detailKeyName).getDocument { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+           
+                let info = querySnapshot?.data()
+           //   print("특검 해당하는 데이터 값 : \(info)")
+                let title = info!["title"] as! String
+                let comment1 = info!["comment1"] as! String
+                let comment2 = info!["comment2"] as! String
+                let maxPerson =  info!["maxPerson"] as! Int
+                let tel  = info!["Tel"] as! String
+                
+                // 오픈 마감 시간
+                let openCloseTime = info!["openCloseTime"] as! [Int]
+                
+                self.stadiumTitleLabel.text = title
+                self.comment1Label.text = comment1
+                self.comment2Label.text = comment2
+                self.telLabel.text = "문의번호: \(tel)"
+                self.openTiemLabel.text = "운영시간: \(openCloseTime[0]):00 ~ \(openCloseTime[1]):00 "
+                self.maxPersonLabel.text = "최대인원: \(maxPerson)명"
+                
+                
+               
+                
+      
+                   }
+            }
+    }
+    
     
     // 한 손가락 스와이프 제스쳐를 행했을 때 실행할 액션 메서드
        @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
