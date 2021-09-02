@@ -540,7 +540,10 @@
                                         <state key="normal" image="heart" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27"/>
                                         </state>
-                                        <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                                        <state key="selected" image="heart.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="heartBtn:" destination="wB4-kL-s8E" eventType="touchUpInside" id="1nJ-cc-22w"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -777,6 +780,7 @@
                     <connections>
                         <outlet property="buyBtn" destination="OJq-ch-vb7" id="Bqa-HA-CmQ"/>
                         <outlet property="delivery" destination="uQG-M3-LPF" id="V0Z-BO-RBM"/>
+                        <outlet property="heartBtn" destination="Tib-in-YoE" id="ycm-mP-oLQ"/>
                         <outlet property="imageInfoView" destination="29r-o0-HhH" id="PEO-mM-mIg"/>
                         <outlet property="imageView" destination="iGO-84-N9G" id="ibG-8v-a5c"/>
                         <outlet property="name" destination="kId-gT-Cnx" id="rM4-qy-hLb"/>
@@ -2489,6 +2493,7 @@
         <image name="fiberchannel" catalog="system" width="128" height="92"/>
         <image name="google" width="824" height="824"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="kakao" width="822" height="824"/>
         <image name="kakaoPay" width="241" height="100"/>
         <image name="loading" width="1277" height="1125"/>

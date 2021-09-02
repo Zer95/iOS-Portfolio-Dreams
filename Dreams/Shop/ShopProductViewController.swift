@@ -17,6 +17,7 @@ class ShopProductViewController: UIViewController {
     @IBOutlet weak var delivery: UILabel!
     @IBOutlet weak var stock: UILabel!
     
+    @IBOutlet weak var heartBtn: UIButton!
     @IBOutlet weak var buyBtn: UIButton!
     
     @IBOutlet weak var pointView: UIView!
@@ -34,13 +35,19 @@ class ShopProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        updateUI()
         
+        updateUI()
+        settingNavigation()
         
     }
     
-    func updateUI(){
+    func settingNavigation() {
         self.navigationController?.navigationBar.topItem?.title = ""
+        let cart  = UIBarButtonItem(image: UIImage(systemName: "cart"),style: .plain,target: nil, action: nil)
+        self.navigationItem.rightBarButtonItems = [cart]
+    }
+    
+    func updateUI(){
         name.text  = recieveInfo.name
         price.text = "\(formatter.priceFormatter(number: recieveInfo.price))원"
         delivery.text = "배송비: \(formatter.priceFormatter(number: recieveInfo.delivery))원"
@@ -53,7 +60,6 @@ class ShopProductViewController: UIViewController {
         buyBtn.layer.shadowOffset = CGSize(width: 1 , height: 1)
         buyBtn.layer.shadowOpacity = 0.5
         buyBtn.layer.shadowRadius = 4.0
-        
         
         pointView.layer.cornerRadius = 7
         pointView.layer.borderWidth = 1.0
@@ -89,7 +95,20 @@ class ShopProductViewController: UIViewController {
             }
         
     }
-
+    
+    
+    @IBAction func heartBtn(_ sender: Any) {
+        heartBtn.isSelected = !heartBtn.isSelected
+        
+        if heartBtn.isSelected == true {
+            heartBtn.tintColor = .red
+        } else {
+            heartBtn.tintColor = .darkGray
+        }
+        
+        
+    }
+    
     @IBAction func buyBtn(_ sender: Any) {
         let VC = self.storyboard?.instantiateViewController(identifier: "OrderViewController") as! OrderViewController
         VC.modalPresentationStyle = .fullScreen
