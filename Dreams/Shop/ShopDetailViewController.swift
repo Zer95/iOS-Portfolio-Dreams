@@ -127,7 +127,9 @@ extension ShopDetailViewController: UICollectionViewDelegate {
             print("클릭 인덱스: \(indexPath.row)")
             
             let imageReference = Storage.storage().reference().child("Shop").child("Data").child(self.recieveData).child("\(shopViewModel.shopList[indexPath.row].keyName).jpg")
+            let imageInfoReference = Storage.storage().reference().child("Shop").child("Data").child(self.recieveData).child("\(shopViewModel.shopList[indexPath.row].keyName)Info.jpg")
             VC.recieveImageReference = imageReference
+            VC.recieveInfoImageReference = imageInfoReference
             
             self.navigationController?.pushViewController(VC, animated: true)
         }

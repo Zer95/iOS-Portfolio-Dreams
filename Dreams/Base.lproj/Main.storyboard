@@ -709,7 +709,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="productInfo" translatesAutoresizingMaskIntoConstraints="NO" id="29r-o0-HhH">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="29r-o0-HhH">
                                                         <rect key="frame" x="0.0" y="44" width="390" height="1660"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1660" id="C6C-C2-Neb"/>
@@ -732,7 +732,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="2CG-zD-ZfR"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -777,6 +777,7 @@
                     <connections>
                         <outlet property="buyBtn" destination="OJq-ch-vb7" id="Bqa-HA-CmQ"/>
                         <outlet property="delivery" destination="uQG-M3-LPF" id="V0Z-BO-RBM"/>
+                        <outlet property="imageInfoView" destination="29r-o0-HhH" id="PEO-mM-mIg"/>
                         <outlet property="imageView" destination="iGO-84-N9G" id="ibG-8v-a5c"/>
                         <outlet property="name" destination="kId-gT-Cnx" id="rM4-qy-hLb"/>
                         <outlet property="pointView" destination="eAR-iX-VMJ" id="AcR-o5-OMN"/>
@@ -2494,7 +2495,6 @@
         <image name="mainBackground" width="800" height="1146"/>
         <image name="naverPay.png" width="199" height="78"/>
         <image name="photo" width="4000" height="4000"/>
-        <image name="productInfo" width="1000" height="5300"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="star.fill.left" catalog="system" width="128" height="116"/>

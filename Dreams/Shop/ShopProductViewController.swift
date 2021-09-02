@@ -11,6 +11,7 @@ import Firebase
 class ShopProductViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageInfoView: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var delivery: UILabel!
@@ -27,6 +28,7 @@ class ShopProductViewController: UIViewController {
     
     var recieveInfo = ShopInfo(keyName: "", name: "", price: 0, stock: 0, delivery: 0)
     var recieveImageReference: StorageReference?
+    var recieveInfoImageReference: StorageReference?
     var recieveCategory = ""
     
     override func viewDidLoad() {
@@ -68,6 +70,20 @@ class ShopProductViewController: UIViewController {
 
             let image = UIImage(data: data!)
                 self.imageView.image = image
+              
+                }
+            }
+        
+        let storageInfoReference = self.recieveInfoImageReference
+        storageInfoReference?.getData(maxSize: 10 * 1024 * 1024) { data, error in
+            if let error = error {
+            // Uh-oh, an error occurred!
+            print("error: \(error)")
+            } else {
+                
+
+            let image = UIImage(data: data!)
+                self.imageInfoView.image = image
               
                 }
             }
