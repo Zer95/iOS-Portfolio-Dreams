@@ -99,15 +99,15 @@ extension ShopDetailViewController: UICollectionViewDataSource  , UICollectionVi
           
    
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 0)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemSpacing: CGFloat = 10
        
         
-        let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2
+        let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2 - 20
         let height: CGFloat = width * 10/7
         return CGSize(width: width, height: height)
     }

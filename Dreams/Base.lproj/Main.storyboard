@@ -1944,7 +1944,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-1K-ljK">
-                                                <rect key="frame" x="0.0" y="110" width="390" height="170"/>
+                                                <rect key="frame" x="0.0" y="100" width="390" height="170"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주문 상품" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCM-Nx-90a">
                                                         <rect key="frame" x="10" y="10" width="74" height="24"/>
@@ -2014,7 +2014,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBH-Eb-Shr">
-                                                <rect key="frame" x="0.0" y="300" width="390" height="170"/>
+                                                <rect key="frame" x="0.0" y="280" width="390" height="170"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결제 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mv-wB-W0e">
                                                         <rect key="frame" x="10" y="10" width="74" height="24"/>
@@ -2079,7 +2079,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dje-GT-o63">
-                                                <rect key="frame" x="0.0" y="490" width="390" height="200"/>
+                                                <rect key="frame" x="0.0" y="460" width="390" height="200"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결제수단" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2i-iP-DxV">
                                                         <rect key="frame" x="10" y="10" width="70" height="24"/>
@@ -2168,7 +2168,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zQ-NK-xEQ">
-                                                <rect key="frame" x="0.0" y="710" width="390" height="170"/>
+                                                <rect key="frame" x="0.0" y="670" width="390" height="170"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="결제 진행 및 필수동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yP-pp-STp">
                                                         <rect key="frame" x="8" y="8" width="170" height="24"/>
@@ -2184,7 +2184,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xg-hR-USW">
-                                                <rect key="frame" x="0.0" y="900" width="390" height="170"/>
+                                                <rect key="frame" x="0.0" y="850" width="390" height="170"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="기타" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0v3-RX-xck">
                                                         <rect key="frame" x="8" y="8" width="35" height="24"/>
@@ -2205,17 +2205,17 @@
                                             <constraint firstAttribute="trailing" secondItem="7Xg-hR-USW" secondAttribute="trailing" id="2Zw-ee-xlG"/>
                                             <constraint firstAttribute="trailing" secondItem="bid-8j-lbt" secondAttribute="trailing" id="6X2-u0-xii"/>
                                             <constraint firstAttribute="trailing" secondItem="dje-GT-o63" secondAttribute="trailing" id="7BC-Bw-HO2"/>
-                                            <constraint firstItem="dje-GT-o63" firstAttribute="top" secondItem="QBH-Eb-Shr" secondAttribute="bottom" constant="20" id="8Ck-lY-TQM"/>
-                                            <constraint firstItem="1zQ-NK-xEQ" firstAttribute="top" secondItem="dje-GT-o63" secondAttribute="bottom" constant="20" id="CAe-EO-TdC"/>
+                                            <constraint firstItem="dje-GT-o63" firstAttribute="top" secondItem="QBH-Eb-Shr" secondAttribute="bottom" constant="10" id="8Ck-lY-TQM"/>
+                                            <constraint firstItem="1zQ-NK-xEQ" firstAttribute="top" secondItem="dje-GT-o63" secondAttribute="bottom" constant="10" id="CAe-EO-TdC"/>
                                             <constraint firstItem="1zQ-NK-xEQ" firstAttribute="leading" secondItem="dpp-bb-FeG" secondAttribute="leading" id="CBL-e3-QHW"/>
                                             <constraint firstItem="7Xg-hR-USW" firstAttribute="leading" secondItem="dpp-bb-FeG" secondAttribute="leading" id="Fnh-bj-rYF"/>
                                             <constraint firstAttribute="trailing" secondItem="bGn-1K-ljK" secondAttribute="trailing" id="GFr-66-eQz"/>
                                             <constraint firstAttribute="trailing" secondItem="QBH-Eb-Shr" secondAttribute="trailing" id="I3a-YU-d2e"/>
                                             <constraint firstItem="dje-GT-o63" firstAttribute="leading" secondItem="dpp-bb-FeG" secondAttribute="leading" id="Nbr-co-H6N"/>
                                             <constraint firstItem="bid-8j-lbt" firstAttribute="top" secondItem="dpp-bb-FeG" secondAttribute="top" id="NtU-y5-UT8"/>
-                                            <constraint firstItem="7Xg-hR-USW" firstAttribute="top" secondItem="1zQ-NK-xEQ" secondAttribute="bottom" constant="20" id="RAX-nY-YlO"/>
-                                            <constraint firstItem="bGn-1K-ljK" firstAttribute="top" secondItem="bid-8j-lbt" secondAttribute="bottom" constant="20" id="UfC-eu-czv"/>
-                                            <constraint firstItem="QBH-Eb-Shr" firstAttribute="top" secondItem="bGn-1K-ljK" secondAttribute="bottom" constant="20" id="VbZ-sK-4Mi"/>
+                                            <constraint firstItem="7Xg-hR-USW" firstAttribute="top" secondItem="1zQ-NK-xEQ" secondAttribute="bottom" constant="10" id="RAX-nY-YlO"/>
+                                            <constraint firstItem="bGn-1K-ljK" firstAttribute="top" secondItem="bid-8j-lbt" secondAttribute="bottom" constant="10" id="UfC-eu-czv"/>
+                                            <constraint firstItem="QBH-Eb-Shr" firstAttribute="top" secondItem="bGn-1K-ljK" secondAttribute="bottom" constant="10" id="VbZ-sK-4Mi"/>
                                             <constraint firstAttribute="trailing" secondItem="1zQ-NK-xEQ" secondAttribute="trailing" id="dCo-Ct-KF4"/>
                                             <constraint firstItem="bGn-1K-ljK" firstAttribute="leading" secondItem="dpp-bb-FeG" secondAttribute="leading" id="hBq-ms-bY6"/>
                                             <constraint firstAttribute="height" constant="1000" id="nei-4t-rSH"/>
