@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import Firebase
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
+import GoogleSignIn
+import FBSDKLoginKit
 
 class SettingTableViewController: UITableViewController {
 
@@ -28,6 +34,33 @@ class SettingTableViewController: UITableViewController {
         bannerImage.layer.shadowRadius = 4.0
         
     }
+    
+    @IBAction func logoutBtn(_ sender: Any) {
+
+        GIDSignIn.sharedInstance().disconnect()
+        
+        // 카카오 로그아웃
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("logout() success.")
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+        
+    // 페이스북
+
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+      
+    }
+    
 
     // MARK: - Table view data source
 

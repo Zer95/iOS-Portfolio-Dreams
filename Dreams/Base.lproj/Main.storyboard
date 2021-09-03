@@ -2773,6 +2773,9 @@
                                                     <state key="normal" title="로그아웃">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="logoutBtn:" destination="Ia2-4h-g2r" eventType="touchUpInside" id="gir-zv-oFQ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
