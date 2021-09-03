@@ -25,6 +25,7 @@
 		D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7426B7AF4400DF1669 /* Main.storyboard */; };
 		D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7726B7AF4400DF1669 /* Assets.xcassets */; };
 		D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */; };
+		D27178C926E1DE6C004C08EB /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27178C826E1DE6C004C08EB /* SettingTableViewController.swift */; };
 		D283EF9726D6740400E2BB3F /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283EF9626D6740400E2BB3F /* OrderViewController.swift */; };
 		D2AF026326D6259E007C5119 /* ShopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026226D6259E007C5119 /* ShopInfo.swift */; };
 		D2AF026526D62656007C5119 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026426D62656007C5119 /* ShopViewModel.swift */; };
@@ -73,6 +74,7 @@
 		D2582E7726B7AF4400DF1669 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2582E7A26B7AF4400DF1669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2582E7C26B7AF4400DF1669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D27178C826E1DE6C004C08EB /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		D271A24026BBDB040001B0F9 /* Dreams.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dreams.entitlements; sourceTree = "<group>"; };
 		D283EF9626D6740400E2BB3F /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		D2AF026226D6259E007C5119 /* ShopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfo.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				D23B303726CF9C370025C1CE /* UserReserveInfo.swift */,
 				D214492E26BAB696008D702F /* MainViewController.swift */,
 				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
+				D27178C826E1DE6C004C08EB /* SettingTableViewController.swift */,
 				D2AF026126D624B6007C5119 /* Shop */,
 				D2F1103526DB4BF2007AFA9F /* Util */,
 				D2F029F626C112D8003C0239 /* GoogleService-Info.plist */,
@@ -363,6 +366,7 @@
 				D21DA88626C3740E0068AD9A /* StadiunInfo.swift in Sources */,
 				D2AF026326D6259E007C5119 /* ShopInfo.swift in Sources */,
 				D214492F26BAB696008D702F /* MainViewController.swift in Sources */,
+				D27178C926E1DE6C004C08EB /* SettingTableViewController.swift in Sources */,
 				D2F1103726DB4C1F007AFA9F /* StringValue.swift in Sources */,
 				D2582E7326B7AF4400DF1669 /* LoginViewController.swift in Sources */,
 				D2AF026726D639C9007C5119 /* ShopProductViewController.swift in Sources */,
