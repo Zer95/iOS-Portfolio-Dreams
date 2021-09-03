@@ -11,7 +11,7 @@ class SettingTableViewController: UITableViewController {
 
     @IBOutlet weak var bannerImage: UIImageView!
     
-    var sectionCellCnt = [3,2,3]
+    var sectionCellCnt = [2,2,3,2,2]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class SettingTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
