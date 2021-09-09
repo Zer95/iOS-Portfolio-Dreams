@@ -32,8 +32,6 @@
 		D2AF026726D639C9007C5119 /* ShopProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF026626D639C9007C5119 /* ShopProductViewController.swift */; };
 		D2BCCB5D26D510930045A973 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5C26D510930045A973 /* ShopViewController.swift */; };
 		D2BCCB5F26D5176F0045A973 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */; };
-		D2C8898D26D9FD8500E8B043 /* naverPay.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C8898C26D9FD8500E8B043 /* naverPay.png */; };
-		D2C8898F26D9FEFF00E8B043 /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C8898E26D9FEFE00E8B043 /* card.png */; };
 		D2F029E126C0BF4D003C0239 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E026C0BF4D003C0239 /* HomeViewController.swift */; };
 		D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E226C0C1DD003C0239 /* SettingViewController.swift */; };
 		D2F029E926C0EF18003C0239 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F029E826C0EF18003C0239 /* MapViewController.swift */; };
@@ -46,8 +44,7 @@
 		D2F1103D26DB753B007AFA9F /* DXWRbtStd-B.otf in Resources */ = {isa = PBXBuildFile; fileRef = D2F1103C26DB7538007AFA9F /* DXWRbtStd-B.otf */; };
 		D2F1104126DB7CE2007AFA9F /* shop.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F1104026DB7CE2007AFA9F /* shop.json */; };
 		D2F1104326DB7E17007AFA9F /* find.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F1104226DB7E17007AFA9F /* find.json */; };
-		D2F1105826DB83DA007AFA9F /* map2.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F1105626DB83DA007AFA9F /* map2.json */; };
-		D2F1105926DB83DA007AFA9F /* map1.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F1105726DB83DA007AFA9F /* map1.json */; };
+		D2F1105926DB83DA007AFA9F /* map.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F1105726DB83DA007AFA9F /* map.json */; };
 		D2FC0AA526C62D3000B4B490 /* ReserveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,8 +79,6 @@
 		D2AF026626D639C9007C5119 /* ShopProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProductViewController.swift; sourceTree = "<group>"; };
 		D2BCCB5C26D510930045A973 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D2BCCB5E26D5176F0045A973 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
-		D2C8898C26D9FD8500E8B043 /* naverPay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = naverPay.png; path = ../../../../../Downloads/NAVER_Pay_Logo/naverPay.png; sourceTree = "<group>"; };
-		D2C8898E26D9FEFE00E8B043 /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = card.png; path = ../../../../../Downloads/card.png; sourceTree = "<group>"; };
 		D2F029E026C0BF4D003C0239 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2F029E226C0C1DD003C0239 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D2F029E826C0EF18003C0239 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -96,8 +91,7 @@
 		D2F1103C26DB7538007AFA9F /* DXWRbtStd-B.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DXWRbtStd-B.otf"; sourceTree = SOURCE_ROOT; };
 		D2F1104026DB7CE2007AFA9F /* shop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shop.json; path = ../../../../../Downloads/shop.json; sourceTree = "<group>"; };
 		D2F1104226DB7E17007AFA9F /* find.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = find.json; path = ../../../../../Downloads/find.json; sourceTree = "<group>"; };
-		D2F1105626DB83DA007AFA9F /* map2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = map2.json; path = ../../../../../Downloads/map2.json; sourceTree = "<group>"; };
-		D2F1105726DB83DA007AFA9F /* map1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = map1.json; path = ../../../../../Downloads/map1.json; sourceTree = "<group>"; };
+		D2F1105726DB83DA007AFA9F /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = map.json; path = ../../../../../Downloads/map.json; sourceTree = "<group>"; };
 		D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,28 +139,20 @@
 				D271A24026BBDB040001B0F9 /* Dreams.entitlements */,
 				D2F1104226DB7E17007AFA9F /* find.json */,
 				D2F1104026DB7CE2007AFA9F /* shop.json */,
-				D2F1105726DB83DA007AFA9F /* map1.json */,
-				D2F1105626DB83DA007AFA9F /* map2.json */,
+				D2F1105726DB83DA007AFA9F /* map.json */,
 				D2582E6E26B7AF4400DF1669 /* AppDelegate.swift */,
 				D2582E7026B7AF4400DF1669 /* SceneDelegate.swift */,
-				D2582E7226B7AF4400DF1669 /* LoginViewController.swift */,
-				D214492626BA37CF008D702F /* ViewController.swift */,
-				D214492A26BA4447008D702F /* SingInViewController.swift */,
-				D214492C26BA9305008D702F /* AgreeViewController.swift */,
-				D2F029F826C126C5003C0239 /* Map */,
-				D2F029E026C0BF4D003C0239 /* HomeViewController.swift */,
-				D23B303726CF9C370025C1CE /* UserReserveInfo.swift */,
 				D214492E26BAB696008D702F /* MainViewController.swift */,
-				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
-				D27178C826E1DE6C004C08EB /* SettingTableViewController.swift */,
+				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
+				D2F8BAE126EA44DC0052AD6F /* Sign */,
+				D2F8BAE026EA44A10052AD6F /* Home */,
+				D2F8BADF26EA44260052AD6F /* Stadium */,
+				D2F8BADE26EA44060052AD6F /* Setting */,
 				D2AF026126D624B6007C5119 /* Shop */,
 				D2F1103526DB4BF2007AFA9F /* Util */,
 				D2F029F626C112D8003C0239 /* GoogleService-Info.plist */,
 				D2F1103C26DB7538007AFA9F /* DXWRbtStd-B.otf */,
-				D2582E7426B7AF4400DF1669 /* Main.storyboard */,
 				D2582E7726B7AF4400DF1669 /* Assets.xcassets */,
-				D2C8898E26D9FEFE00E8B043 /* card.png */,
-				D2C8898C26D9FD8500E8B043 /* naverPay.png */,
 				D2582E7926B7AF4400DF1669 /* LaunchScreen.storyboard */,
 				D2582E7C26B7AF4400DF1669 /* Info.plist */,
 				D214492826BA3CB3008D702F /* RemoteConfigDefaults.plist */,
@@ -191,15 +177,10 @@
 		D2F029F826C126C5003C0239 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				D2F029E826C0EF18003C0239 /* MapViewController.swift */,
 				D2F029EC26C0FEC2003C0239 /* CustomMakerView.swift */,
 				D2F029EE26C0FF4B003C0239 /* StadiumPreviewView.swift */,
 				D2F029F226C0FFD7003C0239 /* DetailsVC.swift */,
-				D21DA88126C35DF70068AD9A /* StadiumViewController.swift */,
-				D21DA88326C373530068AD9A /* StadiumTableViewCell.swift */,
-				D21DA88B26C3903C0068AD9A /* DetailStadiumViewController.swift */,
-				D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */,
-				D21DA88526C3740E0068AD9A /* StadiunInfo.swift */,
+				D2F029E826C0EF18003C0239 /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -211,6 +192,48 @@
 				D2F1103826DB5573007AFA9F /* Formatter.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		D2F8BADE26EA44060052AD6F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D2F029E226C0C1DD003C0239 /* SettingViewController.swift */,
+				D27178C826E1DE6C004C08EB /* SettingTableViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		D2F8BADF26EA44260052AD6F /* Stadium */ = {
+			isa = PBXGroup;
+			children = (
+				D21DA88126C35DF70068AD9A /* StadiumViewController.swift */,
+				D21DA88326C373530068AD9A /* StadiumTableViewCell.swift */,
+				D21DA88B26C3903C0068AD9A /* DetailStadiumViewController.swift */,
+				D2FC0AA426C62D3000B4B490 /* ReserveViewController.swift */,
+				D21DA88526C3740E0068AD9A /* StadiunInfo.swift */,
+				D2F029F826C126C5003C0239 /* Map */,
+			);
+			path = Stadium;
+			sourceTree = "<group>";
+		};
+		D2F8BAE026EA44A10052AD6F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D2F029E026C0BF4D003C0239 /* HomeViewController.swift */,
+				D23B303726CF9C370025C1CE /* UserReserveInfo.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D2F8BAE126EA44DC0052AD6F /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				D214492626BA37CF008D702F /* ViewController.swift */,
+				D2582E7226B7AF4400DF1669 /* LoginViewController.swift */,
+				D214492A26BA4447008D702F /* SingInViewController.swift */,
+				D214492C26BA9305008D702F /* AgreeViewController.swift */,
+			);
+			path = Sign;
 			sourceTree = "<group>";
 		};
 		F87E3FFD7FA5F4B626853612 /* Pods */ = {
@@ -282,16 +305,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F1105926DB83DA007AFA9F /* map1.json in Resources */,
-				D2F1105826DB83DA007AFA9F /* map2.json in Resources */,
+				D2F1105926DB83DA007AFA9F /* map.json in Resources */,
 				D2F1104126DB7CE2007AFA9F /* shop.json in Resources */,
 				D2F1103D26DB753B007AFA9F /* DXWRbtStd-B.otf in Resources */,
 				D2F1104326DB7E17007AFA9F /* find.json in Resources */,
 				D2582E7B26B7AF4400DF1669 /* LaunchScreen.storyboard in Resources */,
-				D2C8898F26D9FEFF00E8B043 /* card.png in Resources */,
 				D214492926BA3CB3008D702F /* RemoteConfigDefaults.plist in Resources */,
 				D2F029F726C112D8003C0239 /* GoogleService-Info.plist in Resources */,
-				D2C8898D26D9FD8500E8B043 /* naverPay.png in Resources */,
 				D2582E7826B7AF4400DF1669 /* Assets.xcassets in Resources */,
 				D2582E7626B7AF4400DF1669 /* Main.storyboard in Resources */,
 			);
