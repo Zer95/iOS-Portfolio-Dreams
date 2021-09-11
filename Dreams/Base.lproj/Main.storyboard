@@ -2805,7 +2805,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-37-jPp">
-                                <rect key="frame" x="36" y="204" width="318" height="240"/>
+                                <rect key="frame" x="36" y="307" width="318" height="240"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXY-eD-B2G">
                                         <rect key="frame" x="96.666666666666657" y="15" width="125" height="28"/>
@@ -2846,12 +2846,20 @@
                                             <action selector="sendPwReset:" destination="Tgg-8a-gQ5" eventType="touchUpInside" id="sjd-cQ-pHh"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="성명을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uy3-UF-t2j">
+                                        <rect key="frame" x="20" y="153.33333333333331" width="278" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="Uy3-UF-t2j" firstAttribute="top" secondItem="Jnc-af-ET1" secondAttribute="bottom" constant="10" id="2rq-Cw-s89"/>
                                     <constraint firstItem="Jnc-af-ET1" firstAttribute="leading" secondItem="3vw-37-jPp" secondAttribute="leading" constant="20" id="5EB-mf-pQW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uy3-UF-t2j" secondAttribute="trailing" constant="20" id="69k-sm-ZpL"/>
                                     <constraint firstAttribute="height" constant="240" id="Htt-iE-Gec"/>
                                     <constraint firstItem="Jnc-af-ET1" firstAttribute="top" secondItem="GQE-Ht-zcO" secondAttribute="bottom" constant="15" id="OGu-Kw-lm7"/>
+                                    <constraint firstItem="Uy3-UF-t2j" firstAttribute="leading" secondItem="3vw-37-jPp" secondAttribute="leading" constant="20" id="dcq-YP-Cf9"/>
                                     <constraint firstItem="GQE-Ht-zcO" firstAttribute="top" secondItem="hXY-eD-B2G" secondAttribute="bottom" constant="20" id="kIn-uS-Tj3"/>
                                     <constraint firstAttribute="trailing" secondItem="Jnc-af-ET1" secondAttribute="trailing" constant="20" id="loQ-eV-b6c"/>
                                     <constraint firstItem="GQE-Ht-zcO" firstAttribute="centerX" secondItem="3vw-37-jPp" secondAttribute="centerX" id="mdJ-qw-gee"/>
@@ -2865,7 +2873,7 @@
                         <constraints>
                             <constraint firstItem="kbq-12-XH3" firstAttribute="trailing" secondItem="3vw-37-jPp" secondAttribute="trailing" constant="36" id="BlC-U3-xv2"/>
                             <constraint firstItem="3vw-37-jPp" firstAttribute="leading" secondItem="kbq-12-XH3" secondAttribute="leading" constant="36" id="ZNz-7r-Cb9"/>
-                            <constraint firstItem="3vw-37-jPp" firstAttribute="top" secondItem="kbq-12-XH3" secondAttribute="top" constant="160" id="vUh-8o-VV7"/>
+                            <constraint firstItem="3vw-37-jPp" firstAttribute="centerY" secondItem="kbq-12-XH3" secondAttribute="centerY" id="hnO-V3-pQx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g5g-wO-Wzz"/>
