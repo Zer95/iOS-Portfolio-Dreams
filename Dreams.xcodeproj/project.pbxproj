@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B5F0914F7337F251BE38325F /* Pods_Dreams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F189185AC45E9A0EBCB1B6 /* Pods_Dreams.framework */; };
+		D20E176C26ECE55B00315078 /* PwResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E176B26ECE55B00315078 /* PwResetViewController.swift */; };
 		D214492726BA37CF008D702F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D214492626BA37CF008D702F /* ViewController.swift */; };
 		D214492926BA3CB3008D702F /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = D214492826BA3CB3008D702F /* RemoteConfigDefaults.plist */; };
 		D214492B26BA4447008D702F /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D214492A26BA4447008D702F /* SingInViewController.swift */; };
@@ -52,6 +53,7 @@
 		34F189185AC45E9A0EBCB1B6 /* Pods_Dreams.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dreams.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D196C8ED0FE8D768D00495C /* Pods-Dreams.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dreams.release.xcconfig"; path = "Target Support Files/Pods-Dreams/Pods-Dreams.release.xcconfig"; sourceTree = "<group>"; };
 		B484FFA62F09AF9D93F84C6A /* Pods-Dreams.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dreams.debug.xcconfig"; path = "Target Support Files/Pods-Dreams/Pods-Dreams.debug.xcconfig"; sourceTree = "<group>"; };
+		D20E176B26ECE55B00315078 /* PwResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwResetViewController.swift; sourceTree = "<group>"; };
 		D214492626BA37CF008D702F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D214492826BA3CB3008D702F /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		D214492A26BA4447008D702F /* SingInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				D214492626BA37CF008D702F /* ViewController.swift */,
 				D2582E7226B7AF4400DF1669 /* LoginViewController.swift */,
+				D20E176B26ECE55B00315078 /* PwResetViewController.swift */,
 				D214492A26BA4447008D702F /* SingInViewController.swift */,
 				D214492C26BA9305008D702F /* AgreeViewController.swift */,
 			);
@@ -400,6 +403,7 @@
 				D2F029ED26C0FEC2003C0239 /* CustomMakerView.swift in Sources */,
 				D2AF026526D62656007C5119 /* ShopViewModel.swift in Sources */,
 				D2582E6F26B7AF4400DF1669 /* AppDelegate.swift in Sources */,
+				D20E176C26ECE55B00315078 /* PwResetViewController.swift in Sources */,
 				D2BCCB5F26D5176F0045A973 /* ShopDetailViewController.swift in Sources */,
 				D2F029E326C0C1DD003C0239 /* SettingViewController.swift in Sources */,
 				D23D792126D901280014750A /* NativeController.swift in Sources */,
