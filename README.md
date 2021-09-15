@@ -1,4 +1,4 @@
-# 드림즈 (Barcodrop)
+# 드림즈 (Dreams)
    <br> <br>
  ![Icon-180](https://user-images.githubusercontent.com/49187863/133364318-503ae84b-4fb2-496a-84a7-904ab1c7bf06.png)
 
